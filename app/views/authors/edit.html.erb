@@ -1,0 +1,112 @@
+<h1>Editing author</h1>
+
+<% form_for(@author) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :fore_name %><br />
+    <%= f.text_field :fore_name %>
+  </p>
+  <p>
+    <%= f.label :initials %><br />
+    <%= f.text_field :initials %>
+  </p>
+  <p>
+    <%= f.label :suffix %><br />
+    <%= f.text_field :suffix %>
+  </p>
+  <p>
+    <%= f.label :collective_name %><br />
+    <%= f.text_field :collective_name %>
+  </p>
+  <p>
+    <%= f.label :one_first %><br />
+    <%= f.text_field :one_first %>
+  </p>
+  <p>
+    <%= f.label :one_last %><br />
+    <%= f.text_field :one_last %>
+  </p>
+  <p>
+    <%= f.label :one_middle %><br />
+    <%= f.text_field :one_middle %>
+  </p>
+  <p>
+    <%= f.label :one_total %><br />
+    <%= f.text_field :one_total %>
+  </p>
+  <p>
+    <%= f.label :five_first %><br />
+    <%= f.text_field :five_first %>
+  </p>
+  <p>
+    <%= f.label :five_last %><br />
+    <%= f.text_field :five_last %>
+  </p>
+  <p>
+    <%= f.label :five_middle %><br />
+    <%= f.text_field :five_middle %>
+  </p>
+  <p>
+    <%= f.label :five_total %><br />
+    <%= f.text_field :five_total %>
+  </p>
+  <p>
+    <%= f.label :ten_first %><br />
+    <%= f.text_field :ten_first %>
+  </p>
+  <p>
+    <%= f.label :ten_last %><br />
+    <%= f.text_field :ten_last %>
+  </p>
+  <p>
+    <%= f.label :ten_middle %><br />
+    <%= f.text_field :ten_middle %>
+  </p>
+  <p>
+    <%= f.label :ten_total %><br />
+    <%= f.text_field :ten_total %>
+  </p>
+  <p>
+    <%= f.label :all_first %><br />
+    <%= f.text_field :all_first %>
+  </p>
+  <p>
+    <%= f.label :all_last %><br />
+    <%= f.text_field :all_last %>
+  </p>
+  <p>
+    <%= f.label :all_middle %><br />
+    <%= f.text_field :all_middle %>
+  </p>
+  <p>
+    <%= f.label :all_total %><br />
+    <%= f.text_field :all_total %>
+  </p>
+  <p>
+    <%= f.label :one_rank %><br />
+    <%= f.text_field :one_rank %>
+  </p>
+  <p>
+    <%= f.label :five_rank %><br />
+    <%= f.text_field :five_rank %>
+  </p>
+  <p>
+    <%= f.label :ten_rank %><br />
+    <%= f.text_field :ten_rank %>
+  </p>
+  <p>
+    <%= f.label :all_rank %><br />
+    <%= f.text_field :all_rank %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @author %> |
+<%= link_to 'Back', authors_path %>

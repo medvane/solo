@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080816034043) do
+ActiveRecord::Schema.define(:version => 20080816035008) do
 
   create_table "articles", :force => true do |t|
     t.integer  "journal_id",       :limit => 11
@@ -28,6 +28,45 @@ ActiveRecord::Schema.define(:version => 20080816034043) do
 
   add_index "articles", ["journal_id"], :name => "index_articles_on_journal_id"
   add_index "articles", ["pubdate"], :name => "index_articles_on_pubdate"
+
+  create_table "authors", :force => true do |t|
+    t.string  "last_name",                     :default => "", :null => false
+    t.string  "fore_name",                     :default => "", :null => false
+    t.string  "initials",                      :default => "", :null => false
+    t.string  "suffix",                        :default => "", :null => false
+    t.string  "collective_name",               :default => "", :null => false
+    t.integer "one_first",       :limit => 11, :default => 0,  :null => false
+    t.integer "one_last",        :limit => 11, :default => 0,  :null => false
+    t.integer "one_middle",      :limit => 11, :default => 0,  :null => false
+    t.integer "one_total",       :limit => 11, :default => 0,  :null => false
+    t.integer "five_first",      :limit => 11, :default => 0,  :null => false
+    t.integer "five_last",       :limit => 11, :default => 0,  :null => false
+    t.integer "five_middle",     :limit => 11, :default => 0,  :null => false
+    t.integer "five_total",      :limit => 11, :default => 0,  :null => false
+    t.integer "ten_first",       :limit => 11, :default => 0,  :null => false
+    t.integer "ten_last",        :limit => 11, :default => 0,  :null => false
+    t.integer "ten_middle",      :limit => 11, :default => 0,  :null => false
+    t.integer "ten_total",       :limit => 11, :default => 0,  :null => false
+    t.integer "all_first",       :limit => 11, :default => 0,  :null => false
+    t.integer "all_last",        :limit => 11, :default => 0,  :null => false
+    t.integer "all_middle",      :limit => 11, :default => 0,  :null => false
+    t.integer "all_total",       :limit => 11, :default => 0,  :null => false
+    t.integer "one_rank",        :limit => 11, :default => 0,  :null => false
+    t.integer "five_rank",       :limit => 11, :default => 0,  :null => false
+    t.integer "ten_rank",        :limit => 11, :default => 0,  :null => false
+    t.integer "all_rank",        :limit => 11, :default => 0,  :null => false
+  end
+
+  add_index "authors", ["last_name", "initials"], :name => "index_authors_on_last_name_and_initials"
+  add_index "authors", ["collective_name"], :name => "index_authors_on_collective_name"
+  add_index "authors", ["one_total"], :name => "index_authors_on_one_total"
+  add_index "authors", ["five_total"], :name => "index_authors_on_five_total"
+  add_index "authors", ["ten_total"], :name => "index_authors_on_ten_total"
+  add_index "authors", ["all_total"], :name => "index_authors_on_all_total"
+  add_index "authors", ["one_rank"], :name => "index_authors_on_one_rank"
+  add_index "authors", ["five_rank"], :name => "index_authors_on_five_rank"
+  add_index "authors", ["ten_rank"], :name => "index_authors_on_ten_rank"
+  add_index "authors", ["all_rank"], :name => "index_authors_on_all_rank"
 
   create_table "journals", :force => true do |t|
     t.string  "title"

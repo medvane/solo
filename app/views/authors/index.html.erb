@@ -1,0 +1,68 @@
+<h1>Listing authors</h1>
+
+<table>
+  <tr>
+    <th>Last name</th>
+    <th>Fore name</th>
+    <th>Initials</th>
+    <th>Suffix</th>
+    <th>Collective name</th>
+    <th>One first</th>
+    <th>One last</th>
+    <th>One middle</th>
+    <th>One total</th>
+    <th>Five first</th>
+    <th>Five last</th>
+    <th>Five middle</th>
+    <th>Five total</th>
+    <th>Ten first</th>
+    <th>Ten last</th>
+    <th>Ten middle</th>
+    <th>Ten total</th>
+    <th>All first</th>
+    <th>All last</th>
+    <th>All middle</th>
+    <th>All total</th>
+    <th>One rank</th>
+    <th>Five rank</th>
+    <th>Ten rank</th>
+    <th>All rank</th>
+  </tr>
+
+<% for author in @authors %>
+  <tr>
+    <td><%=h author.last_name %></td>
+    <td><%=h author.fore_name %></td>
+    <td><%=h author.initials %></td>
+    <td><%=h author.suffix %></td>
+    <td><%=h author.collective_name %></td>
+    <td><%=h author.one_first %></td>
+    <td><%=h author.one_last %></td>
+    <td><%=h author.one_middle %></td>
+    <td><%=h author.one_total %></td>
+    <td><%=h author.five_first %></td>
+    <td><%=h author.five_last %></td>
+    <td><%=h author.five_middle %></td>
+    <td><%=h author.five_total %></td>
+    <td><%=h author.ten_first %></td>
+    <td><%=h author.ten_last %></td>
+    <td><%=h author.ten_middle %></td>
+    <td><%=h author.ten_total %></td>
+    <td><%=h author.all_first %></td>
+    <td><%=h author.all_last %></td>
+    <td><%=h author.all_middle %></td>
+    <td><%=h author.all_total %></td>
+    <td><%=h author.one_rank %></td>
+    <td><%=h author.five_rank %></td>
+    <td><%=h author.ten_rank %></td>
+    <td><%=h author.all_rank %></td>
+    <td><%= link_to 'Show', author %></td>
+    <td><%= link_to 'Edit', edit_author_path(author) %></td>
+    <td><%= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New author', new_author_path %>

@@ -1,0 +1,55 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  last_name: MyString
+  fore_name: MyString
+  initials: MyString
+  suffix: MyString
+  collective_name: MyString
+  one_first: 1
+  one_last: 1
+  one_middle: 1
+  one_total: 1
+  five_first: 1
+  five_last: 1
+  five_middle: 1
+  five_total: 1
+  ten_first: 1
+  ten_last: 1
+  ten_middle: 1
+  ten_total: 1
+  all_first: 1
+  all_last: 1
+  all_middle: 1
+  all_total: 1
+  one_rank: 1
+  five_rank: 1
+  ten_rank: 1
+  all_rank: 1
+
+two:
+  last_name: MyString
+  fore_name: MyString
+  initials: MyString
+  suffix: MyString
+  collective_name: MyString
+  one_first: 1
+  one_last: 1
+  one_middle: 1
+  one_total: 1
+  five_first: 1
+  five_last: 1
+  five_middle: 1
+  five_total: 1
+  ten_first: 1
+  ten_last: 1
+  ten_middle: 1
+  ten_total: 1
+  all_first: 1
+  all_last: 1
+  all_middle: 1
+  all_total: 1
+  one_rank: 1
+  five_rank: 1
+  ten_rank: 1
+  all_rank: 1
