@@ -1,0 +1,47 @@
+<h1>New gene</h1>
+
+<% form_for(@gene) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :taxonomy %><br />
+    <%= f.text_field :taxonomy %>
+  </p>
+  <p>
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol %>
+  </p>
+  <p>
+    <%= f.label :synonyms %><br />
+    <%= f.text_field :synonyms %>
+  </p>
+  <p>
+    <%= f.label :chromosome %><br />
+    <%= f.text_field :chromosome %>
+  </p>
+  <p>
+    <%= f.label :map_location %><br />
+    <%= f.text_field :map_location %>
+  </p>
+  <p>
+    <%= f.label :one %><br />
+    <%= f.text_field :one %>
+  </p>
+  <p>
+    <%= f.label :five %><br />
+    <%= f.text_field :five %>
+  </p>
+  <p>
+    <%= f.label :ten %><br />
+    <%= f.text_field :ten %>
+  </p>
+  <p>
+    <%= f.label :all %><br />
+    <%= f.text_field :all %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', genes_path %>

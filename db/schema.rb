@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080816041007) do
+ActiveRecord::Schema.define(:version => 20080816041515) do
 
   create_table "articles", :force => true do |t|
     t.integer  "journal_id",       :limit => 11
@@ -67,6 +67,24 @@ ActiveRecord::Schema.define(:version => 20080816041007) do
   add_index "authors", ["five_rank"], :name => "index_authors_on_five_rank"
   add_index "authors", ["ten_rank"], :name => "index_authors_on_ten_rank"
   add_index "authors", ["all_rank"], :name => "index_authors_on_all_rank"
+
+  create_table "genes", :force => true do |t|
+    t.string  "taxonomy"
+    t.string  "symbol"
+    t.string  "synonyms"
+    t.string  "chromosome"
+    t.string  "map_location"
+    t.integer "one",          :limit => 11
+    t.integer "five",         :limit => 11
+    t.integer "ten",          :limit => 11
+    t.integer "all",          :limit => 11
+  end
+
+  add_index "genes", ["symbol"], :name => "index_genes_on_symbol"
+  add_index "genes", ["one"], :name => "index_genes_on_one"
+  add_index "genes", ["five"], :name => "index_genes_on_five"
+  add_index "genes", ["ten"], :name => "index_genes_on_ten"
+  add_index "genes", ["all"], :name => "index_genes_on_all"
 
   create_table "journals", :force => true do |t|
     t.string  "title"

@@ -1,0 +1,36 @@
+<h1>Listing genes</h1>
+
+<table>
+  <tr>
+    <th>Taxonomy</th>
+    <th>Symbol</th>
+    <th>Synonyms</th>
+    <th>Chromosome</th>
+    <th>Map location</th>
+    <th>One</th>
+    <th>Five</th>
+    <th>Ten</th>
+    <th>All</th>
+  </tr>
+
+<% for gene in @genes %>
+  <tr>
+    <td><%=h gene.taxonomy %></td>
+    <td><%=h gene.symbol %></td>
+    <td><%=h gene.synonyms %></td>
+    <td><%=h gene.chromosome %></td>
+    <td><%=h gene.map_location %></td>
+    <td><%=h gene.one %></td>
+    <td><%=h gene.five %></td>
+    <td><%=h gene.ten %></td>
+    <td><%=h gene.all %></td>
+    <td><%= link_to 'Show', gene %></td>
+    <td><%= link_to 'Edit', edit_gene_path(gene) %></td>
+    <td><%= link_to 'Destroy', gene, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New gene', new_gene_path %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  taxonomy: MyString
+  symbol: MyString
+  synonyms: MyString
+  chromosome: MyString
+  map_location: MyString
+  one: 1
+  five: 1
+  ten: 1
+  all: 1
+
+two:
+  taxonomy: MyString
+  symbol: MyString
+  synonyms: MyString
+  chromosome: MyString
+  map_location: MyString
+  one: 1
+  five: 1
+  ten: 1
+  all: 1
