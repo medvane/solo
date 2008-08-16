@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  journal_id: 1
+  vol: MyString
+  issue: MyString
+  page: MyString
+  pubdate: 2008-08-15
+  medline_date: MyString
+  title: MyText
+  vernacular_title: MyText
+  abstract: MyText
+  affiliation: MyText
+
+two:
+  journal_id: 1
+  vol: MyString
+  issue: MyString
+  page: MyString
+  pubdate: 2008-08-15
+  medline_date: MyString
+  title: MyText
+  vernacular_title: MyText
+  abstract: MyText
+  affiliation: MyText

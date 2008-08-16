@@ -1,0 +1,52 @@
+<h1>Editing article</h1>
+
+<% form_for(@article) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :journal_id %><br />
+    <%= f.text_field :journal_id %>
+  </p>
+  <p>
+    <%= f.label :vol %><br />
+    <%= f.text_field :vol %>
+  </p>
+  <p>
+    <%= f.label :issue %><br />
+    <%= f.text_field :issue %>
+  </p>
+  <p>
+    <%= f.label :page %><br />
+    <%= f.text_field :page %>
+  </p>
+  <p>
+    <%= f.label :pubdate %><br />
+    <%= f.date_select :pubdate %>
+  </p>
+  <p>
+    <%= f.label :medline_date %><br />
+    <%= f.text_field :medline_date %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_area :title %>
+  </p>
+  <p>
+    <%= f.label :vernacular_title %><br />
+    <%= f.text_area :vernacular_title %>
+  </p>
+  <p>
+    <%= f.label :abstract %><br />
+    <%= f.text_area :abstract %>
+  </p>
+  <p>
+    <%= f.label :affiliation %><br />
+    <%= f.text_area :affiliation %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @article %> |
+<%= link_to 'Back', articles_path %>

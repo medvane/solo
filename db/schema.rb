@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080816032855) do
+ActiveRecord::Schema.define(:version => 20080816034043) do
+
+  create_table "articles", :force => true do |t|
+    t.integer  "journal_id",       :limit => 11
+    t.string   "vol"
+    t.string   "issue"
+    t.string   "page"
+    t.date     "pubdate"
+    t.string   "medline_date"
+    t.text     "title"
+    t.text     "vernacular_title"
+    t.text     "abstract"
+    t.text     "affiliation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles", ["journal_id"], :name => "index_articles_on_journal_id"
+  add_index "articles", ["pubdate"], :name => "index_articles_on_pubdate"
 
   create_table "journals", :force => true do |t|
     t.string  "title"
