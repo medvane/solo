@@ -6,6 +6,7 @@ class CreateGenes < ActiveRecord::Migration
       t.string :synonyms
       t.string :chromosome
       t.string :map_location
+      t.string :description
       t.integer :one
       t.integer :five
       t.integer :ten

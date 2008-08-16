@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20080816041515) do
     t.string  "synonyms"
     t.string  "chromosome"
     t.string  "map_location"
+    t.string  "description"
     t.integer "one",          :limit => 11
     t.integer "five",         :limit => 11
     t.integer "ten",          :limit => 11
