@@ -8,6 +8,10 @@
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/base/base-min.css">
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/tabview/assets/skins/sam/tabview.css">
 <%= stylesheet_link_tag "default" %>
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.5.2/build/yahoo-dom-event/yahoo-dom-event.js&2.5.2/build/element/element-beta-min.js&2.5.2/build/tabview/tabview-min.js"></script>
+<script type="text/javascript">
+var periodNav = new YAHOO.widget.TabView("periodnav");
+</script>
 </head>
 <body>
 <div id="doc4" class="yui-t7">
@@ -22,7 +26,7 @@
 <% end -%>
     </ul>
     <div class="yui-content">
-      <div class="yui-navset yui-navset-top">
+      <div id="periodnav" class="yui-navset yui-navset-top">
         <ul class="yui-nav">
           <li class="selected"><a href="#"><em>all time</em></a></li>
           <li><a href="#"><em>last 1 year</em></a></li>
