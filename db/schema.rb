@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080816035008) do
+ActiveRecord::Schema.define(:version => 20080816040427) do
 
   create_table "articles", :force => true do |t|
     t.integer  "journal_id",       :limit => 11
@@ -87,5 +87,44 @@ ActiveRecord::Schema.define(:version => 20080816035008) do
   add_index "journals", ["five"], :name => "index_journals_on_five"
   add_index "journals", ["ten"], :name => "index_journals_on_ten"
   add_index "journals", ["all"], :name => "index_journals_on_all"
+
+  create_table "subjects", :force => true do |t|
+    t.string  "term"
+    t.integer "one_major",         :limit => 11
+    t.integer "one_other",         :limit => 11
+    t.integer "one_total",         :limit => 11
+    t.integer "five_major",        :limit => 11
+    t.integer "five_other",        :limit => 11
+    t.integer "five_total",        :limit => 11
+    t.integer "ten_major",         :limit => 11
+    t.integer "ten_other",         :limit => 11
+    t.integer "ten_total",         :limit => 11
+    t.integer "all_major",         :limit => 11
+    t.integer "all_other",         :limit => 11
+    t.integer "all_total",         :limit => 11
+    t.float   "one_to_five"
+    t.float   "one_to_five_score"
+    t.float   "one_to_ten"
+    t.float   "one_to_ten_score"
+    t.float   "one_to_all"
+    t.float   "one_to_all_score"
+    t.float   "five_to_ten"
+    t.float   "five_to_ten_score"
+    t.float   "five_to_all"
+    t.float   "five_to_all_score"
+    t.float   "ten_to_all"
+    t.float   "ten_to_all_score"
+  end
+
+  add_index "subjects", ["one_major"], :name => "index_subjects_on_one_major"
+  add_index "subjects", ["five_major"], :name => "index_subjects_on_five_major"
+  add_index "subjects", ["ten_major"], :name => "index_subjects_on_ten_major"
+  add_index "subjects", ["all_major"], :name => "index_subjects_on_all_major"
+  add_index "subjects", ["one_to_five_score"], :name => "index_subjects_on_one_to_five_score"
+  add_index "subjects", ["one_to_ten_score"], :name => "index_subjects_on_one_to_ten_score"
+  add_index "subjects", ["one_to_all_score"], :name => "index_subjects_on_one_to_all_score"
+  add_index "subjects", ["five_to_ten_score"], :name => "index_subjects_on_five_to_ten_score"
+  add_index "subjects", ["five_to_all_score"], :name => "index_subjects_on_five_to_all_score"
+  add_index "subjects", ["ten_to_all_score"], :name => "index_subjects_on_ten_to_all_score"
 
 end

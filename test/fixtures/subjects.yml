@@ -1,0 +1,55 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  term: MyString
+  one_major: 1
+  one_other: 1
+  one_total: 1
+  five_major: 1
+  five_other: 1
+  five_total: 1
+  ten_major: 1
+  ten_other: 1
+  ten_total: 1
+  all_major: 1
+  all_other: 1
+  all_total: 1
+  one_to_five: 1.5
+  one_to_five_score: 1.5
+  one_to_ten: 1.5
+  one_to_ten_score: 1.5
+  one_to_all: 1.5
+  one_to_all_score: 1.5
+  five_to_ten: 1.5
+  five_to_ten_score: 1.5
+  five_to_all: 1.5
+  five_to_all_score: 1.5
+  ten_to_all: 1.5
+  ten_to_all_score: 1.5
+
+two:
+  term: MyString
+  one_major: 1
+  one_other: 1
+  one_total: 1
+  five_major: 1
+  five_other: 1
+  five_total: 1
+  ten_major: 1
+  ten_other: 1
+  ten_total: 1
+  all_major: 1
+  all_other: 1
+  all_total: 1
+  one_to_five: 1.5
+  one_to_five_score: 1.5
+  one_to_ten: 1.5
+  one_to_ten_score: 1.5
+  one_to_all: 1.5
+  one_to_all_score: 1.5
+  five_to_ten: 1.5
+  five_to_ten_score: 1.5
+  five_to_all: 1.5
+  five_to_all_score: 1.5
+  ten_to_all: 1.5
+  ten_to_all_score: 1.5

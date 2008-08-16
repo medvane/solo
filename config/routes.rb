@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :journals
   map.resources :articles
   map.resources :authors
+  map.resources :subjects
 
   # The priority is based upon order of creation: first created -> highest priority.
 
