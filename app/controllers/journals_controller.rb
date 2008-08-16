@@ -2,7 +2,7 @@ class JournalsController < ApplicationController
   # GET /journals
   # GET /journals.xml
   def index
-    @journals = Journal.find(:all)
+    @journals = Journal.search params[:q], :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.xml
   def index
-    @subjects = Subject.find(:all)
+    @subjects = Subject.search params[:q], :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

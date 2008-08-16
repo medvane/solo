@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.xml
   def index
-    @authors = Author.find(:all)
+    @authors = Author.search params[:q], :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

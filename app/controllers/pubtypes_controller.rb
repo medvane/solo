@@ -2,7 +2,7 @@ class PubtypesController < ApplicationController
   # GET /pubtypes
   # GET /pubtypes.xml
   def index
-    @pubtypes = Pubtype.find(:all)
+    @pubtypes = Pubtype.search params[:q], :page => params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
