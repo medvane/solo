@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Medvane2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/reset-fonts-grids/reset-fonts-grids.css">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/base/base-min.css">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/tabview/assets/skins/sam/tabview.css">
+<%= stylesheet_link_tag "default" %>
+</head>
+<body>
+<div id="doc4" class="yui-t7">
+<div id="hd"><h1>Medvane2</h1></div><!-- #hd -->
+<div id="bd" class="yui-skin-sam">
+<div class="yui-g">
+  <div class="yui-navset yui-navset-left">
+    <ul class="yui-nav">
+<% for menu in %w(home journals articles authors subjects pubtypes genes) -%>
+<% navclass = menu == controller.controller_name ? "selected" : "" -%>
+      <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", :controller => menu %></li>
+<% end -%>
+    </ul>
+    <div class="yui-content">
+      <div class="yui-navset yui-navset-top">
+        <ul class="yui-nav">
+          <li class="selected"><a href="#"><em>all time</em></a></li>
+          <li><a href="#"><em>last 1 year</em></a></li>
+          <li><a href="#"><em>last 5 years</em></a></li>
+          <li><a href="#"><em>last 10 years</em></a></li>
+        </ul>
+        <div class="yui-content">
+<%= yield %>
+        </div><!-- .yui-content -->
+      </div><!-- .yui-navset .yui-navset-top -->
+    </div><!-- .yui-content -->
+  </div><!-- .yui-navset .yui-navset-left -->
+</div><!-- .yui-g -->
+</div><!-- #bd -->
+<div id="ft">by Joon Lee</div><!-- #ft -->
+</div><!-- #doc4 -->
+</body>
+</html>
+
