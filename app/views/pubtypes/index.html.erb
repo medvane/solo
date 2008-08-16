@@ -1,0 +1,28 @@
+<h1>Listing pubtypes</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>One</th>
+    <th>Five</th>
+    <th>Ten</th>
+    <th>All</th>
+  </tr>
+
+<% for pubtype in @pubtypes %>
+  <tr>
+    <td><%=h pubtype.title %></td>
+    <td><%=h pubtype.one %></td>
+    <td><%=h pubtype.five %></td>
+    <td><%=h pubtype.ten %></td>
+    <td><%=h pubtype.all %></td>
+    <td><%= link_to 'Show', pubtype %></td>
+    <td><%= link_to 'Edit', edit_pubtype_path(pubtype) %></td>
+    <td><%= link_to 'Destroy', pubtype, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New pubtype', new_pubtype_path %>

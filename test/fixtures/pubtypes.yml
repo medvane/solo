@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  one: 1
+  five: 1
+  ten: 1
+  all: 1
+
+two:
+  title: MyString
+  one: 1
+  five: 1
+  ten: 1
+  all: 1
