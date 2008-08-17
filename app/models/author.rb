@@ -1,6 +1,7 @@
 class Author < ActiveRecord::Base
   has_many :authorships
   has_many :articles, :through => :authorships
+  has_many :author_stats
 
   def self.search(query, options = {})
     options[:page]      ||= 1
