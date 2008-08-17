@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817202512) do
+ActiveRecord::Schema.define(:version => 20080817211724) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -420,6 +420,22 @@ ActiveRecord::Schema.define(:version => 20080817202512) do
   add_index "pubtypes", ["five"], :name => "index_pubtypes_on_five"
   add_index "pubtypes", ["ten"], :name => "index_pubtypes_on_ten"
   add_index "pubtypes", ["all"], :name => "index_pubtypes_on_all"
+
+  create_table "subject_genes", :force => true do |t|
+    t.integer "subject_id", :limit => 11
+    t.integer "gene_id",    :limit => 11
+    t.integer "one",        :limit => 11
+    t.integer "five",       :limit => 11
+    t.integer "ten",        :limit => 11
+    t.integer "all",        :limit => 11
+  end
+
+  add_index "subject_genes", ["subject_id"], :name => "index_subject_genes_on_subject_id"
+  add_index "subject_genes", ["gene_id"], :name => "index_subject_genes_on_gene_id"
+  add_index "subject_genes", ["one"], :name => "index_subject_genes_on_one"
+  add_index "subject_genes", ["five"], :name => "index_subject_genes_on_five"
+  add_index "subject_genes", ["ten"], :name => "index_subject_genes_on_ten"
+  add_index "subject_genes", ["all"], :name => "index_subject_genes_on_all"
 
   create_table "subject_stats", :force => true do |t|
     t.integer "subject_id",     :limit => 11

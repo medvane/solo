@@ -6,6 +6,8 @@ class Subject < ActiveRecord::Base
   has_many :authors, :through => :author_subjects
   has_many :journal_subjects
   has_many :journals, :through => :journal_subjects
+  has_many :subject_genes
+  has_many :genes, :through => :subject_genes
 
   def self.search(query, options = {})
     options[:page]      ||= 1
