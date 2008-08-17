@@ -20,7 +20,7 @@ var periodNav = new YAHOO.widget.TabView("periodnav");
 <div class="yui-g">
   <div class="yui-navset yui-navset-left">
     <ul class="yui-nav">
-<% for menu in %w(home journals articles authors subjects pubtypes genes) -%>
+<% for menu in %w(home journals articles authors subjects genes pubtypes) -%>
 <% navclass = menu == controller.controller_name ? "selected" : "" -%>
       <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", :controller => menu %></li>
 <% end -%>
