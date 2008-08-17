@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817085949) do
+ActiveRecord::Schema.define(:version => 20080817092552) do
+
+  create_table "article_types", :force => true do |t|
+    t.integer "article_id", :limit => 11
+    t.integer "pubtype_id", :limit => 11
+  end
+
+  add_index "article_types", ["article_id"], :name => "index_article_types_on_article_id"
+  add_index "article_types", ["pubtype_id"], :name => "index_article_types_on_pubtype_id"
 
   create_table "articles", :force => true do |t|
     t.integer  "journal_id",       :limit => 11

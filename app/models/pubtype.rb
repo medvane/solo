@@ -1,4 +1,7 @@
 class Pubtype < ActiveRecord::Base
+  has_many :article_types
+  has_many :articles, :through => :article_types
+
   def self.search(query, options = {})
     options[:page]      ||= 1
     options[:per_page]  ||= 20
