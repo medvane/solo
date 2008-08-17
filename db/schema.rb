@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817093849) do
+ActiveRecord::Schema.define(:version => 20080817094557) do
 
   create_table "article_types", :force => true do |t|
     t.integer "article_id", :limit => 11
@@ -212,5 +212,15 @@ ActiveRecord::Schema.define(:version => 20080817093849) do
   add_index "subjects", ["five_to_ten_score"], :name => "index_subjects_on_five_to_ten_score"
   add_index "subjects", ["five_to_all_score"], :name => "index_subjects_on_five_to_all_score"
   add_index "subjects", ["ten_to_all_score"], :name => "index_subjects_on_ten_to_all_score"
+
+  create_table "topics", :force => true do |t|
+    t.integer "article_id",  :limit => 11
+    t.integer "subject_id",  :limit => 11
+    t.boolean "major_topic"
+  end
+
+  add_index "topics", ["article_id"], :name => "index_topics_on_article_id"
+  add_index "topics", ["subject_id"], :name => "index_topics_on_subject_id"
+  add_index "topics", ["major_topic"], :name => "index_topics_on_major_topic"
 
 end
