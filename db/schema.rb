@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080816041515) do
+ActiveRecord::Schema.define(:version => 20080817085220) do
 
   create_table "articles", :force => true do |t|
     t.integer  "journal_id",       :limit => 11
@@ -67,6 +67,30 @@ ActiveRecord::Schema.define(:version => 20080816041515) do
   add_index "authors", ["five_rank"], :name => "index_authors_on_five_rank"
   add_index "authors", ["ten_rank"], :name => "index_authors_on_ten_rank"
   add_index "authors", ["all_rank"], :name => "index_authors_on_all_rank"
+
+  create_table "bibliome_stats", :force => true do |t|
+    t.integer  "one_journals",  :limit => 11
+    t.integer  "five_journals", :limit => 11
+    t.integer  "ten_journals",  :limit => 11
+    t.integer  "all_journals",  :limit => 11
+    t.integer  "one_articles",  :limit => 11
+    t.integer  "five_articles", :limit => 11
+    t.integer  "ten_articles",  :limit => 11
+    t.integer  "all_articles",  :limit => 11
+    t.integer  "one_authors",   :limit => 11
+    t.integer  "five_authors",  :limit => 11
+    t.integer  "ten_authors",   :limit => 11
+    t.integer  "all_authors",   :limit => 11
+    t.integer  "one_subjects",  :limit => 11
+    t.integer  "five_subjects", :limit => 11
+    t.integer  "ten_subjects",  :limit => 11
+    t.integer  "all_subjects",  :limit => 11
+    t.integer  "one_genes",     :limit => 11
+    t.integer  "five_genes",    :limit => 11
+    t.integer  "ten_genes",     :limit => 11
+    t.integer  "all_genes",     :limit => 11
+    t.datetime "created_at"
+  end
 
   create_table "genes", :force => true do |t|
     t.string  "taxonomy"
