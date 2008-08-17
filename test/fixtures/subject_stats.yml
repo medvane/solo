@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subject_id: 1
+  year: 1
+  major: 1
+  minor: 1
+  total: 1
+  rank: 1
+  total_subjects: 1
+  total_articles: 1
+
+two:
+  subject_id: 1
+  year: 1
+  major: 1
+  minor: 1
+  total: 1
+  rank: 1
+  total_subjects: 1
+  total_articles: 1
