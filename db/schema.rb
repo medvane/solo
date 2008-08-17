@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817131300) do
+ActiveRecord::Schema.define(:version => 20080817131719) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -200,6 +200,16 @@ ActiveRecord::Schema.define(:version => 20080817131300) do
 
   add_index "published_genes", ["gene_id"], :name => "index_published_genes_on_gene_id"
   add_index "published_genes", ["article_id"], :name => "index_published_genes_on_article_id"
+
+  create_table "pubtype_stats", :force => true do |t|
+    t.integer "pubtype_id",     :limit => 11
+    t.integer "year",           :limit => 11
+    t.integer "articles",       :limit => 11
+    t.integer "total_articles", :limit => 11
+  end
+
+  add_index "pubtype_stats", ["pubtype_id"], :name => "index_pubtype_stats_on_pubtype_id"
+  add_index "pubtype_stats", ["year"], :name => "index_pubtype_stats_on_year"
 
   create_table "pubtypes", :force => true do |t|
     t.string  "title"
