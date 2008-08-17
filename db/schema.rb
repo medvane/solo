@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817130244) do
+ActiveRecord::Schema.define(:version => 20080817131300) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -133,6 +133,16 @@ ActiveRecord::Schema.define(:version => 20080817130244) do
     t.integer  "all_genes",     :limit => 11
     t.datetime "created_at"
   end
+
+  create_table "gene_stats", :force => true do |t|
+    t.integer "gene_id",        :limit => 11
+    t.integer "year",           :limit => 11
+    t.integer "articles",       :limit => 11
+    t.integer "total_articles", :limit => 11
+  end
+
+  add_index "gene_stats", ["gene_id"], :name => "index_gene_stats_on_gene_id"
+  add_index "gene_stats", ["year"], :name => "index_gene_stats_on_year"
 
   create_table "genes", :force => true do |t|
     t.string  "taxonomy"
