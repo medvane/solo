@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  author_id: 1
+  coauthor_id: 1
+  one_first: 1
+  one_last: 1
+  one_middle: 1
+  one_total: 1
+  five_first: 1
+  five_last: 1
+  five_middle: 1
+  five_total: 1
+  ten_first: 1
+  ten_last: 1
+  ten_middle: 1
+  ten_total: 1
+  all_first: 1
+  all_last: 1
+  all_middle: 1
+  all_total: 1
+
+two:
+  author_id: 1
+  coauthor_id: 1
+  one_first: 1
+  one_last: 1
+  one_middle: 1
+  one_total: 1
+  five_first: 1
+  five_last: 1
+  five_middle: 1
+  five_total: 1
+  ten_first: 1
+  ten_last: 1
+  ten_middle: 1
+  ten_total: 1
+  all_first: 1
+  all_last: 1
+  all_middle: 1
+  all_total: 1

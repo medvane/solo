@@ -1,6 +1,8 @@
 class Journal < ActiveRecord::Base
   has_many :articles
   has_many :journal_stats
+  has_many :author_journals
+  has_many :authors, :through => :author_journals
 
   def self.search(query, options = {})
     options[:page]      ||= 1
