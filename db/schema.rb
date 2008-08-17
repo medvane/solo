@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817143219) do
+ActiveRecord::Schema.define(:version => 20080817145555) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -44,6 +44,34 @@ ActiveRecord::Schema.define(:version => 20080817143219) do
 
   add_index "articles", ["journal_id"], :name => "index_articles_on_journal_id"
   add_index "articles", ["pubdate"], :name => "index_articles_on_pubdate"
+
+  create_table "author_genes", :force => true do |t|
+    t.integer "author_id",   :limit => 11
+    t.integer "gene_id",     :limit => 11
+    t.integer "one_first",   :limit => 11
+    t.integer "one_last",    :limit => 11
+    t.integer "one_middle",  :limit => 11
+    t.integer "one_total",   :limit => 11
+    t.integer "five_first",  :limit => 11
+    t.integer "five_last",   :limit => 11
+    t.integer "five_middle", :limit => 11
+    t.integer "five_total",  :limit => 11
+    t.integer "ten_first",   :limit => 11
+    t.integer "ten_last",    :limit => 11
+    t.integer "ten_middle",  :limit => 11
+    t.integer "ten_total",   :limit => 11
+    t.integer "all_first",   :limit => 11
+    t.integer "all_last",    :limit => 11
+    t.integer "all_middle",  :limit => 11
+    t.integer "all_total",   :limit => 11
+  end
+
+  add_index "author_genes", ["author_id"], :name => "index_author_genes_on_author_id"
+  add_index "author_genes", ["gene_id"], :name => "index_author_genes_on_gene_id"
+  add_index "author_genes", ["one_total"], :name => "index_author_genes_on_one_total"
+  add_index "author_genes", ["five_total"], :name => "index_author_genes_on_five_total"
+  add_index "author_genes", ["ten_total"], :name => "index_author_genes_on_ten_total"
+  add_index "author_genes", ["all_total"], :name => "index_author_genes_on_all_total"
 
   create_table "author_journals", :force => true do |t|
     t.integer "author_id",   :limit => 11
