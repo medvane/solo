@@ -5,4 +5,8 @@ class Journal < ActiveRecord::Base
     options[:per_page]  ||= 20
     paginate options
   end
+
+  def to_s
+    abbr
+  end
 end

@@ -4,4 +4,8 @@ class Subject < ActiveRecord::Base
     options[:per_page]  ||= 20
     paginate options
   end
+
+  def to_s
+    term
+  end
 end

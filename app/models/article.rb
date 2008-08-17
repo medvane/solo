@@ -6,4 +6,8 @@ class Article < ActiveRecord::Base
     options[:per_page]  ||= 20
     paginate options
   end
+
+  def to_s
+    title
+  end
 end

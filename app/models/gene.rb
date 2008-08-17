@@ -4,4 +4,8 @@ class Gene < ActiveRecord::Base
     options[:per_page]  ||= 20
     paginate options
   end
+
+  def to_s
+    "#{symbol} (#{taxonomy})"
+  end
 end
