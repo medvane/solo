@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817145555) do
+ActiveRecord::Schema.define(:version => 20080817195219) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -100,6 +100,34 @@ ActiveRecord::Schema.define(:version => 20080817145555) do
   add_index "author_journals", ["five_total"], :name => "index_author_journals_on_five_total"
   add_index "author_journals", ["ten_total"], :name => "index_author_journals_on_ten_total"
   add_index "author_journals", ["all_total"], :name => "index_author_journals_on_all_total"
+
+  create_table "author_pubtypes", :force => true do |t|
+    t.integer "author_id",   :limit => 11
+    t.integer "pubtype_id",  :limit => 11
+    t.integer "one_first",   :limit => 11
+    t.integer "one_last",    :limit => 11
+    t.integer "one_middle",  :limit => 11
+    t.integer "one_total",   :limit => 11
+    t.integer "five_first",  :limit => 11
+    t.integer "five_last",   :limit => 11
+    t.integer "five_middle", :limit => 11
+    t.integer "five_total",  :limit => 11
+    t.integer "ten_first",   :limit => 11
+    t.integer "ten_last",    :limit => 11
+    t.integer "ten_middle",  :limit => 11
+    t.integer "ten_total",   :limit => 11
+    t.integer "all_first",   :limit => 11
+    t.integer "all_last",    :limit => 11
+    t.integer "all_middle",  :limit => 11
+    t.integer "all_total",   :limit => 11
+  end
+
+  add_index "author_pubtypes", ["author_id"], :name => "index_author_pubtypes_on_author_id"
+  add_index "author_pubtypes", ["pubtype_id"], :name => "index_author_pubtypes_on_pubtype_id"
+  add_index "author_pubtypes", ["one_total"], :name => "index_author_pubtypes_on_one_total"
+  add_index "author_pubtypes", ["five_total"], :name => "index_author_pubtypes_on_five_total"
+  add_index "author_pubtypes", ["ten_total"], :name => "index_author_pubtypes_on_ten_total"
+  add_index "author_pubtypes", ["all_total"], :name => "index_author_pubtypes_on_all_total"
 
   create_table "author_stats", :force => true do |t|
     t.integer "author_id",      :limit => 11

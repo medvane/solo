@@ -9,6 +9,8 @@ class Author < ActiveRecord::Base
   has_many :subjects, :through => :author_subjects
   has_many :author_genes
   has_many :genes, :through => :author_genes
+  has_many :author_pubtypes
+  has_many :pubtypes, :through => :author_pubtypes
 
   def self.search(query, options = {})
     options[:page]      ||= 1
