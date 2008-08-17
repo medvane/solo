@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  journal_id: 1
+  pubtype_id: 1
+  one: 1
+  five: 1
+  ten: 1
+  all: 1
+
+two:
+  journal_id: 1
+  pubtype_id: 1
+  one: 1
+  five: 1
+  ten: 1
+  all: 1

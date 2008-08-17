@@ -7,6 +7,8 @@ class Journal < ActiveRecord::Base
   has_many :genes, :through => :journal_genes
   has_many :journal_subjects
   has_many :subjects, :through => :journal_subjects
+  has_many :journal_pubtypes
+  has_many :pubtypes, :through => :journal_pubtypes
 
   def self.search(query, options = {})
     options[:page]      ||= 1

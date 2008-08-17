@@ -4,6 +4,8 @@ class Pubtype < ActiveRecord::Base
   has_many :pubtype_stats
   has_many :author_pubtypes
   has_many :authors, :through => :author_pubtypes
+  has_many :journal_pubtypes
+  has_many :journals, :through => :journal_pubtypes
 
   def self.search(query, options = {})
     options[:page]      ||= 1

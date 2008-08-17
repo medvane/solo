@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817201506) do
+ActiveRecord::Schema.define(:version => 20080817202512) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -318,6 +318,22 @@ ActiveRecord::Schema.define(:version => 20080817201506) do
   add_index "journal_genes", ["five"], :name => "index_journal_genes_on_five"
   add_index "journal_genes", ["ten"], :name => "index_journal_genes_on_ten"
   add_index "journal_genes", ["all"], :name => "index_journal_genes_on_all"
+
+  create_table "journal_pubtypes", :force => true do |t|
+    t.integer "journal_id", :limit => 11
+    t.integer "pubtype_id", :limit => 11
+    t.integer "one",        :limit => 11
+    t.integer "five",       :limit => 11
+    t.integer "ten",        :limit => 11
+    t.integer "all",        :limit => 11
+  end
+
+  add_index "journal_pubtypes", ["journal_id"], :name => "index_journal_pubtypes_on_journal_id"
+  add_index "journal_pubtypes", ["pubtype_id"], :name => "index_journal_pubtypes_on_pubtype_id"
+  add_index "journal_pubtypes", ["one"], :name => "index_journal_pubtypes_on_one"
+  add_index "journal_pubtypes", ["five"], :name => "index_journal_pubtypes_on_five"
+  add_index "journal_pubtypes", ["ten"], :name => "index_journal_pubtypes_on_ten"
+  add_index "journal_pubtypes", ["all"], :name => "index_journal_pubtypes_on_all"
 
   create_table "journal_stats", :force => true do |t|
     t.integer "journal_id",     :limit => 11
