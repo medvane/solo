@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817092552) do
+ActiveRecord::Schema.define(:version => 20080817093849) do
 
   create_table "article_types", :force => true do |t|
     t.integer "article_id", :limit => 11
@@ -151,6 +151,14 @@ ActiveRecord::Schema.define(:version => 20080817092552) do
   add_index "journals", ["five"], :name => "index_journals_on_five"
   add_index "journals", ["ten"], :name => "index_journals_on_ten"
   add_index "journals", ["all"], :name => "index_journals_on_all"
+
+  create_table "published_genes", :force => true do |t|
+    t.integer "gene_id",    :limit => 11
+    t.integer "article_id", :limit => 11
+  end
+
+  add_index "published_genes", ["gene_id"], :name => "index_published_genes_on_gene_id"
+  add_index "published_genes", ["article_id"], :name => "index_published_genes_on_article_id"
 
   create_table "pubtypes", :force => true do |t|
     t.string  "title"
