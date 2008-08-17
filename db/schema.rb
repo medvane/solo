@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817085220) do
+ActiveRecord::Schema.define(:version => 20080817085949) do
 
   create_table "articles", :force => true do |t|
     t.integer  "journal_id",       :limit => 11
@@ -67,6 +67,19 @@ ActiveRecord::Schema.define(:version => 20080817085220) do
   add_index "authors", ["five_rank"], :name => "index_authors_on_five_rank"
   add_index "authors", ["ten_rank"], :name => "index_authors_on_ten_rank"
   add_index "authors", ["all_rank"], :name => "index_authors_on_all_rank"
+
+  create_table "authorships", :force => true do |t|
+    t.integer "article_id",    :limit => 11
+    t.integer "position",      :limit => 2
+    t.integer "last_position", :limit => 2
+    t.integer "author_id",     :limit => 11
+    t.boolean "complete",                    :default => true
+  end
+
+  add_index "authorships", ["article_id"], :name => "index_authorships_on_article_id"
+  add_index "authorships", ["author_id"], :name => "index_authorships_on_author_id"
+  add_index "authorships", ["position"], :name => "index_authorships_on_position"
+  add_index "authorships", ["last_position"], :name => "index_authorships_on_last_position"
 
   create_table "bibliome_stats", :force => true do |t|
     t.integer  "one_journals",  :limit => 11
