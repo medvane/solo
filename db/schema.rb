@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817195219) do
+ActiveRecord::Schema.define(:version => 20080817201506) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -303,6 +303,22 @@ ActiveRecord::Schema.define(:version => 20080817195219) do
   add_index "genes", ["ten"], :name => "index_genes_on_ten"
   add_index "genes", ["all"], :name => "index_genes_on_all"
 
+  create_table "journal_genes", :force => true do |t|
+    t.integer "journal_id", :limit => 11
+    t.integer "gene_id",    :limit => 11
+    t.integer "one",        :limit => 11
+    t.integer "five",       :limit => 11
+    t.integer "ten",        :limit => 11
+    t.integer "all",        :limit => 11
+  end
+
+  add_index "journal_genes", ["journal_id"], :name => "index_journal_genes_on_journal_id"
+  add_index "journal_genes", ["gene_id"], :name => "index_journal_genes_on_gene_id"
+  add_index "journal_genes", ["one"], :name => "index_journal_genes_on_one"
+  add_index "journal_genes", ["five"], :name => "index_journal_genes_on_five"
+  add_index "journal_genes", ["ten"], :name => "index_journal_genes_on_ten"
+  add_index "journal_genes", ["all"], :name => "index_journal_genes_on_all"
+
   create_table "journal_stats", :force => true do |t|
     t.integer "journal_id",     :limit => 11
     t.integer "year",           :limit => 11
@@ -312,6 +328,30 @@ ActiveRecord::Schema.define(:version => 20080817195219) do
 
   add_index "journal_stats", ["journal_id"], :name => "index_journal_stats_on_journal_id"
   add_index "journal_stats", ["year"], :name => "index_journal_stats_on_year"
+
+  create_table "journal_subjects", :force => true do |t|
+    t.integer "journal_id", :limit => 11
+    t.integer "subject_id", :limit => 11
+    t.integer "one_major",  :limit => 11
+    t.integer "one_minor",  :limit => 11
+    t.integer "one_total",  :limit => 11
+    t.integer "five_major", :limit => 11
+    t.integer "five_minor", :limit => 11
+    t.integer "five_total", :limit => 11
+    t.integer "ten_major",  :limit => 11
+    t.integer "ten_minor",  :limit => 11
+    t.integer "ten_total",  :limit => 11
+    t.integer "all_major",  :limit => 11
+    t.integer "all_minor",  :limit => 11
+    t.integer "all_total",  :limit => 11
+  end
+
+  add_index "journal_subjects", ["journal_id"], :name => "index_journal_subjects_on_journal_id"
+  add_index "journal_subjects", ["subject_id"], :name => "index_journal_subjects_on_subject_id"
+  add_index "journal_subjects", ["one_major"], :name => "index_journal_subjects_on_one_major"
+  add_index "journal_subjects", ["five_major"], :name => "index_journal_subjects_on_five_major"
+  add_index "journal_subjects", ["ten_major"], :name => "index_journal_subjects_on_ten_major"
+  add_index "journal_subjects", ["all_major"], :name => "index_journal_subjects_on_all_major"
 
   create_table "journals", :force => true do |t|
     t.string  "title"
