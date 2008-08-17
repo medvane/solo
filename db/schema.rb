@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080817120603) do
+ActiveRecord::Schema.define(:version => 20080817122551) do
+
+  create_table "article_stats", :force => true do |t|
+    t.integer "year",           :limit => 11
+    t.integer "articles",       :limit => 11
+    t.integer "total_articles", :limit => 11
+  end
+
+  add_index "article_stats", ["year"], :name => "index_article_stats_on_year"
 
   create_table "article_types", :force => true do |t|
     t.integer "article_id", :limit => 11

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  year: 1
+  articles: 1
+  total_articles: 1
+
+two:
+  year: 1
+  articles: 1
+  total_articles: 1
