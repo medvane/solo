@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  author_id: 1
+  subject_id: 1
+  year: 1
+  first: 1
+  last: 1
+  middle: 1
+  total: 1
+
+two:
+  author_id: 1
+  subject_id: 1
+  year: 1
+  first: 1
+  last: 1
+  middle: 1
+  total: 1

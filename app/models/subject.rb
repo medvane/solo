@@ -4,6 +4,7 @@ class Subject < ActiveRecord::Base
   has_many :subject_stats
   has_many :author_subjects
   has_many :authors, :through => :author_subjects
+  has_many :author_subject_years
   has_many :journal_subjects
   has_many :journals, :through => :journal_subjects
   has_many :subject_genes

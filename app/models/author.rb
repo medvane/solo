@@ -9,6 +9,7 @@ class Author < ActiveRecord::Base
   has_many :author_journal_years
   has_many :author_subjects
   has_many :subjects, :through => :author_subjects
+  has_many :author_subject_years
   has_many :author_genes
   has_many :genes, :through => :author_genes
   has_many :author_gene_years
