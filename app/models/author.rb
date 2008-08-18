@@ -15,6 +15,7 @@ class Author < ActiveRecord::Base
   has_many :author_gene_years
   has_many :author_pubtypes
   has_many :pubtypes, :through => :author_pubtypes
+  has_many :author_pubtype_years
 
   def self.search(query, options = {})
     options[:page]      ||= 1

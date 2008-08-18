@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080818160251) do
+ActiveRecord::Schema.define(:version => 20080818160719) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -126,6 +126,19 @@ ActiveRecord::Schema.define(:version => 20080818160251) do
   add_index "author_journals", ["five_total"], :name => "index_author_journals_on_five_total"
   add_index "author_journals", ["ten_total"], :name => "index_author_journals_on_ten_total"
   add_index "author_journals", ["all_total"], :name => "index_author_journals_on_all_total"
+
+  create_table "author_pubtype_years", :force => true do |t|
+    t.integer "author_id",  :limit => 11
+    t.integer "pubtype_id", :limit => 11
+    t.integer "year",       :limit => 11
+    t.integer "first",      :limit => 11
+    t.integer "last",       :limit => 11
+    t.integer "middle",     :limit => 11
+    t.integer "total",      :limit => 11
+  end
+
+  add_index "author_pubtype_years", ["author_id"], :name => "index_author_pubtype_years_on_author_id"
+  add_index "author_pubtype_years", ["pubtype_id"], :name => "index_author_pubtype_years_on_pubtype_id"
 
   create_table "author_pubtypes", :force => true do |t|
     t.integer "author_id",   :limit => 11

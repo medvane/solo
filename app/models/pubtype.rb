@@ -4,6 +4,7 @@ class Pubtype < ActiveRecord::Base
   has_many :pubtype_stats
   has_many :author_pubtypes
   has_many :authors, :through => :author_pubtypes
+  has_many :author_pubtype_years
   has_many :journal_pubtypes
   has_many :journals, :through => :journal_pubtypes
 
