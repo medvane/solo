@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080818160719) do
+ActiveRecord::Schema.define(:version => 20080818161228) do
 
   create_table "article_stats", :force => true do |t|
     t.integer "year",           :limit => 11
@@ -408,6 +408,18 @@ ActiveRecord::Schema.define(:version => 20080818160719) do
 
   add_index "journal_stats", ["journal_id"], :name => "index_journal_stats_on_journal_id"
   add_index "journal_stats", ["year"], :name => "index_journal_stats_on_year"
+
+  create_table "journal_subject_years", :force => true do |t|
+    t.integer "journal_id", :limit => 11
+    t.integer "subject_id", :limit => 11
+    t.integer "year",       :limit => 11
+    t.integer "major",      :limit => 11
+    t.integer "minor",      :limit => 11
+    t.integer "total",      :limit => 11
+  end
+
+  add_index "journal_subject_years", ["journal_id"], :name => "index_journal_subject_years_on_journal_id"
+  add_index "journal_subject_years", ["subject_id"], :name => "index_journal_subject_years_on_subject_id"
 
   create_table "journal_subjects", :force => true do |t|
     t.integer "journal_id", :limit => 11
