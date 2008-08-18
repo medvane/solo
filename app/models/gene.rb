@@ -7,6 +7,7 @@ class Gene < ActiveRecord::Base
   has_many :author_gene_years
   has_many :journal_genes
   has_many :journal, :through => :journal_genes
+  has_many :journal_gene_years
   has_many :subject_genes
   has_many :subject, :through => :subject_genes
 
