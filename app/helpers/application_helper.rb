@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def period_tab(&block)
+  def period_tab_content(&block)
     for period in %w(all one five ten)
       concat %Q(<div id="period_#{period}">\n), block.binding
       yield period
