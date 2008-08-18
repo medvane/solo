@@ -12,6 +12,7 @@ class Journal < ActiveRecord::Base
   has_many :journal_subject_years
   has_many :journal_pubtypes
   has_many :pubtypes, :through => :journal_pubtypes
+  has_many :journal_pubtype_years
 
   def self.search(query, options = {})
     options[:page]      ||= 1
