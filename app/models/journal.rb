@@ -3,6 +3,7 @@ class Journal < ActiveRecord::Base
   has_many :journal_stats
   has_many :author_journals
   has_many :authors, :through => :author_journals
+  has_many :author_journal_years
   has_many :journal_genes
   has_many :genes, :through => :journal_genes
   has_many :journal_subjects
