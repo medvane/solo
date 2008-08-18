@@ -10,6 +10,7 @@ class Subject < ActiveRecord::Base
   has_many :journal_subject_years
   has_many :subject_genes
   has_many :genes, :through => :subject_genes
+  has_many :subject_gene_years
 
   def self.search(query, options = {})
     options[:page]      ||= 1
