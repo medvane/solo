@@ -1,9 +1,9 @@
 module ApplicationHelper
   def period_tab(&block)
     for period in %w(all one five ten)
-      concat %Q(<div id="#{period}">\n), block.binding
+      concat %Q(<div id="period_#{period}">\n), block.binding
       yield period
-      concat %Q(</div><!-- id: #{period} -->\n), block.binding
+      concat %Q(</div><!-- #period_#{period} -->\n), block.binding
     end
   end
   
