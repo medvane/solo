@@ -34,7 +34,7 @@ document.observe('dom:loaded', function() {
     <ul class="yui-nav">
 <% for menu in %w(home journals articles authors subjects genes pubtypes) -%>
 <% navclass = menu == controller.controller_name ? "selected" : "" -%>
-      <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", :controller => menu, :action => "all" %></li>
+      <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", :controller => menu, :action => @period %></li>
 <% end -%>
     </ul>
     <div class="yui-content">
