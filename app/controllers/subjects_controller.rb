@@ -11,29 +11,44 @@ class SubjectsController < ApplicationController
   end
 
   def one
-    index("one")
+    if params[:id].nil?
+      index("one")
+    else
+      show("one")
+    end
   end
   
   def five
-    index("five")
+    if params[:id].nil?
+      index("five")
+    else
+      show("five")
+    end
   end
   
   def ten
-    index("ten")
+    if params[:id].nil?
+      index("ten")
+    else
+      show("ten")
+    end
   end
   
   def all
-    index("all")
+    if params[:id].nil?
+      index("all")
+    else
+      show("all")
+    end
   end
 
   # GET /subjects/1
-  # GET /subjects/1.xml
-  def show
+  def show(period = "all")
+    @period = period
     @subject = Subject.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @subject }
+      format.html  { render :action => "show"}
     end
   end
 end

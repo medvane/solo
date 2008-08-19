@@ -1,10 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :journals, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
-  map.resources :articles, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
-  map.resources :authors, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
-  map.resources :subjects, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
-  map.resources :pubtypes, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
-  map.resources :genes, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :journals, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }, :member => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :articles, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }, :member => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :authors, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }, :member => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :subjects, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }, :member => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :pubtypes, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }, :member => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :genes, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }, :member => { :one => :get, :five => :get, :ten => :get, :all => :get }
 
   # The priority is based upon order of creation: first created -> highest priority.
 

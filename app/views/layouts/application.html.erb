@@ -39,7 +39,7 @@ document.observe('dom:loaded', function() {
     </ul>
     <div class="yui-content">
       <div id="periodnav" class="yui-navset yui-navset-top">
-        <%= period_tab %>
+        <%= period_tab(params[:id]) %>
         <div class="yui-content">
 <%= yield %>
         </div><!-- .yui-content -->
