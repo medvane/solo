@@ -1,13 +1,28 @@
 class ArticlesController < ApplicationController
   # GET /articles
-  # GET /articles.xml
-  def index
-    @articles = Article.search params[:q], :page => params[:page]
+  def index(period = "all")
+    total_entries = BibliomeStat.last.send("#{period}_articles")
+    @articles = Article.search params[:q], :page => params[:page], :order => "pubdate desc", :total_entries => total_entries
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @articles }
+      format.html { render :action => "index"}
     end
+  end
+
+  def one
+    index("one")
+  end
+  
+  def five
+    index("five")
+  end
+  
+  def ten
+    index("ten")
+  end
+  
+  def all
+    index("all")
   end
 
   # GET /articles/1

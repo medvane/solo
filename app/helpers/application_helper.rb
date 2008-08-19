@@ -1,12 +1,18 @@
 module ApplicationHelper
-  def period_tab_content(&block)
-    for period in %w(all one five ten)
-      concat %Q(<div id="period_#{period}">\n), block.binding
-      yield period
-      concat %Q(</div><!-- #period_#{period} -->\n), block.binding
+  def period_tab
+    periods = [ ["all", "all time"], ["one", "last 1 year"], ["five", "last 5 years"], ["ten", "last 10 years"] ]
+    li = []
+    periods.each do |p|
+      period = p[0]
+      text = p[1]
+      li_class = controller.action_name == period ? "selected" : ""
+      link_text = content_tag(:em, text)
+      link = eval(period + "_" + controller.controller_name + "_path")
+      li.push(content_tag(:li, link_to(link_text, link), :class => li_class))
     end
+    content_tag(:ul, li.join("\n"), :class => "yui-nav")
   end
-  
+
   def paginated_list(collection)
     list = []
     list.push(pagination_info(collection)) 

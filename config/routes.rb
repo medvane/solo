@@ -1,10 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :journals
-  map.resources :articles
-  map.resources :authors
-  map.resources :subjects
-  map.resources :pubtypes
-  map.resources :genes
+  map.resources :journals, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :articles, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :authors, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :subjects, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :pubtypes, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
+  map.resources :genes, :collection => { :one => :get, :five => :get, :ten => :get, :all => :get }
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -38,7 +38,11 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "home", :action => "index"
+  map.root :controller => "home", :action => "all"
+  map.all_home "/all", :controller => "home", :action => "all"
+  map.one_home "/one", :controller => "home", :action => "one"
+  map.five_home "/five", :controller => "home", :action => "five"
+  map.ten_home "/ten", :controller => "home", :action => "ten"
 
   # See how all your routes lay out with "rake routes"
 

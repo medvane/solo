@@ -1,13 +1,28 @@
 class GenesController < ApplicationController
   # GET /genes
-  # GET /genes.xml
-  def index
-    @genes = Gene.search params[:q], :page => params[:page]
+  def index(period = "all")
+    total_entries = BibliomeStat.last.send("#{period}_genes")
+    @genes = Gene.search params[:q], :page => params[:page], :order => "`#{period}` desc", :conditions => "`#{period}` > 0", :total_entries => total_entries
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @genes }
+      format.html { render :action => "index"}
     end
+  end
+
+  def one
+    index("one")
+  end
+  
+  def five
+    index("five")
+  end
+  
+  def ten
+    index("ten")
+  end
+  
+  def all
+    index("all")
   end
 
   # GET /genes/1

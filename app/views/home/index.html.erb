@@ -1,12 +1,10 @@
-<% period_tab_content do |period| -%>
 <h1>Welcome to Medvane</h1>
 
 <table>
   <tr>
 <% for item in %w(journals articles authors subjects genes) -%>
-    <td><%= link_to number_with_delimiter(@bibliome_stat.send("#{period}_#{item}")) + " " + item.capitalize, eval(item + "_path") %></td>
+    <td><%= link_to number_with_delimiter(@bibliome_stat.send("#{@period}_#{item}")) + " " + item.capitalize, eval(item + "_path") %></td>
 <% end -%>
   </tr>
 </table>
-<% end -%>
 Last updated at <%= @bibliome_stat.created_at %>

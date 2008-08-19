@@ -1,13 +1,28 @@
 class JournalsController < ApplicationController
   # GET /journals
-  # GET /journals.xml
-  def index
-    @journals = Journal.search params[:q], :page => params[:page]
+  def index(period = "all")
+    total_entries = BibliomeStat.last.send("#{period}_journals")
+    @journals = Journal.search params[:q], :page => params[:page], :order => "`#{period}` desc", :conditions => "`#{period}` > 0", :total_entries => total_entries
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @journals }
+      format.html { render :action => "index"}
     end
+  end
+
+  def one
+    index("one")
+  end
+  
+  def five
+    index("five")
+  end
+  
+  def ten
+    index("ten")
+  end
+  
+  def all
+    index("all")
   end
 
   # GET /journals/1
