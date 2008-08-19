@@ -6,7 +6,7 @@ class CreateAuthorJournalYears < ActiveRecord::Migration
       t.integer :year
       t.integer :first
       t.integer :last
-      t.integer :other
+      t.integer :middle
       t.integer :total
     end
     add_index :author_journal_years, :author_id

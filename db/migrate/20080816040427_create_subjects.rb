@@ -3,16 +3,16 @@ class CreateSubjects < ActiveRecord::Migration
     create_table :subjects do |t|
       t.string :term
       t.integer :one_major
-      t.integer :one_other
+      t.integer :one_minor
       t.integer :one_total
       t.integer :five_major
-      t.integer :five_other
+      t.integer :five_minor
       t.integer :five_total
       t.integer :ten_major
-      t.integer :ten_other
+      t.integer :ten_minor
       t.integer :ten_total
       t.integer :all_major
-      t.integer :all_other
+      t.integer :all_minor
       t.integer :all_total
       t.float :one_to_five
       t.float :one_to_five_score

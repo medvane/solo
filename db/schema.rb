@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "year",       :limit => 11
     t.integer "first",      :limit => 11
     t.integer "last",       :limit => 11
-    t.integer "other",      :limit => 11
+    t.integer "middle",     :limit => 11
     t.integer "total",      :limit => 11
   end
 
@@ -560,16 +560,16 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   create_table "subjects", :force => true do |t|
     t.string  "term"
     t.integer "one_major",         :limit => 11
-    t.integer "one_other",         :limit => 11
+    t.integer "one_minor",         :limit => 11
     t.integer "one_total",         :limit => 11
     t.integer "five_major",        :limit => 11
-    t.integer "five_other",        :limit => 11
+    t.integer "five_minor",        :limit => 11
     t.integer "five_total",        :limit => 11
     t.integer "ten_major",         :limit => 11
-    t.integer "ten_other",         :limit => 11
+    t.integer "ten_minor",         :limit => 11
     t.integer "ten_total",         :limit => 11
     t.integer "all_major",         :limit => 11
-    t.integer "all_other",         :limit => 11
+    t.integer "all_minor",         :limit => 11
     t.integer "all_total",         :limit => 11
     t.float   "one_to_five"
     t.float   "one_to_five_score"
