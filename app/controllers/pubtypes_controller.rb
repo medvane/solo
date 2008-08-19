@@ -2,6 +2,7 @@ class PubtypesController < ApplicationController
   # GET /pubtypes
   def index(period = "all")
     @pubtypes = Pubtype.search params[:q], :page => params[:page], :order => "`#{period}` desc", :conditions => "`#{period}` > 0"
+    @period = period
 
     respond_to do |format|
       format.html { render :action => "index"}

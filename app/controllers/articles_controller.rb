@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   def index(period = "all")
     total_entries = BibliomeStat.last.send("#{period}_articles")
     @articles = Article.search params[:q], :page => params[:page], :order => "pubdate desc", :total_entries => total_entries
+    @period = period
 
     respond_to do |format|
       format.html { render :action => "index"}

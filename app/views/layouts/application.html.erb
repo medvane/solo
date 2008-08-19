@@ -2,13 +2,29 @@
  "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>Medvane2</title>
+<title>Medvane2 - <%= controller.controller_name.titleize %></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/reset-fonts-grids/reset-fonts-grids.css">
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/base/base-min.css">
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/tabview/assets/skins/sam/tabview.css">
-<%= stylesheet_link_tag "default" %>
+<%= stylesheet_link_tag "default", "prototip" %>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
+<%= javascript_include_tag "prototip" %>
+<script type="text/javascript" language="javascript">
+document.observe('dom:loaded', function() {
+  $$('a.tooltip').each(function(element) {
+    new Tip(element, element.rel, {
+      title: element.title,
+      style: 'protogrey',
+      stem: 'bottomLeft',
+      hook: {tip: 'bottomLeft', mouse: true },
+      radius: 6,
+      width: 'auto',
+      viewport: true,
+    });
+  });
+});
+</script>
 </head>
 <body>
 <div id="doc4" class="yui-t7">

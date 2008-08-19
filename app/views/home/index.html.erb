@@ -3,7 +3,7 @@
 <table>
   <tr>
 <% for item in %w(journals articles authors subjects genes) -%>
-    <td><%= link_to number_with_delimiter(@bibliome_stat.send("#{@period}_#{item}")) + " " + item.capitalize, eval(item + "_path") %></td>
+    <td><%= link_to number_with_delimiter(@bibliome_stat.send("#{@period}_#{item}")) + " " + item.capitalize, eval("#{@period}_#{item}_path") %></td>
 <% end -%>
   </tr>
 </table>
