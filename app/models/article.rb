@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
   
   def self.search(query, options = {})
     options[:page]      ||= 1
-    options[:per_page]  ||= 16
+    options[:per_page]  ||= 18
     paginate options
   end
 
