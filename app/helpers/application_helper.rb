@@ -15,13 +15,18 @@ module ApplicationHelper
 
   def paginated_list(collection)
     list = []
-    list.push(pagination_info(collection)) 
-    li = [] 
+    list.push(content_tag(:div, pagination_info(collection), :class => "yui-g"))
+    half = (collection.size + collection.size % 2) / 2
+    li = { "left" => [], "right" => [] }
     for item in collection
-      li.push(content_tag(:li, link_to(item.to_s, url_for(item)), :class => dom_class(item), :id => dom_id(item))) 
+      bucket = collection.index(item) < half ? "left" : "right"
+      li[bucket].push(content_tag(:li, link_to(item.to_s, url_for(item)), :class => dom_class(item), :id => dom_id(item))) 
     end
-    list.push(content_tag(:ul, li.join("\n")))
-    list.push(will_paginate(collection)) 
+    column = []
+    column.push(content_tag(:div, content_tag(:ul, li["left"].join("\n")), :class => "yui-u first"))
+    column.push(content_tag(:div, content_tag(:ul, li["right"].join("\n")), :class => "yui-u"))
+    list.push(content_tag(:div, column.join("\n"), :class => "yui-g"))
+    list.push(content_tag(:div, will_paginate(collection), :class => "yui-g")) 
     list.join("\n")
   end
 
