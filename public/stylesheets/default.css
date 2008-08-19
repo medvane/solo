@@ -3,8 +3,7 @@
 .yui-skin-sam .yui-navset-left .yui-content{border:1px solid #243356}
 .yui-skin-sam .yui-navset .yui-nav{border:solid #fff;border-width:0 0 5px;Xposition:relative;zoom:1;}
 .yui-skin-sam .yui-navset .yui-navset-top .yui-content{border:1px solid #243356;padding:0.25em 0.5em;}
-.yui-skin-sam .yui-navset .yui-navset-top .yui-nav{border-width:0}
-.yui-skin-sam .yui-navset-top .yui-nav .selected a,.yui-skin-sam .yui-navset-top .yui-nav .selected a:focus,.yui-skin-sam .yui-navset-top .yui-nav .selected a:hover{background:#fff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1400px;color:#243356;}
+.yui-skin-sam .yui-navset-top .yui-nav .selected a,.yui-skin-sam .yui-navset-top .yui-nav .selected a:focus,.yui-skin-sam .yui-navset-top .yui-nav .selected a:hover{background:#fff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1400px;color:#fff;}
 
 /* pagination */
 
