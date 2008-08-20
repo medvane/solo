@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   # GET /subjects
   def index(period = "all")
     total_entries = BibliomeStat.last.send("#{period}_subjects")
-    @subjects = Subject.search params[:q], :page => params[:page], :order => "#{period}_major desc, #{period}_minor desc", :conditions => "`#{period}_total` > 0", :total_entries => total_entries
+    @subjects = Subject.search params[:q], :page => params[:page], :order => "#{period}_major desc, #{period}_total desc", :conditions => "`#{period}_total` > 0", :total_entries => total_entries
     @period = period
 
     respond_to do |format|
