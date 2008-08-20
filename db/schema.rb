@@ -178,8 +178,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "total_articles", :limit => 11
   end
 
-  add_index "author_stats", ["author_id"], :name => "index_author_stats_on_author_id"
-  add_index "author_stats", ["year"], :name => "index_author_stats_on_year"
+  add_index "author_stats", ["author_id", "year"], :name => "index_author_stats_on_author_id_and_year"
 
   create_table "author_subject_years", :force => true do |t|
     t.integer "author_id",  :limit => 11

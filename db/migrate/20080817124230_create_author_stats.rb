@@ -9,8 +9,7 @@ class CreateAuthorStats < ActiveRecord::Migration
       t.integer :total
       t.integer :total_articles
     end
-    add_index :author_stats, :author_id
-    add_index :author_stats, :year
+    add_index :author_stats, [:author_id, :year]
   end
 
   def self.down
