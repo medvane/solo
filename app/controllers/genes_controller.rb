@@ -46,7 +46,10 @@ class GenesController < ApplicationController
   def show(period = "all")
     @period = period
     @gene = Gene.find(params[:id])
-
+    total_entries = @gene.send(period)
+    per_page = total_entries < 8 ? total_entries : 8
+    per_page = 1 if per_page == 0
+    @articles = @gene.articles.paginate :page => params[:page], :order => "pubdate desc", :per_page => per_page, :total_entries => total_entries
     respond_to do |format|
       format.html  { render :action => "show"}
     end

@@ -1,1 +1,3 @@
 <h1>Publication Type: <%= @pubtype.to_s %></h1>
+
+<%= paginated_list @articles, @period %>

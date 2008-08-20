@@ -46,6 +46,10 @@ class AuthorsController < ApplicationController
   def show(period = "all")
     @period = period
     @author = Author.find(params[:id])
+    total_entries = @author.send("#{period}_total")
+    per_page = total_entries < 8 ? total_entries : 8
+    per_page = 1 if per_page == 0
+    @articles = @author.articles.paginate :page => params[:page], :order => "pubdate desc", :per_page => per_page, :total_entries => total_entries
 
     respond_to do |format|
       format.html  { render :action => "show"}
