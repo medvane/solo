@@ -268,10 +268,8 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.boolean "complete",                    :default => true
   end
 
-  add_index "authorships", ["article_id"], :name => "index_authorships_on_article_id"
+  add_index "authorships", ["article_id", "position"], :name => "index_authorships_on_article_id_and_position"
   add_index "authorships", ["author_id"], :name => "index_authorships_on_author_id"
-  add_index "authorships", ["position"], :name => "index_authorships_on_position"
-  add_index "authorships", ["last_position"], :name => "index_authorships_on_last_position"
 
   create_table "bibliome_stats", :force => true do |t|
     t.integer  "one_journals",  :limit => 11
