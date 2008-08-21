@@ -35,7 +35,7 @@ module ApplicationHelper
         when "subject" : "#{pluralize(item.send("#{period}_total"), "article")}"
         else "#{pluralize(item.send(period), "article")}"
       end
-      articles_count = dom_class(item).match(/article/) ? "" : content_tag(:span, articles, :class => "articles_count")
+      articles_count = dom_class(item).match(/article/) ? "" : content_tag(:span, number_with_delimiter(articles), :class => "articles_count")
       css_class = dom_class(item).match(/author|subject/) ? "tooltip" : ""
       li[bucket].push(content_tag(:li, link_to(item.to_s + articles_count, url_for(item) + "/#{period}", :rel => rel, :title => item.to_s, :class => css_class)))
     end
