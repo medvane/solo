@@ -13,7 +13,7 @@ class CreateArticles < ActiveRecord::Migration
       t.text :affiliation
       t.timestamps
     end
-    add_index :articles, :journal_id
+    add_index :articles, [:journal_id, :pubdate]
     add_index :articles, :pubdate
   end
 
