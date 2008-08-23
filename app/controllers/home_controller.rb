@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  caches_action :one, :five, :ten, :all
   def index(period = "all")
     @bibliome_stat = BibliomeStat.last
     @period = period
