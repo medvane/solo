@@ -27,16 +27,11 @@ class CreateAuthors < ActiveRecord::Migration
       t.integer :ten_rank, :default => 0, :null => false
       t.integer :all_rank, :default => 0, :null => false
     end
-    add_index :authors, [:last_name, :initials]
     add_index :authors, :collective_name
-    add_index :authors, [:one_total, :one_first, :one_last, :one_middle, :last_name], :name => 'index_authors_on_one_total'
-    add_index :authors, [:five_total, :five_first, :five_last, :five_middle, :last_name], :name => 'index_authors_on_five_total'
-    add_index :authors, [:ten_total, :ten_first, :ten_last, :ten_middle, :last_name], :name => 'index_authors_on_ten_total'
-    add_index :authors, [:all_total, :all_first, :all_last, :all_middle, :last_name], :name => 'index_authors_on_all_total'
-    add_index :authors, :one_rank
-    add_index :authors, :five_rank
-    add_index :authors, :ten_rank
-    add_index :authors, :all_rank
+    add_index :authors, [:one_total, :one_first, :one_last, :one_middle, :last_name], :name => 'index_authors_on_one'
+    add_index :authors, [:five_total, :five_first, :five_last, :five_middle, :last_name], :name => 'index_authors_on_five'
+    add_index :authors, [:ten_total, :ten_first, :ten_last, :ten_middle, :last_name], :name => 'index_authors_on_ten'
+    add_index :authors, [:all_total, :all_first, :all_last, :all_middle, :last_name], :name => 'index_authors_on_all'
   end
 
   def self.down

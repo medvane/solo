@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.datetime "updated_at"
   end
 
-  add_index "articles", ["journal_id"], :name => "index_articles_on_journal_id"
+  add_index "articles", ["journal_id", "pubdate"], :name => "index_articles_on_journal_id_and_pubdate"
   add_index "articles", ["pubdate"], :name => "index_articles_on_pubdate"
 
   create_table "author_gene_years", :force => true do |t|
@@ -249,16 +249,11 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_rank",        :limit => 11, :default => 0,  :null => false
   end
 
-  add_index "authors", ["last_name", "initials"], :name => "index_authors_on_last_name_and_initials"
   add_index "authors", ["collective_name"], :name => "index_authors_on_collective_name"
-  add_index "authors", ["one_total", "one_first", "one_last", "one_middle", "last_name"], :name => "index_authors_on_one_total"
-  add_index "authors", ["five_total", "five_first", "five_last", "five_middle", "last_name"], :name => "index_authors_on_five_total"
-  add_index "authors", ["ten_total", "ten_first", "ten_last", "ten_middle", "last_name"], :name => "index_authors_on_ten_total"
-  add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name"], :name => "index_authors_on_all_total"
-  add_index "authors", ["one_rank"], :name => "index_authors_on_one_rank"
-  add_index "authors", ["five_rank"], :name => "index_authors_on_five_rank"
-  add_index "authors", ["ten_rank"], :name => "index_authors_on_ten_rank"
-  add_index "authors", ["all_rank"], :name => "index_authors_on_all_rank"
+  add_index "authors", ["one_total", "one_first", "one_last", "one_middle", "last_name"], :name => "index_authors_on_one"
+  add_index "authors", ["five_total", "five_first", "five_last", "five_middle", "last_name"], :name => "index_authors_on_five"
+  add_index "authors", ["ten_total", "ten_first", "ten_last", "ten_middle", "last_name"], :name => "index_authors_on_ten"
+  add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name"], :name => "index_authors_on_all"
 
   create_table "authorships", :force => true do |t|
     t.integer "article_id",    :limit => 11
@@ -582,10 +577,10 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.float   "ten_to_all_score"
   end
 
-  add_index "subjects", ["one_major"], :name => "index_subjects_on_one_major"
-  add_index "subjects", ["five_major"], :name => "index_subjects_on_five_major"
-  add_index "subjects", ["ten_major"], :name => "index_subjects_on_ten_major"
-  add_index "subjects", ["all_major"], :name => "index_subjects_on_all_major"
+  add_index "subjects", ["one_major", "one_total"], :name => "index_subjects_on_one_major_and_one_total"
+  add_index "subjects", ["five_major", "five_total"], :name => "index_subjects_on_five_major_and_five_total"
+  add_index "subjects", ["ten_major", "ten_total"], :name => "index_subjects_on_ten_major_and_ten_total"
+  add_index "subjects", ["all_major", "all_total"], :name => "index_subjects_on_all_major_and_all_total"
   add_index "subjects", ["one_to_five_score"], :name => "index_subjects_on_one_to_five_score"
   add_index "subjects", ["one_to_ten_score"], :name => "index_subjects_on_one_to_ten_score"
   add_index "subjects", ["one_to_all_score"], :name => "index_subjects_on_one_to_all_score"
