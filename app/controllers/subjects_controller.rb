@@ -1,8 +1,9 @@
 class SubjectsController < ApplicationController
   # GET /subjects
   def index(period = "all")
-    total_entries = BibliomeStat.last.send("#{period}_subjects")
-    @subjects = Subject.search params[:q], :page => params[:page], :order => "#{period}_major desc, #{period}_total desc", :conditions => "`#{period}_total` > 0", :total_entries => total_entries
+    total_entries = Subject.count('id', :conditions => "`#{period}_major` > 0")
+    #total_entries = BibliomeStat.last.send("#{period}_subjects")
+    @subjects = Subject.search params[:q], :page => params[:page], :order => SUBJECT_ORDER[period], :conditions => "`#{period}_major` > 0", :total_entries => total_entries
     @period = period
 
     respond_to do |format|
@@ -47,6 +48,7 @@ class SubjectsController < ApplicationController
     @period = period
     @subject = Subject.find(params[:id])
     total_entries = @subject.send("#{period}_total")
+# TODO: refactor per_page to application method
     per_page = total_entries < 8 ? total_entries : 8
     per_page = 1 if per_page == 0
     @articles = @subject.articles.paginate :page => params[:page], :order => "pubdate desc", :per_page => per_page, :total_entries => total_entries
