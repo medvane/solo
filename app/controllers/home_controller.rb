@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   caches_page :index, :one, :five, :ten, :all
 
   def index(period = "all")
-    @bibliome_stat = BibliomeStat.last
+    @bibliome_stat = BibliomeStat.last_cached
     @period = period
 
     respond_to do |format|

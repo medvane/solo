@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
   # GET /authors
   def index(period = "all")
-    total_entries = BibliomeStat.last.send("#{period}_authors")
+    total_entries = BibliomeStat.last_cached.send("#{period}_authors")
     @authors = Author.search params[:q], :page => params[:page], :order => AUTHOR_ORDER[period], :conditions => "#{period}_total > 0", :total_entries => total_entries
     @period = period
 
