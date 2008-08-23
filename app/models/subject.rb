@@ -15,6 +15,7 @@ class Subject < ActiveRecord::Base
   def self.search(query, options = {})
     options[:page]      ||= 1
     options[:per_page]  ||= 40
+    options[:order]     ||= SUBJECT_ORDER['all']
     paginate options
   end
 

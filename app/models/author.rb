@@ -20,6 +20,7 @@ class Author < ActiveRecord::Base
   def self.search(query, options = {})
     options[:page]      ||= 1
     options[:per_page]  ||= 40
+    options[:order] ||= AUTHOR_ORDER['all']
     paginate options
   end
 
