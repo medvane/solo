@@ -9,6 +9,11 @@ class Pubtype < ActiveRecord::Base
   has_many :journals, :through => :journal_pubtypes
   has_many :journal_pubtype_years
 
+  def self.total_entries(period = 'all')
+    cache_key = period + '_cached'
+    Rails.cache.fetch(cache_key) { count('id', :conditions => "`#{period}` > 0") }
+  end
+
   def self.search(query, options = {})
     options[:page]      ||= 1
     options[:per_page]  ||= 40
