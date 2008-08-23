@@ -1,8 +1,7 @@
 class SubjectsController < ApplicationController
   # GET /subjects
   def index(period = "all")
-    total_entries = Subject.count('id', :conditions => "`#{period}_major` > 0")
-    #total_entries = BibliomeStat.last.send("#{period}_subjects")
+    total_entries = Subject.total_entries(period)
     @subjects = Subject.search params[:q], :page => params[:page], :order => SUBJECT_ORDER[period], :conditions => "`#{period}_major` > 0", :total_entries => total_entries
     @period = period
 
