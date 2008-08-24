@@ -1,7 +1,7 @@
 class Author < ActiveRecord::Base
   has_many :authorships
   has_many :articles, :through => :authorships
-  has_many :author_stats
+  has_many :author_stats, :order => "`author_stats`.year"
   has_many :coauthorships, :include => :coauthor, :order => "coauthorships.all_total desc, coauthorships.all_first desc, coauthorships.all_last desc, coauthorships.all_middle desc, authors.last_name"
   has_many :coauthorship_years
   has_many :author_journals
