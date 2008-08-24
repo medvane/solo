@@ -10,6 +10,13 @@
 .yui-skin-sam .yui-navset-left .yui-nav a:focus
     {background:#bfdaff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1700px;outline:0;}
 
+#charts {
+  position: absolute;
+  top: 4em;
+  right: 0.6em;
+  text-align: right;
+}
+
 .articles_count {
 	margin-left: 0.5em;
 	padding: 0 0.5em;
