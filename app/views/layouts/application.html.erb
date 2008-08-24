@@ -32,7 +32,7 @@ document.observe('dom:loaded', function() {
 <div id="bd" class="yui-skin-sam">
   <div class="yui-navset yui-navset-left">
     <ul class="yui-nav">
-<% for menu in %w(home journals articles authors subjects genes pubtypes) -%>
+<% for menu in %w(home articles journals authors subjects genes pubtypes) -%>
 <% navclass = menu == controller.controller_name ? "selected" : "" -%>
       <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", :controller => menu, :action => @period %></li>
 <% end -%>
