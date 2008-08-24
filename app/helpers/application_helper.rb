@@ -1,9 +1,12 @@
 module ApplicationHelper
   def publication_history(data)
-    years = data.map {|d| d == data.first || d == data.last ? d.year : ""}
-    articles = data.map {|d| d.articles }
+    years = data.map {|d| d.year }.sort
+    years_range = (years.first .. years.last).to_a
+    x_axis_label = years_range.map {|y| y == years.first || y == years.last ? y : "" }
+    data_by_year = data.group_by(&:year)
+    articles = years_range.map {|y| data_by_year[y].nil? ? 0 : data_by_year[y][0].articles } 
     article_max = number_with_delimiter(articles.sort.last)
-    bar_chart(articles, years, article_max)
+    bar_chart(articles, x_axis_label, article_max)
   end
   
   def bar_chart(data, x_axis_label, y_axis_max, legend = nil)
@@ -14,7 +17,7 @@ module ApplicationHelper
       when 3: "660000,999999,000066"
       else "999999"
     end
-    Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x50", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 6, :spacing => 4}, :format => 'image_tag', :alt => "publication history")
+    Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x40", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 6, :spacing => 4}, :format => 'image_tag', :alt => "publication history")
   end
 
   def period_tab(id = nil)
