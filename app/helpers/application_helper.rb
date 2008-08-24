@@ -17,7 +17,7 @@ module ApplicationHelper
       when 3: "660000,999999,000066"
       else "999999"
     end
-    Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x40", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 6, :spacing => 4}, :format => 'image_tag', :alt => "publication history")
+    Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x44", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 6, :spacing => 4}, :format => 'image_tag', :alt => "publication history")
   end
 
   def period_tab(id = nil)

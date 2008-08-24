@@ -16,6 +16,6 @@ module AuthorsHelper
     first = data.send("#{period}_first")
     middle = data.send("#{period}_middle")
     last = data.send("#{period}_last")
-    Gchart.pie(:data => [first, middle, last], :labels => ["first author: #{first}", "middle author: #{middle}", "last author: #{last}"], :size => "250x40", :custom => 'chco=660000,999999,000066', :format => 'image_tag', :alt => "authorship positions")
+    Gchart.pie(:data => [first, middle, last], :labels => ["first author: #{first}", "middle author: #{middle}", "last author: #{last}"], :size => "250x44", :custom => 'chco=660000,999999,000066', :format => 'image_tag', :alt => "authorship positions")
   end
 end
