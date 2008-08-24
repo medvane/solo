@@ -68,4 +68,14 @@ module ApplicationHelper
   def pagination_info(collection)
     content_tag :div, page_entries_info(collection), :class => "pagination_info"
   end
+
+  def alphabetical_query_list(query)
+    li = link_to_unless query.blank?, "All"
+    list = content_tag(:li, li) + "\n"
+    "A".upto("Z") do |l|
+      li = link_to_unless l == query, l, :q => l
+      list += content_tag(:li, li) + "\n"
+    end
+    content_tag :ul, list, :class => "alphabetical"
+  end
 end
