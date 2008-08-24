@@ -1,9 +1,9 @@
 <h1>Welcome to Medvane</h1>
 
-<table>
+<table width="100%" style="font-size:197%">
   <tr>
 <% for item in %w(journals articles authors subjects genes) -%>
-    <td><%= link_to number_with_delimiter(@bibliome_stat.send("#{@period}_#{item}")) + " " + item.capitalize, eval("#{@period}_#{item}_path") %></td>
+    <th width="20%" style="text-align:center; padding: 2.14em 0;"><%= link_to number_with_delimiter(@bibliome_stat.send("#{@period}_#{item}")) + "<br>" + item.capitalize, eval("#{@period}_#{item}_path") %></th>
 <% end -%>
   </tr>
 </table>
