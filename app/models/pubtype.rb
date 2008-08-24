@@ -1,7 +1,7 @@
 class Pubtype < ActiveRecord::Base
   has_many :article_types
   has_many :articles, :through => :article_types
-  has_many :pubtype_stats
+  has_many :pubtype_stats, :order => "`pubtype_stats`.year"
   has_many :author_pubtypes
   has_many :authors, :through => :author_pubtypes
   has_many :author_pubtype_years

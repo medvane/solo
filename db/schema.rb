@@ -337,8 +337,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "total_articles", :limit => 11
   end
 
-  add_index "gene_stats", ["gene_id"], :name => "index_gene_stats_on_gene_id"
-  add_index "gene_stats", ["year"], :name => "index_gene_stats_on_year"
+  add_index "gene_stats", ["gene_id", "year"], :name => "index_gene_stats_on_gene_id_and_year"
 
   create_table "genes", :force => true do |t|
     t.string  "taxonomy"
@@ -418,8 +417,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "total_articles", :limit => 11
   end
 
-  add_index "journal_stats", ["journal_id"], :name => "index_journal_stats_on_journal_id"
-  add_index "journal_stats", ["year"], :name => "index_journal_stats_on_year"
+  add_index "journal_stats", ["journal_id", "year"], :name => "index_journal_stats_on_journal_id_and_year"
 
   create_table "journal_subject_years", :force => true do |t|
     t.integer "journal_id", :limit => 11
@@ -492,8 +490,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "total_articles", :limit => 11
   end
 
-  add_index "pubtype_stats", ["pubtype_id"], :name => "index_pubtype_stats_on_pubtype_id"
-  add_index "pubtype_stats", ["year"], :name => "index_pubtype_stats_on_year"
+  add_index "pubtype_stats", ["pubtype_id", "year"], :name => "index_pubtype_stats_on_pubtype_id_and_year"
 
   create_table "pubtypes", :force => true do |t|
     t.string  "title"
@@ -546,8 +543,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "total_articles", :limit => 11
   end
 
-  add_index "subject_stats", ["subject_id"], :name => "index_subject_stats_on_subject_id"
-  add_index "subject_stats", ["year"], :name => "index_subject_stats_on_year"
+  add_index "subject_stats", ["subject_id", "year"], :name => "index_subject_stats_on_subject_id_and_year"
 
   create_table "subjects", :force => true do |t|
     t.string  "term"

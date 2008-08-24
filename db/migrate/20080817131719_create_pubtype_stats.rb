@@ -6,8 +6,7 @@ class CreatePubtypeStats < ActiveRecord::Migration
       t.integer :articles
       t.integer :total_articles
     end
-    add_index :pubtype_stats, :pubtype_id
-    add_index :pubtype_stats, :year
+    add_index :pubtype_stats, [:pubtype_id, :year]
   end
 
   def self.down

@@ -1,6 +1,6 @@
 class Journal < ActiveRecord::Base
   has_many :articles
-  has_many :journal_stats
+  has_many :journal_stats, :order => "`journal_stats`.year"
   has_many :author_journals
   has_many :authors, :through => :author_journals
   has_many :author_journal_years
@@ -15,6 +15,8 @@ class Journal < ActiveRecord::Base
   has_many :journal_pubtype_years
 
   def self.search(query, options = {})
+    options[:conditions] ||= ["#{Journal.table_name}.title LIKE ?", "#{query}%"] unless query.blank? || query.length > 1 # for alphabetical list
+    options[:conditions] ||= ["#{Journal.table_name}.title LIKE ?", "%#{query}%"] unless query.blank? || query.length <= 1 # for full name
     options[:page]      ||= 1
     options[:per_page]  ||= 40
     paginate options

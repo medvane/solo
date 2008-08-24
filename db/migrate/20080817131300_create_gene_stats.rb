@@ -6,8 +6,7 @@ class CreateGeneStats < ActiveRecord::Migration
       t.integer :articles
       t.integer :total_articles
     end
-    add_index :gene_stats, :gene_id
-    add_index :gene_stats, :year
+    add_index :gene_stats, [:gene_id, :year]
   end
 
   def self.down

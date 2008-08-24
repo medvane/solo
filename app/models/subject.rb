@@ -1,7 +1,7 @@
 class Subject < ActiveRecord::Base
   has_many :topics
   has_many :articles, :through => :topics
-  has_many :subject_stats
+  has_many :subject_stats, :order => "`subject_stats`.year"
   has_many :author_subjects
   has_many :authors, :through => :author_subjects
   has_many :author_subject_years

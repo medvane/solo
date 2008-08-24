@@ -1,7 +1,7 @@
 class Gene < ActiveRecord::Base
   has_many :published_genes
   has_many :articles, :through => :published_genes
-  has_many :gene_stats
+  has_many :gene_stats, :order => "`gene_stats`.year"
   has_many :author_genes
   has_many :author, :through => :author_genes
   has_many :author_gene_years

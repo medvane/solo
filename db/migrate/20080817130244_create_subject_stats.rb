@@ -10,8 +10,7 @@ class CreateSubjectStats < ActiveRecord::Migration
       t.integer :total_subjects
       t.integer :total_articles
     end
-    add_index :subject_stats, :subject_id
-    add_index :subject_stats, :year
+    add_index :subject_stats, [:subject_id, :year]
   end
 
   def self.down
