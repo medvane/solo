@@ -1,3 +1,6 @@
 <h1>Gene: <%= @gene.to_s %></h1>
-
+<div id="charts">
+<%= publication_history(@gene.gene_stats) %>
+</div>
+<h2>Articles</h2>
 <%= paginated_list @articles, @period %>

@@ -1,3 +1,6 @@
 <h1>Subject: <%= @subject.to_s %></h1>
-
+<div id="charts">
+<%= subject_publication_history(@subject.subject_stats) %>
+</div>
+<h2>Articles</h2>
 <%= paginated_list @articles, @period %>
