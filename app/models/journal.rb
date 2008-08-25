@@ -1,17 +1,13 @@
 class Journal < ActiveRecord::Base
   has_many :articles
   has_many :journal_stats, :order => "`journal_stats`.year"
-  has_many :journal_authors, :class_name => "AuthorJournal"
-  has_many :authors, :through => :journal_authors
+  has_many :authors, :class_name => "AuthorJournal", :include => :author
   has_many :author_journal_years
-  has_many :journal_genes
-  has_many :genes, :through => :journal_genes
+  has_many :genes, :class_name => "JournalGene", :include => :gene
   has_many :journal_gene_years
-  has_many :journal_subjects
-  has_many :subjects, :through => :journal_subjects
+  has_many :subjects, :class_name => "JournalSubject", :include => :subject
   has_many :journal_subject_years
-  has_many :journal_pubtypes
-  has_many :pubtypes, :through => :journal_pubtypes
+  has_many :pubtypes, :class_name => "JournalPubtype", :include => :pubtype
   has_many :journal_pubtype_years
 
   def self.search(query, options = {})

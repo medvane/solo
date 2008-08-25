@@ -2,19 +2,15 @@ class Author < ActiveRecord::Base
   has_many :authorships
   has_many :articles, :through => :authorships
   has_many :author_stats, :order => "`author_stats`.year"
-  has_many :coauthors, :class_name => "Coauthorship", :include => :coauthor, :order => "coauthorships.all_total desc, coauthorships.all_first desc, coauthorships.all_last desc, coauthorships.all_middle desc, authors.last_name"
+  has_many :coauthors, :class_name => "Coauthorship", :include => :coauthor
   has_many :coauthorship_years
-  has_many :author_journals
-  has_many :journals, :through => :author_journals
+  has_many :journals, :class_name => "AuthorJournal", :include => :journal
   has_many :author_journal_years
-  has_many :author_subjects
-  has_many :subjects, :through => :author_subjects
+  has_many :subjects, :class_name => "AuthorSubject", :include => :subject
   has_many :author_subject_years
-  has_many :author_genes
-  has_many :genes, :through => :author_genes
+  has_many :genes, :class_name => "AuthorGene", :include => :gene
   has_many :author_gene_years
-  has_many :author_pubtypes
-  has_many :pubtypes, :through => :author_pubtypes
+  has_many :pubtypes, :class_name => "AuthorPubtype", :include => :pubtype
   has_many :author_pubtype_years
 
   def self.search(query, options = {})

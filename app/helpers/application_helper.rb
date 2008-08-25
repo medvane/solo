@@ -1,4 +1,22 @@
 module ApplicationHelper
+  
+  def neighbors(item, period = 'all')
+    content = []
+    for neighbor in %w(journals authors coauthors subjects genes pubtypes)
+      if item.respond_to?(neighbor)
+        object = item.send(neighbor).period(period, 5)
+        objects = []
+        object.each do |o|
+          oo = o.send(neighbor.singularize)
+          name = oo.to_s
+          objects.push(content_tag(:li, link_to(name, url_for(oo) + "/#{period}")))
+        end
+        content.push(content_tag(:div, "<h2>#{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n")))) if objects.size > 0
+      end
+    end
+    content_tag :div, content.join("\n"), :id => "neighbors"
+  end
+  
   def publication_history(data)
     years = data.map {|d| d.year }.sort
     years_range = (years.first .. years.last).to_a

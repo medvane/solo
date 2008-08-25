@@ -2,14 +2,11 @@ class Subject < ActiveRecord::Base
   has_many :topics
   has_many :articles, :through => :topics
   has_many :subject_stats, :order => "`subject_stats`.year"
-  has_many :subject_authors, :class_name => "AuthorSubject"
-  has_many :authors, :through => :subject_authors
+  has_many :authors, :class_name => "AuthorSubject", :include => :author
   has_many :author_subject_years
-  has_many :subject_journals, :class_name => "JournalSubject"
-  has_many :journals, :through => :subject_journals
+  has_many :journals, :class_name => "JournalSubject", :include => :journal
   has_many :journal_subject_years
-  has_many :subject_genes
-  has_many :genes, :through => :subject_genes
+  has_many :genes, :class_name => "SubjectGene", :include => :gene 
   has_many :subject_gene_years
 
   def self.total_entries(period = 'all')
