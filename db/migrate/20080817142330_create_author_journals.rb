@@ -20,12 +20,14 @@ class CreateAuthorJournals < ActiveRecord::Migration
       t.integer :all_middle
       t.integer :all_total
     end
-    add_index :author_journals, :author_id
-    add_index :author_journals, :journal_id
-    add_index :author_journals, :one_total
-    add_index :author_journals, :five_total
-    add_index :author_journals, :ten_total
-    add_index :author_journals, :all_total
+    add_index :author_journals, [:author_id, :one_total, :one_first, :one_last, :one_middle], :name => "index_author_journals_on_author_id_and_one"
+    add_index :author_journals, [:author_id, :five_total, :five_first, :five_last, :five_middle], :name => "index_author_journals_on_author_id_and_five"
+    add_index :author_journals, [:author_id, :ten_total, :ten_first, :ten_last, :ten_middle], :name => "index_author_journals_on_author_id_and_ten"
+    add_index :author_journals, [:author_id, :all_total, :all_first, :all_last, :all_middle], :name => "index_author_journals_on_author_id_and_all"
+    add_index :author_journals, [:journal_id, :one_total, :one_first, :one_last, :one_middle], :name => "index_author_journals_on_journal_id_and_one"
+    add_index :author_journals, [:journal_id, :five_total, :five_first, :five_last, :five_middle], :name => "index_author_journals_on_journal_id_and_five"
+    add_index :author_journals, [:journal_id, :ten_total, :ten_first, :ten_last, :ten_middle], :name => "index_author_journals_on_journal_id_and_ten"
+    add_index :author_journals, [:journal_id, :all_total, :all_first, :all_last, :all_middle], :name => "index_author_journals_on_journal_id_and_all"
   end
 
   def self.down

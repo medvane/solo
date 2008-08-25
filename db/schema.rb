@@ -120,12 +120,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_total",   :limit => 11
   end
 
-  add_index "author_journals", ["author_id"], :name => "index_author_journals_on_author_id"
-  add_index "author_journals", ["journal_id"], :name => "index_author_journals_on_journal_id"
-  add_index "author_journals", ["one_total"], :name => "index_author_journals_on_one_total"
-  add_index "author_journals", ["five_total"], :name => "index_author_journals_on_five_total"
-  add_index "author_journals", ["ten_total"], :name => "index_author_journals_on_ten_total"
-  add_index "author_journals", ["all_total"], :name => "index_author_journals_on_all_total"
+  add_index "author_journals", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_journals_on_author_id_and_one"
+  add_index "author_journals", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_journals_on_author_id_and_five"
+  add_index "author_journals", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_journals_on_author_id_and_ten"
+  add_index "author_journals", ["author_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_journals_on_author_id_and_all"
+  add_index "author_journals", ["journal_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_journals_on_journal_id_and_one"
+  add_index "author_journals", ["journal_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_journals_on_journal_id_and_five"
+  add_index "author_journals", ["journal_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_journals_on_journal_id_and_ten"
+  add_index "author_journals", ["journal_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_journals_on_journal_id_and_all"
 
   create_table "author_pubtype_years", :force => true do |t|
     t.integer "author_id",  :limit => 11
