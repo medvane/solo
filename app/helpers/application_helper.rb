@@ -11,10 +11,10 @@ module ApplicationHelper
           name = oo.to_s
           objects.push(content_tag(:li, link_to(name, url_for(oo) + "/#{period}")))
         end
-        content.push(content_tag(:div, "<h2>#{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n")))) if objects.size > 0
+        content.push("<h2>#{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n"))) if objects.size > 0
       end
     end
-    content_tag :div, content.join("\n"), :id => "neighbors"
+    content_tag :div, columns(content), :id => "neighbors"
   end
   
   def publication_history(data)
@@ -99,5 +99,27 @@ module ApplicationHelper
       list += content_tag(:li, li) + "\n"
     end
     content_tag :ul, list, :class => "alphabetical"
+  end
+  
+  def columns(data)
+    if data.size == 2 or data.size == 4
+      bucket = {}
+      bucket["left"] = data.select {|d| data.index(d) % 2 == 0}
+      bucket["right"] = data.select {|d| data.index(d) % 2 == 1}
+      column = []
+      column.push(content_tag(:div, bucket["left"].join("\n"), :class => "yui-u first"))
+      column.push(content_tag(:div, bucket["right"].join("\n"), :class => "yui-u"))
+      content_tag(:div, column.join("\n"), :class => "yui-g")    
+    elsif data.size == 3 or data.size == 5
+      bucket = {}
+      bucket["left"] = data.select {|d| data.index(d) % 3 == 0}
+      bucket["middle"] = data.select {|d| data.index(d) % 3 == 1}
+      bucket["right"] = data.select {|d| data.index(d) % 3 == 2}
+      column = []
+      column.push(content_tag(:div, bucket["left"].join("\n"), :class => "yui-u first"))
+      column.push(content_tag(:div, bucket["middle"].join("\n"), :class => "yui-u"))
+      column.push(content_tag(:div, bucket["right"].join("\n"), :class => "yui-u"))
+      content_tag(:div, column.join("\n"), :class => "yui-gb")
+    end
   end
 end
