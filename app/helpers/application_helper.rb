@@ -56,6 +56,7 @@ module ApplicationHelper
   end
 
   def paginated_list(collection, period = "all")
+    return content_tag(:div, "No entries found.", :class => "message") if collection.size == 0
     list = []
     list.push(content_tag(:div, pagination_info(collection), :class => "yui-g"))
     half = (collection.size + collection.size % 2) / 2
