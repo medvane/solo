@@ -49,7 +49,8 @@ class PubtypesController < ApplicationController
     total_entries = @pubtype.send(period)
     per_page = total_entries < 8 ? total_entries : 8
     per_page = 1 if per_page == 0
-    @articles = @pubtype.articles.paginate :page => params[:page], :order => "pubdate desc", :per_page => per_page, :total_entries => total_entries
+    # TODO: add new primary key to articles after sorting by pubdate, so that pubdate is not used in order by
+    @articles = @pubtype.articles.paginate :page => params[:page], :per_page => per_page, :total_entries => total_entries
     respond_to do |format|
       format.html  { render :action => "show"}
     end
