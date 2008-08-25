@@ -1,8 +1,8 @@
 class Journal < ActiveRecord::Base
   has_many :articles
   has_many :journal_stats, :order => "`journal_stats`.year"
-  has_many :author_journals
-  has_many :authors, :through => :author_journals
+  has_many :journal_authors, :class_name => "AuthorJournal"
+  has_many :authors, :through => :journal_authors
   has_many :author_journal_years
   has_many :journal_genes
   has_many :genes, :through => :journal_genes

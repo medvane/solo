@@ -2,11 +2,11 @@ class Pubtype < ActiveRecord::Base
   has_many :article_types
   has_many :articles, :through => :article_types
   has_many :pubtype_stats, :order => "`pubtype_stats`.year"
-  has_many :author_pubtypes
-  has_many :authors, :through => :author_pubtypes
+  has_many :pubtype_authors, :class_name => "AuthorPubtype"
+  has_many :authors, :through => :pubtype_authors
   has_many :author_pubtype_years
-  has_many :journal_pubtypes
-  has_many :journals, :through => :journal_pubtypes
+  has_many :pubtype_journals, :class_name => "JournalPubtype"
+  has_many :journals, :through => :pubtype_journals
   has_many :journal_pubtype_years
 
   def self.total_entries(period = 'all')
