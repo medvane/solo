@@ -8,12 +8,14 @@ class CreateJournalPubtypes < ActiveRecord::Migration
       t.integer :ten
       t.integer :all
     end
-    add_index :journal_pubtypes, :journal_id
-    add_index :journal_pubtypes, :pubtype_id
-    add_index :journal_pubtypes, :one
-    add_index :journal_pubtypes, :five
-    add_index :journal_pubtypes, :ten
-    add_index :journal_pubtypes, :all
+    add_index :journal_pubtypes, [:journal_id, :one]
+    add_index :journal_pubtypes, [:journal_id, :five]
+    add_index :journal_pubtypes, [:journal_id, :ten]
+    add_index :journal_pubtypes, [:journal_id, :all]
+    add_index :journal_pubtypes, [:pubtype_id, :one]
+    add_index :journal_pubtypes, [:pubtype_id, :five]
+    add_index :journal_pubtypes, [:pubtype_id, :ten]
+    add_index :journal_pubtypes, [:pubtype_id, :all]
   end
 
   def self.down

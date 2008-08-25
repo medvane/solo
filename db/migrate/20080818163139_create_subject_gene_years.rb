@@ -6,8 +6,8 @@ class CreateSubjectGeneYears < ActiveRecord::Migration
       t.integer :year
       t.integer :articles
     end
-    add_index :subject_gene_years, :subject_id
-    add_index :subject_gene_years, :gene_id
+    add_index :subject_gene_years, [:subject_id, :year]
+    add_index :subject_gene_years, [:gene_id, :year]
   end
 
   def self.down

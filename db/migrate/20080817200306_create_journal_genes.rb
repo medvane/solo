@@ -8,12 +8,14 @@ class CreateJournalGenes < ActiveRecord::Migration
       t.integer :ten
       t.integer :all
     end
-    add_index :journal_genes, :journal_id
-    add_index :journal_genes, :gene_id
-    add_index :journal_genes, :one
-    add_index :journal_genes, :five
-    add_index :journal_genes, :ten
-    add_index :journal_genes, :all
+    add_index :journal_genes, [:journal_id, :one]
+    add_index :journal_genes, [:journal_id, :five]
+    add_index :journal_genes, [:journal_id, :ten]
+    add_index :journal_genes, [:journal_id, :all]
+    add_index :journal_genes, [:gene_id, :one]
+    add_index :journal_genes, [:gene_id, :five]
+    add_index :journal_genes, [:gene_id, :ten]
+    add_index :journal_genes, [:gene_id, :all]
   end
 
   def self.down

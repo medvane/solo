@@ -9,8 +9,8 @@ class CreateAuthorPubtypeYears < ActiveRecord::Migration
       t.integer :middle
       t.integer :total
     end
-    add_index :author_pubtype_years, :author_id
-    add_index :author_pubtype_years, :pubtype_id
+    add_index :author_pubtype_years, [:author_id, :year]
+    add_index :author_pubtype_years, [:pubtype_id, :year]
   end
 
   def self.down

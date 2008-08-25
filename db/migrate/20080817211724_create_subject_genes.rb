@@ -8,12 +8,14 @@ class CreateSubjectGenes < ActiveRecord::Migration
       t.integer :ten
       t.integer :all
     end
-    add_index :subject_genes, :subject_id
-    add_index :subject_genes, :gene_id
-    add_index :subject_genes, :one
-    add_index :subject_genes, :five
-    add_index :subject_genes, :ten
-    add_index :subject_genes, :all
+    add_index :subject_genes, [:subject_id, :one]
+    add_index :subject_genes, [:subject_id, :five]
+    add_index :subject_genes, [:subject_id, :ten]
+    add_index :subject_genes, [:subject_id, :all]
+    add_index :subject_genes, [:gene_id, :one]
+    add_index :subject_genes, [:gene_id, :five]
+    add_index :subject_genes, [:gene_id, :ten]
+    add_index :subject_genes, [:gene_id, :all]
   end
 
   def self.down

@@ -6,8 +6,8 @@ class CreateJournalGeneYears < ActiveRecord::Migration
       t.integer :year
       t.integer :articles
     end
-    add_index :journal_gene_years, :journal_id
-    add_index :journal_gene_years, :gene_id
+    add_index :journal_gene_years, [:journal_id, :year]
+    add_index :journal_gene_years, [:gene_id, :year]
   end
 
   def self.down

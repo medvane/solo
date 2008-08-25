@@ -20,12 +20,10 @@ class CreateCoauthorships < ActiveRecord::Migration
       t.integer :all_middle
       t.integer :all_total
     end
-    add_index :coauthorships, :author_id
-    add_index :coauthorships, :coauthor_id
-    add_index :coauthorships, :one_total
-    add_index :coauthorships, :five_total
-    add_index :coauthorships, :ten_total
-    add_index :coauthorships, :all_total
+    add_index :coauthorships, [:author_id, :one_total, :one_first, :one_last, :one_middle], :name => "index_coauthorships_on_author_id_and_one"
+    add_index :coauthorships, [:author_id, :five_total, :five_first, :five_last, :five_middle], :name => "index_coauthorships_on_author_id_and_five"
+    add_index :coauthorships, [:author_id, :ten_total, :ten_first, :ten_last, :ten_middle], :name => "index_coauthorships_on_author_id_and_ten"
+    add_index :coauthorships, [:author_id, :all_total, :all_first, :all_last, :all_middle], :name => "index_coauthorships_on_author_id_and_all"
   end
 
   def self.down

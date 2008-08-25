@@ -8,8 +8,8 @@ class CreateJournalSubjectYears < ActiveRecord::Migration
       t.integer :minor
       t.integer :total
     end
-    add_index :journal_subject_years, :journal_id
-    add_index :journal_subject_years, :subject_id
+    add_index :journal_subject_years, [:journal_id, :year]
+    add_index :journal_subject_years, [:subject_id, :year]
   end
 
   def self.down

@@ -6,8 +6,8 @@ class CreateJournalPubtypeYears < ActiveRecord::Migration
       t.integer :year
       t.integer :articles
     end
-    add_index :journal_pubtype_years, :journal_id
-    add_index :journal_pubtype_years, :pubtype_id
+    add_index :journal_pubtype_years, [:journal_id, :year]
+    add_index :journal_pubtype_years, [:pubtype_id, :year]
   end
 
   def self.down

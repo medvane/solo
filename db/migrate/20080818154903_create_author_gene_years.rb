@@ -9,8 +9,8 @@ class CreateAuthorGeneYears < ActiveRecord::Migration
       t.integer :middle
       t.integer :total
     end
-    add_index :author_gene_years, :author_id
-    add_index :author_gene_years, :gene_id
+    add_index :author_gene_years, [:author_id, :year]
+    add_index :author_gene_years, [:gene_id, :year]
   end
 
   def self.down

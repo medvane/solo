@@ -9,7 +9,7 @@ class CreateCoauthorshipYears < ActiveRecord::Migration
       t.integer :middle
       t.integer :total
     end
-    add_index :coauthorship_years, :author_id
+    add_index :coauthorship_years, [:author_id, :year]
   end
 
   def self.down

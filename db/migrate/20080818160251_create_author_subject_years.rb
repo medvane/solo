@@ -9,8 +9,8 @@ class CreateAuthorSubjectYears < ActiveRecord::Migration
       t.integer :middle
       t.integer :total
     end
-    add_index :author_subject_years, :author_id
-    add_index :author_subject_years, :subject_id
+    add_index :author_subject_years, [:author_id, :year]
+    add_index :author_subject_years, [:subject_id, :year]
   end
 
   def self.down
