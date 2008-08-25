@@ -2,5 +2,6 @@
 <div id="charts">
 <%= subject_publication_history(@subject.subject_stats) %>
 </div>
+<%= neighbors(@subject, @period) %>
 <h2>Articles</h2>
 <%= paginated_list @articles, @period %>

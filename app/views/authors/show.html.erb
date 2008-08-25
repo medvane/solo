@@ -3,5 +3,6 @@
 <%= authorship_position(@author, @period) %>
 <%= author_publication_history(@author.author_stats) %>
 </div>
+<%= neighbors(@author, @period) %>
 <h2>Articles</h2>
 <%= paginated_list @articles, @period %>
