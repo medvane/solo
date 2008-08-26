@@ -1,1 +1,48 @@
-<h1>Article: <%= @article.to_s %></h1>
+<h1><%= @article.to_s %></h1>
+<div class="yui-gc">
+  <div class="yui-u first">
+
+<div class="citation"><%= link_to @article.journal.to_s, journal_path(@article.journal) + "/#{@period}" %>. <%= @article.pubdate.year %></a></div>
+
+<div class="affiliation"><%= @article.affiliation %></div>
+<div class="abstract"><%= @article.abstract %></div>
+
+<%= link_to "See PubMed record in a new window", "http://www.ncbi.nlm.nih.gov/sites/entrez/" + @article.id.to_s, :target => "_blank" %>
+  </div><!-- .yui-u .first -->
+  <div class="yui-u">
+<% if @article.authors.size > 0 -%>
+<h2>Authors</h2>
+<ul class="authors">
+<% for author in @article.authors -%>
+  <li><%= link_to author.to_s, author_path(author) + "/#{@period}" %></li>
+<% end -%>
+</ul>
+<% end -%>
+<% if @article.subjects.size > 0 -%>
+<h2>Subjects</h2>
+<ul class="subjects">
+<% for subject in @article.subjects.select {|s| s.major_topic == true } -%>
+  <li><%= link_to subject.subject.to_s, subject_path(subject.subject) + "/#{@period}" %></li>
+<% end -%>
+</ul>
+<% end -%>
+<% if @article.genes.size > 0 -%>
+<h2>Genes</h2>
+<ul class="genes">
+<% for gene in @article.genes -%>
+  <li><%= link_to gene.to_s, gene_path(gene) + "/#{@period}" %></li>
+<% end -%>
+</ul>
+<% end -%>
+<% if @article.pubtypes.size > 0 -%>
+<h2>Pubtypes</h2>
+<ul class="pubtypes">
+<% for pubtype in @article.pubtypes -%>
+  <li><%= link_to pubtype.to_s, pubtype_path(pubtype) + "/#{@period}" %></li>
+<% end -%>
+</ul>
+<% end -%>
+
+  </div><!-- .yui-u -->
+</div><!-- .yui-ge -->
+

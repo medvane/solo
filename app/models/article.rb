@@ -6,8 +6,8 @@ class Article < ActiveRecord::Base
   has_many :pubtypes, :through => :article_types
   has_many :published_genes
   has_many :genes, :through => :published_genes
-  has_many :topics
-  has_many :subjects, :through => :topics
+  has_many :subjects, :class_name => 'Topic', :include => :subject
+  #has_many :subjects, :through => :topics
   
   def self.search(query, options = {})
     options[:page]      ||= 1
