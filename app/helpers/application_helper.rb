@@ -46,13 +46,13 @@ module ApplicationHelper
     Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x44", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 4, :spacing => 2}, :format => 'image_tag', :alt => "publication history")
   end
 
-  def period_tab(id = nil)
+  def period_tab(id = nil, period = 'all')
     periods = [ ["all", "all time"], ["one", "last 1 year"], ["five", "last 5 years"], ["ten", "last 10 years"] ]
     li = []
     periods.each do |p|
       period_key = p[0]
       period_val = p[1]
-      li_class = controller.action_name == period_key ? "selected" : ""
+      li_class = period == period_key ? "selected" : ""
       link_text = content_tag(:em, period_val)
       link = case id
         when nil: eval(period_key + "_" + controller.controller_name + "_path")
