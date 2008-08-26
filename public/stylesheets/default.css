@@ -19,11 +19,15 @@
 
 .articles_count {
 	margin-left: 0.5em;
-	padding: 0 0.5em;
-	background-color: #bbb;
+	padding: 0.1em 0.5em 0 0.5em;
+	background-color: #aaa;
 	color: #fff;
 	font-size: 85%;
 	white-space: nowrap;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
 }
 /* pagination */
 
