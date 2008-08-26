@@ -9,7 +9,14 @@ module ApplicationHelper
         object.each do |o|
           oo = o.send(neighbor.singularize)
           name = oo.to_s
-          objects.push(content_tag(:li, link_to(name, url_for(oo) + "/#{period}")))
+          articles = 0
+          if o.respond_to?("#{period}_total")
+            articles = o.send("#{period}_total")
+          elsif o.respond_to?(period)
+            articles = o.send(period)
+          end
+          articles_count = content_tag(:span, pluralize(articles, "article"), :class => "articles_count")
+          objects.push(content_tag(:li, link_to(name + articles_count, url_for(oo) + "/#{period}")))
         end
         content.push("<h2>#{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n"))) if objects.size > 0
       end
