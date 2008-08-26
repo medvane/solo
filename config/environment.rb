@@ -82,3 +82,5 @@ SUBJECT_ORDER = {
   "ten" => "`subjects`.ten_major desc, `subjects`.ten_total desc",
   "all" => "`subjects`.all_major desc, `subjects`.all_total desc" 
 }
+
+ARTICLES_IN_MEMBER_PAGE = 6
