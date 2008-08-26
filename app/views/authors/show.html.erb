@@ -1,4 +1,4 @@
-<h1>Author: <%= @author.to_s %></h1>
+<h1><%= @author.to_s %></h1>
 <div id="charts">
 <%= authorship_position(@author, @period) %>
 <%= author_publication_history(@author.author_stats) %>
