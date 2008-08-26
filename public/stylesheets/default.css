@@ -10,6 +10,15 @@
 .yui-skin-sam .yui-navset-left .yui-nav a:focus
     {background:#bfdaff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1700px;outline:0;}
 
+a, a:visited, a:active {
+  color: #00a;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 #charts {
   position: absolute;
   top: 4em;
@@ -18,12 +27,13 @@
 }
 
 .articles_count {
-	margin-left: 0.5em;
-	padding: 0.1em 0.5em 0 0.5em;
+	margin-left: 0.25em;
+	padding: 0 0.5em;
 	background-color: #aaa;
 	color: #fff;
 	font-size: 85%;
 	white-space: nowrap;
+  text-decoration: none;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -o-border-radius: 2px;
