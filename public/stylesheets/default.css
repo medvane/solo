@@ -85,9 +85,9 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 .yui-navset-top .yui-content {
   background:#fff;
   padding: 0.5em 1em 1em 1em;
-  min-height: 36em;
+  min-height: 26em;
   height: auto !important;
-  height:36em;
+  height: 26em;
   clear:both;
 }
 /* yui tabview customization end */

@@ -14,7 +14,7 @@ class Journal < ActiveRecord::Base
     options[:conditions] ||= ["#{Journal.table_name}.title LIKE ?", "#{query}%"] unless query.blank? || query.length > 1 # for alphabetical list
     options[:conditions] ||= ["#{Journal.table_name}.title LIKE ?", "%#{query}%"] unless query.blank? || query.length <= 1 # for full name
     options[:page]      ||= 1
-    options[:per_page]  ||= 40
+    options[:per_page]  ||= 24
     paginate options
   end
 
