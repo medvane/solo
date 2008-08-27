@@ -60,7 +60,7 @@ module ApplicationHelper
       end
       li.push(content_tag(:li, link_to(link_text, link), :class => li_class))
     end
-    content_tag(:ul, li.join("\n"), :class => "yui-nav")
+    content_tag(:ul, li.join("\n"), :class => "yui-nav <%= controller.controller_name %>")
   end
 
   def paginated_list(collection, period = "all")

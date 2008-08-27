@@ -1,17 +1,15 @@
-.yui-skin-sam .yui-navset .yui-content{background:#2647a0;padding:0.5em}
-.yui-skin-sam .yui-navset-top .yui-content{background:#fff; min-height: 36em; height: auto !important; height:36em}
-.yui-skin-sam .yui-navset-left .yui-content{border:1px solid #243356}
-.yui-skin-sam .yui-navset .yui-nav{border:solid #fff;border-width:0 0 5px;Xposition:relative;zoom:1;}
-.yui-skin-sam .yui-navset .yui-navset-top .yui-content{border:1px solid #243356;padding:0.25em 0.5em;}
-.yui-skin-sam .yui-navset-top .yui-nav .selected a,.yui-skin-sam .yui-navset-top .yui-nav .selected a:focus,.yui-skin-sam .yui-navset-top .yui-nav .selected a:hover{background:#fff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1400px;color:#fff;}
-.yui-skin-sam .yui-navset-left .yui-nav a{background:#d8d8d8 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -5px;}
-.yui-skin-sam .yui-navset-left .yui-nav .selected a,.yui-skin-sam .yui-navset-left .yui-nav .selected a:focus,.yui-skin-sam .yui-navset-left .yui-nav .selected a:hover{background:#2647a0 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1400px;color:#fff;}
-.yui-skin-sam .yui-navset-left .yui-nav a:hover,
-.yui-skin-sam .yui-navset-left .yui-nav a:focus
-    {background:#bfdaff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1700px;outline:0;}
+/*
+gray  : #444
+red   : #702
+orange: #c32
+yellow: #d92
+green : #154
+blue  : #136
+purple: #505 
+*/
 
 a, a:visited, a:active {
-  color: #00a;
+  color: #009;
   text-decoration: none;
 }
 
@@ -19,6 +17,74 @@ a:hover {
   text-decoration: underline;
 }
 
+.home     { background-color: #444; }
+.articles { background-color: #702; }
+.journals { background-color: #c32; }
+.authors  { background-color: #d92; }
+.subjects { background-color: #154; }
+.genes    { background-color: #136; }
+.pubtypes { background-color: #505; }
+
+.yui-navset-left .yui-nav a,
+.yui-navset-left .yui-nav a:visited {
+  color: #fff;
+}
+.yui-navset-left .yui-nav a em {
+  border-right:1px solid #fff;
+  padding:0.5em 0.75em;
+}
+.yui-navset-left .yui-nav .selected a em{
+  padding:0.75em 0.75em;
+  border-right-width:0;
+}
+.yui-navset-left .yui-content {
+  padding: 1em;
+}
+
+.yui-navset .yui-navset-top .yui-nav{
+  Xposition:relative;
+  zoom:1;
+}
+.yui-navset-top .yui-nav li{
+  float:left;
+}
+.yui-navset .yui-navset-top .yui-nav a{
+  background-color: #ddd;
+  color: #333;
+  float: left;
+}
+.yui-navset .yui-navset-top .yui-nav a:visited {
+  color: #333;
+}
+.yui-navset .yui-navset-top .yui-nav a em{
+  border: 0;
+  margin-bottom: 1px;
+  padding:0.5em 1em;
+}
+.yui-navset-top .yui-nav .selected a em{
+  margin: 0;
+  border-top: 2px solid #fff;
+  background-color: #fff;
+}
+.yui-navset-top .yui-content {
+  background:#fff;
+  padding: 0.5em 1em 1em 1em;
+  min-height: 36em;
+  height: auto !important;
+  height:36em;
+  clear:both;
+}
+
+#summary th{
+  border: 0;
+  font-size:197%;
+  text-align:center;
+  padding: 2.14em 0;
+  color: #fff;
+}
+  #summary a {
+    color: #fff;
+  }
 #charts {
   position: absolute;
   top: 4em;
@@ -39,8 +105,8 @@ a:hover {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-/* pagination */
 
+/* pagination */
 .pagination {
   background: white;
   /* self-clearing method: */ }
@@ -54,16 +120,14 @@ a:hover {
     border: 1px solid #DDD; }
   .pagination span.current {
     font-weight: bold;
-    background:#2647a0 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1400px; /* selected tab background */
     color: white;
+    background-color: #555;
     border: 1px solid #243356; }
   .pagination a {
     text-decoration: none;
-    background:#d8d8d8 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x; /* tab background */
     color: #000;
     border: 1px solid #a3a3a3; }
     .pagination a:hover, .pagination a:focus {
-      background:#bfdaff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1300px;
       color: #003;
       border-color: #003; }
   .pagination .page_info {
@@ -87,8 +151,6 @@ a:hover {
     height: 1%; }
   *:first-child+html .pagination {
     overflow: hidden; }
-    
-
 
 ul.alphabetical {
 	margin-left: 0;

@@ -29,15 +29,15 @@ document.observe('dom:loaded', function() {
 <body>
 <div id="doc4" class="yui-t7">
 <div id="hd"><h1>Medvane2</h1></div><!-- #hd -->
-<div id="bd" class="yui-skin-sam">
+<div id="bd">
   <div class="yui-navset yui-navset-left">
     <ul class="yui-nav">
 <% for menu in %w(home articles journals authors subjects genes pubtypes) -%>
-<% navclass = menu == controller.controller_name ? "selected" : "" -%>
+<% navclass = menu == controller.controller_name ? "#{menu} selected" : menu -%>
       <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", :controller => menu, :action => @period %></li>
 <% end -%>
     </ul>
-    <div class="yui-content">
+    <div class="yui-content <%= controller.controller_name %>">
       <div id="periodnav" class="yui-navset yui-navset-top">
         <%= period_tab(params[:id], @period) %>
         <div class="yui-content">
