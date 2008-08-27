@@ -1,13 +1,11 @@
-<h1><%= @article.to_s %></h1>
+<h1><%= @article.to_s %> <%= citation @article, @period %></h1>
 <div class="yui-gc">
   <div class="yui-u first">
-
-<div class="citation"><%= link_to @article.journal.to_s, journal_path(@article.journal) + "/#{@period}" %>. <%= @article.pubdate.year %></a></div>
 
 <div class="affiliation"><%= @article.affiliation %></div>
 <div class="abstract"><%= @article.abstract %></div>
 
-<%= link_to "See PubMed record in a new window", "http://www.ncbi.nlm.nih.gov/sites/entrez/" + @article.id.to_s, :target => "_blank" %>
+<%= content_tag(:span, link_to("See PubMed record in a new window", "http://www.ncbi.nlm.nih.gov/sites/entrez/" + @article.id.to_s, :target => "_blank"), :class => "citation") %>
   </div><!-- .yui-u .first -->
   <div class="yui-u">
 <% if @article.authors.size > 0 -%>

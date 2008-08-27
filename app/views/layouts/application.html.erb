@@ -9,22 +9,6 @@
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/tabview/assets/skins/sam/tabview.css">
 <%= stylesheet_link_tag "default", "prototip" %>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
-<%= javascript_include_tag "prototip" %>
-<script type="text/javascript" language="javascript">
-document.observe('dom:loaded', function() {
-  $$('a.tooltip').each(function(element) {
-    new Tip(element, element.rel, {
-      title: element.title,
-      style: 'protogrey',
-      stem: 'bottomLeft',
-      hook: {tip: 'bottomLeft', mouse: true },
-      radius: 6,
-      width: 'auto',
-      viewport: true,
-    });
-  });
-});
-</script>
 </head>
 <body>
 <div id="doc4" class="yui-t7">
@@ -34,7 +18,7 @@ document.observe('dom:loaded', function() {
     <ul class="yui-nav">
 <% for menu in %w(home articles journals authors subjects genes pubtypes) -%>
 <% navclass = menu == controller.controller_name ? "#{menu} selected" : menu -%>
-      <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", :controller => menu, :action => @period %></li>
+      <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", {:controller => menu, :action => @period} %></li>
 <% end -%>
     </ul>
     <div class="yui-content <%= controller.controller_name %>">
