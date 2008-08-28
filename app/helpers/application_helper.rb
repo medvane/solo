@@ -36,14 +36,14 @@ module ApplicationHelper
   
   def bar_chart(data, x_axis_label, y_axis_max, legend = nil)
     x_axis_label[0] = "" unless x_axis_label.size == 1 || x_axis_label.size > 5
-    width = x_axis_label.size * 12 + 50
+    width = x_axis_label.size * 10 + 50
     width += 70 unless legend.nil?
     colors = case data.size
       when 2: "000066,999999"
       when 3: "660000,999999,000066"
       else "999999"
     end
-    Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x60", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 8, :spacing => 4}, :format => 'image_tag', :alt => "publication history")
+    Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x60", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 7, :spacing => 3}, :format => 'image_tag', :alt => "publication history")
   end
 
   def period_tab(id = nil, period = 'all')
