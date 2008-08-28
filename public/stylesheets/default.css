@@ -93,14 +93,16 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 /* yui tabview customization end */
 
 #summary th{
-  border: 0;
+  border: 1px solid #fff;
   font-size:197%;
   text-align:center;
-  padding: 2.14em 0;
   color: #fff;
+  padding: 0;
 }
   #summary a {
     color: #fff;
+    display: block;
+    padding: 2.1em 0;
   }
 
 #charts {
