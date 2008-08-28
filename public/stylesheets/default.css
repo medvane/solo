@@ -146,6 +146,10 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
   .citation a {
     color: #fff;
   }
+  .citation a:hover {
+    color: #333;
+    text-decoration:none;
+  }
   .citation em {
     font-style: italic;
 	}
