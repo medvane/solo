@@ -3,7 +3,8 @@ class SubjectsController < ApplicationController
   def index(period = "all")
     @q = params[:q]
     total_entries = Subject.total_entries(period) if @q.blank?
-    @subjects = Subject.search @q, :page => params[:page], :order => SUBJECT_ORDER[period], :conditions => "`#{period}_major` > 0", :total_entries => total_entries
+    order = @q.blank? ? SUBJECT_ORDER[period] : "term"
+    @subjects = Subject.search @q, :page => params[:page], :order => order, :conditions => "`#{period}_major` > 0", :total_entries => total_entries
     @period = period
 
     respond_to do |format|

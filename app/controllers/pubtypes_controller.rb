@@ -3,7 +3,8 @@ class PubtypesController < ApplicationController
   def index(period = "all")
     @q = params[:q]
     total_entries = Pubtype.total_entries(period) if @q.blank?
-    @pubtypes = Pubtype.search @q, :page => params[:page], :order => "`#{period}` desc", :conditions => "`#{period}` > 0", :total_entries => total_entries
+    order = @q.blank? ? "`#{period}` desc" : "title"
+    @pubtypes = Pubtype.search @q, :page => params[:page], :order => order, :conditions => "`#{period}` > 0", :total_entries => total_entries
     @period = period
 
     respond_to do |format|

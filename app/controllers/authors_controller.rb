@@ -3,7 +3,8 @@ class AuthorsController < ApplicationController
   def index(period = "all")
     @q = params[:q]
     total_entries = BibliomeStat.last_cached.send("#{period}_authors") if @q.blank?
-    @authors = Author.search @q, :page => params[:page], :order => AUTHOR_ORDER[period], :conditions => "#{period}_total > 0", :total_entries => total_entries
+    order = @q.blank? ? AUTHOR_ORDER[period] : "last_name, fore_name"
+    @authors = Author.search @q, :page => params[:page], :order => order, :conditions => "#{period}_total > 0", :total_entries => total_entries
     @period = period
 
     respond_to do |format|

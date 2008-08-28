@@ -3,7 +3,8 @@ class GenesController < ApplicationController
   def index(period = "all")
     @q = params[:q]
     total_entries = BibliomeStat.last_cached.send("#{period}_genes") if @q.blank?
-    @genes = Gene.search @q, :page => params[:page], :order => "`#{period}` desc", :conditions => "`#{period}` > 0", :total_entries => total_entries
+    order = @q.blank? ? "`#{period}` desc" : "symbol"
+    @genes = Gene.search @q, :page => params[:page], :order => order, :conditions => "`#{period}` > 0", :total_entries => total_entries
     @period = period
 
     respond_to do |format|
