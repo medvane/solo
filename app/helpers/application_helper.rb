@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   def period_tab(id = nil, period = 'all')
-    periods = [ ["all", "all time"], ["one", "last year"], ["five", "last 5 years"], ["ten", "last 10 years"] ]
+    periods = [ ["all", "All Time"], ["one", "Last Year"], ["five", "Last 5 Years"], ["ten", "Last 10 Years"] ]
     li = []
     periods.each do |p|
       period_key = p[0]
