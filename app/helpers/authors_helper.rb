@@ -13,6 +13,7 @@ module AuthorsHelper
   end
   
   def authorship_position(data, period = 'all')
+    return if data.send("#{period}_total") == 0
     first = data.send("#{period}_first")
     middle = data.send("#{period}_middle")
     last = data.send("#{period}_last")
