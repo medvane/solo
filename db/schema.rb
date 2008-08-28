@@ -258,10 +258,10 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   end
 
   add_index "authors", ["collective_name"], :name => "index_authors_on_collective_name"
-  add_index "authors", ["one_total", "one_first", "one_last", "one_middle", "last_name"], :name => "index_authors_on_one"
-  add_index "authors", ["five_total", "five_first", "five_last", "five_middle", "last_name"], :name => "index_authors_on_five"
-  add_index "authors", ["ten_total", "ten_first", "ten_last", "ten_middle", "last_name"], :name => "index_authors_on_ten"
-  add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name"], :name => "index_authors_on_all"
+  add_index "authors", ["one_total", "one_first", "one_last", "one_middle", "last_name", "fore_name"], :name => "index_authors_on_one"
+  add_index "authors", ["five_total", "five_first", "five_last", "five_middle", "last_name", "fore_name"], :name => "index_authors_on_five"
+  add_index "authors", ["ten_total", "ten_first", "ten_last", "ten_middle", "last_name", "fore_name"], :name => "index_authors_on_ten"
+  add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name", "fore_name"], :name => "index_authors_on_all"
 
   create_table "authorships", :force => true do |t|
     t.integer "article_id",    :limit => 11
