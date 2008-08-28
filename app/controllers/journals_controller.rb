@@ -1,9 +1,10 @@
 class JournalsController < ApplicationController
   # GET /journals
   def index(period = "all")
-    total_entries = BibliomeStat.last_cached.send("#{period}_journals")
+    total_entries = BibliomeStat.last_cached.send("#{period}_journals") unless period[:q].blank?
     @journals = Journal.search params[:q], :page => params[:page], :order => "`#{period}` desc", :conditions => "`#{period}` > 0", :total_entries => total_entries
     @period = period
+    @q = params[:q]
 
     respond_to do |format|
       format.html { render :action => "index"}
