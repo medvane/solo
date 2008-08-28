@@ -587,10 +587,10 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.float   "ten_to_all_score"
   end
 
-  add_index "subjects", ["one_major", "one_total"], :name => "index_subjects_on_one_major_and_one_total"
-  add_index "subjects", ["five_major", "five_total"], :name => "index_subjects_on_five_major_and_five_total"
-  add_index "subjects", ["ten_major", "ten_total"], :name => "index_subjects_on_ten_major_and_ten_total"
-  add_index "subjects", ["all_major", "all_total"], :name => "index_subjects_on_all_major_and_all_total"
+  add_index "subjects", ["one_major", "one_total", "term"], :name => "index_subjects_on_one_major_and_one_total_and_term"
+  add_index "subjects", ["five_major", "five_total", "term"], :name => "index_subjects_on_five_major_and_five_total_and_term"
+  add_index "subjects", ["ten_major", "ten_total", "term"], :name => "index_subjects_on_ten_major_and_ten_total_and_term"
+  add_index "subjects", ["all_major", "all_total", "term"], :name => "index_subjects_on_all_major_and_all_total_and_term"
   add_index "subjects", ["one_to_five_score"], :name => "index_subjects_on_one_to_five_score"
   add_index "subjects", ["one_to_ten_score"], :name => "index_subjects_on_one_to_ten_score"
   add_index "subjects", ["one_to_all_score"], :name => "index_subjects_on_one_to_all_score"

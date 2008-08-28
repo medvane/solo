@@ -27,10 +27,10 @@ class CreateSubjects < ActiveRecord::Migration
       t.float :ten_to_all
       t.float :ten_to_all_score
     end
-    add_index :subjects, [:one_major, :one_total]
-    add_index :subjects, [:five_major, :five_total]
-    add_index :subjects, [:ten_major, :ten_total]
-    add_index :subjects, [:all_major, :all_total]
+    add_index :subjects, [:one_major, :one_total, :term]
+    add_index :subjects, [:five_major, :five_total, :term]
+    add_index :subjects, [:ten_major, :ten_total, :term]
+    add_index :subjects, [:all_major, :all_total, :term]
     add_index :subjects, :one_to_five_score
     add_index :subjects, :one_to_ten_score
     add_index :subjects, :one_to_all_score
