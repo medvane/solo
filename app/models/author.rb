@@ -14,7 +14,7 @@ class Author < ActiveRecord::Base
   has_many :author_pubtype_years
 
   def self.search(query, options = {})
-    options[:conditions] = ["#{options[:conditions]} AND #{Author.table_name}.last_name LIKE ?", "#{query}%"] unless query.blank? || query.length > 1 # for alphabetical list
+    options[:conditions] = ["#{options[:conditions]} AND #{Author.table_name}.last_name LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
     options[:per_page]  ||= 24
     options[:order] ||= AUTHOR_ORDER['all']

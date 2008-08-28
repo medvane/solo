@@ -10,7 +10,7 @@ class Gene < ActiveRecord::Base
   has_many :subject_gene_years
 
   def self.search(query, options = {})
-    options[:conditions] = ["#{options[:conditions]} AND #{Gene.table_name}.symbol LIKE ?", "#{query}%"] unless query.blank? || query.length > 1 # for alphabetical list
+    options[:conditions] = ["#{options[:conditions]} AND #{Gene.table_name}.symbol LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
     options[:per_page]  ||= 24
     paginate options
