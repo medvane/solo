@@ -15,6 +15,7 @@ class Subject < ActiveRecord::Base
   end
 
   def self.search(query, options = {})
+    options[:conditions] = ["#{options[:conditions]} AND #{Subject.table_name}.term LIKE ?", "#{query}%"] unless query.blank? || query.length > 1 # for alphabetical list
     options[:page]      ||= 1
     options[:per_page]  ||= 24
     options[:order]     ||= SUBJECT_ORDER['all']
