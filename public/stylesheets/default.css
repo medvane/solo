@@ -157,6 +157,7 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 	}
 
 .message {
+  margin: 2em 0;
   padding: 0.5em 3em;
   background-color: #fea;
   -webkit-border-radius: 4px;
@@ -213,11 +214,15 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 /* pagination end */
 
 ul.alphabetical {
-	margin-left: 0;
+	margin: 1em 0;
 }
-
   .alphabetical li {
     display: inline;
     list-style: none;
-    margin: 0 0.15em;
+    margin: 0 0.65em;
+    font-weight:bold;
+  }
+  .alphabetical a {
+    font-weight:normal;
+  }
   }
