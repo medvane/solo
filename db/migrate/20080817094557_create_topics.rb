@@ -6,7 +6,7 @@ class CreateTopics < ActiveRecord::Migration
       t.boolean :major_topic
     end
     add_index :topics, :article_id
-    add_index :topics, :subject_id
+    add_index :topics, [:subject_id, :article_id]
     add_index :topics, :major_topic
   end
 

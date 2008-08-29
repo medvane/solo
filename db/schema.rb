@@ -606,7 +606,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   end
 
   add_index "topics", ["article_id"], :name => "index_topics_on_article_id"
-  add_index "topics", ["subject_id"], :name => "index_topics_on_subject_id"
+  add_index "topics", ["subject_id", "article_id"], :name => "index_topics_on_subject_id_and_article_id"
   add_index "topics", ["major_topic"], :name => "index_topics_on_major_topic"
 
 end
