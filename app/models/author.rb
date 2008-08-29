@@ -28,4 +28,12 @@ class Author < ActiveRecord::Base
       collective_name
     end
   end
+  
+  def see_also
+    case initials.length
+    when 1: Author.find(:all, :conditions => ["last_name = ? AND initials like ? AND id != ?", last_name, "#{initials.first}%", id])
+    when 2: Author.find(:all, :conditions => ["last_name = ? AND (initials = ? OR initials =?) AND id != ?", last_name, initials.first, initials, id])
+    else return
+    end
+  end
 end

@@ -176,6 +176,22 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
     font-style: italic;
 	}
 
+#see_also {
+  margin-top: -1.5em;
+  padding: 0.5em;
+  background-color: #fea;
+  font-size: 85%;
+  width: 16em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+  #see_also ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
 .message {
   margin: 2em 0;
   padding: 0.5em 3em;

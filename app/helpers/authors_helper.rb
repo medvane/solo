@@ -19,4 +19,14 @@ module AuthorsHelper
     last = data.send("#{period}_last")
     Gchart.pie(:data => [first, middle, last], :labels => ["first author: #{first}", "middle author: #{middle}", "last author: #{last}"], :size => "250x60", :custom => 'chco=660000,999999,000066', :format => 'image_tag', :alt => "authorship positions")
   end
+
+  def see_also(author, period = 'all')
+    return if author.see_also.size == 0
+    li = []
+    author.see_also.each do |see|
+      li.push(content_tag(:li, link_to(see.to_s, author_path(see) + "/#{period}")))
+    end
+    ul = content_tag :ul, li.join("\n")
+    content_tag :div,"See also:" + ul, :id => "see_also"
+  end
 end
