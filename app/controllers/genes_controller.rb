@@ -51,7 +51,7 @@ class GenesController < ApplicationController
     total_entries = @gene.send(period)
     per_page = total_entries < ARTICLES_IN_MEMBER_PAGE ? total_entries : ARTICLES_IN_MEMBER_PAGE
     @articles = []
-    @articles = @gene.articles.paginate :page => params[:page], :order => "id desc", :per_page => per_page, :total_entries => total_entries if total_entries > 0
+    @articles = @gene.articles.paginate :page => params[:page], :per_page => per_page, :total_entries => total_entries if total_entries > 0
     respond_to do |format|
       format.html  { render :action => "show"}
     end

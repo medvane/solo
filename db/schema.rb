@@ -493,7 +493,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "article_id", :limit => 11
   end
 
-  add_index "published_genes", ["gene_id"], :name => "index_published_genes_on_gene_id"
+  add_index "published_genes", ["gene_id", "article_id"], :name => "index_published_genes_on_gene_id_and_article_id"
   add_index "published_genes", ["article_id"], :name => "index_published_genes_on_article_id"
 
   create_table "pubtype_stats", :force => true do |t|
