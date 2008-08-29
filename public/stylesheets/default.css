@@ -8,6 +8,18 @@ blue  : #136
 purple: #505 
 */
 
+#hd {
+  font-size: 123.1%;
+  font-style: italic;
+  margin: 0.5em 0;
+}
+
+#ft {
+  margin: 0.5em 0;
+  font-size: 93%;
+  text-align: right;
+}
+
 a, a:visited, a:active {
   color: #009;
   text-decoration: none;
@@ -55,8 +67,10 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 }
 .yui-navset-top .yui-nav li{
   float:left;
+  text-align: center;
 }
 .yui-navset .yui-navset-top .yui-nav a{
+  width: 8.5em;
   background-color: #ddd;
   color: #333;
   float: left;
@@ -85,9 +99,9 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 .yui-navset-top .yui-content {
   background:#fff;
   padding: 0.5em 1em 1em 1em;
-  min-height: 26em;
+  min-height: 27em;
   height: auto !important;
-  height: 26em;
+  height: 27em;
   clear:both;
 }
 /* yui tabview customization end */
