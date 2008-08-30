@@ -49,8 +49,7 @@ class SubjectsController < ApplicationController
     @period = period
     @subject = Subject.find(params[:id])
     total_entries = @subject.send("#{period}_total")
-# TODO: refactor per_page to application method
-    per_page = total_entries < ARTICLES_IN_MEMBER_PAGE ? total_entries : ARTICLES_IN_MEMBER_PAGE
+    per_page = per_page(total_entries)
     @articles = []
     @articles = @subject.articles.paginate :page => params[:page], :per_page => per_page, :total_entries => total_entries if total_entries > 0
     respond_to do |format|

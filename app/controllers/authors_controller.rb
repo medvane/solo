@@ -49,7 +49,7 @@ class AuthorsController < ApplicationController
     @period = period
     @author = Author.find(params[:id])
     total_entries = @author.send("#{period}_total")
-    per_page = total_entries < ARTICLES_IN_MEMBER_PAGE ? total_entries : ARTICLES_IN_MEMBER_PAGE
+    per_page = per_page(total_entries)
     @articles = []
     @articles = @author.articles.paginate :page => params[:page], :per_page => per_page, :order => "authorships.article_id desc", :total_entries => total_entries if total_entries > 0
     respond_to do |format|

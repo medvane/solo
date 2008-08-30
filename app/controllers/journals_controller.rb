@@ -49,7 +49,7 @@ class JournalsController < ApplicationController
     @period = period
     @journal = Journal.find(params[:id])
     total_entries = @journal.send(period)
-    per_page = total_entries < ARTICLES_IN_MEMBER_PAGE ? total_entries : ARTICLES_IN_MEMBER_PAGE
+    per_page = per_page(total_entries)
     @articles = [] 
     @articles = @journal.articles.paginate :page => params[:page], :order => "pubdate desc", :per_page => per_page, :total_entries => total_entries if total_entries > 0
     respond_to do |format|
