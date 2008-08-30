@@ -138,13 +138,6 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
     border: 2px solid #ddd;
     padding: 0.1em 0.25em;
   }
-  #search input[type="submit"] {
-    color: #333;
-    background-color: #ddd;
-    border: 2px solid #ddd;
-    padding: 0.05em 0.25em;
-    width: 8.5em;
-  }
 
 .articles_count {
 	margin-left: 0.5em;
