@@ -1,7 +1,7 @@
 class Subject < ActiveRecord::Base
   has_many :topics
   has_many :articles, :through => :topics, :order => "`topics`.article_id desc"
-  has_many :subject_stats, :order => "`subject_stats`.year"
+  has_many :subject_stats
   has_many :authors, :class_name => "AuthorSubject", :include => :author
   has_many :author_subject_years
   has_many :journals, :class_name => "JournalSubject", :include => :journal
@@ -17,7 +17,7 @@ class Subject < ActiveRecord::Base
   def self.search(query, options = {})
     options[:conditions] = ["#{options[:conditions]} AND #{Subject.table_name}.term LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
-    options[:per_page]  ||= 24
+    options[:per_page]  ||= 20
     options[:order]     ||= SUBJECT_ORDER['all']
     paginate options
   end
