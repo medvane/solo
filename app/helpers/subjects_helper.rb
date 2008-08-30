@@ -33,7 +33,7 @@ module SubjectsHelper
     colors = %w(444444 770022 cc3322 dd9922 115544 113366 550055 4477ee 999999 222222)
     i = -1
     custom = "&chm=" + colors.map {|c| i += 1; "b,#{c},#{i},#{i + 1},0"}.join("|")
-    img = Gchart.line(:data => data.reverse, :legend => legend.reverse, :size => "#{width}x220",:line_colors => colors, :axis_labels => [labels], :axis_with_labels => 'x', :title => "Historic flow of top 10 subjects in this time period")
-    image_tag img + custom, :alt => "subject flow"
+    img = Gchart.line(:data => data.reverse, :legend => legend.reverse, :size => "#{width}x220",:line_colors => colors, :axis_labels => [labels], :axis_with_labels => 'x', :title => "Historic flow of subjects in this time period")
+    image_tag img + custom, :alt => "subject flow", :width => 800, :height => 200
   end
 end
