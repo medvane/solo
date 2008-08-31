@@ -12,6 +12,7 @@ module SubjectsHelper
   end
   
   def subject_flow(subjects, period = 'all', show = 10)
+    return if subjects.nil? or subjects.size == 0
     show_subjects = subjects[0 .. show - 1]
     year_min = show_subjects.map {|ss| ss.subject_stats.map {|sss| sss.year}.min}.min
     year_max = show_subjects.map {|ss| ss.subject_stats.map {|sss| sss.year}.max}.max
