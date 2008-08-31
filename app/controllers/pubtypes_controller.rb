@@ -12,38 +12,6 @@ class PubtypesController < ApplicationController
     end
   end
 
-  def one
-    if params[:id].nil?
-      index("one")
-    else
-      show("one")
-    end
-  end
-  
-  def five
-    if params[:id].nil?
-      index("five")
-    else
-      show("five")
-    end
-  end
-  
-  def ten
-    if params[:id].nil?
-      index("ten")
-    else
-      show("ten")
-    end
-  end
-  
-  def all
-    if params[:id].nil?
-      index("all")
-    else
-      show("all")
-    end
-  end
-
   # GET /pubtypes/1
   def show(period = "all")
     @period = period

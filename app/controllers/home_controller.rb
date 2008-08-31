@@ -9,21 +9,4 @@ class HomeController < ApplicationController
       format.html { render :action => "index"}
     end
   end
-
-  def one
-    index("one")
-  end
-  
-  def five
-    index("five")
-  end
-  
-  def ten
-    index("ten")
-  end
-  
-  def all
-    index("all")
-  end
-
 end
