@@ -3,5 +3,6 @@
 <%= publication_history(@gene.gene_stats) %>
 </div>
 <%= neighbors(@gene, @period) %>
+<%= subject_flow(@gene.subjects.period(@period, 10).map {|s| s.subject}, @period) %>
 <h2>Articles</h2>
 <%= paginated_list @articles, @period %>
