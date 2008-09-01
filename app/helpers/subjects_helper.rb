@@ -29,12 +29,13 @@ module SubjectsHelper
       data.push(dat)
     end
     width = 800
+    height = 220
     year_gap = years.size < 20 ? 2 : 5;
     labels = years.map {|y| y % year_gap == 0 ? y : ""}
     colors = %w(444444 770022 cc3322 dd9922 115544 113366 550055 4477ee 999999 222222)
     i = -1
     custom = "&chm=" + colors.map {|c| i += 1; "b,#{c},#{i},#{i + 1},0"}.join("|")
-    img = Gchart.line(:data => data.reverse, :legend => legend.reverse, :size => "#{width}x220",:line_colors => colors, :axis_labels => [labels], :axis_with_labels => 'x', :title => "Historic flow of subjects in this time period")
-    image_tag img + custom, :alt => "subject flow", :width => 800, :height => 200
+    img = Gchart.line(:data => data.reverse, :legend => legend.reverse, :size => "#{width}x#{height}",:line_colors => colors, :axis_labels => [labels], :axis_with_labels => 'x', :title => "Historic flow of subjects in this time period")
+    image_tag img + custom, :alt => "subject flow", :width => 800, :height => height
   end
 end
