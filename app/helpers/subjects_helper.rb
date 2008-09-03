@@ -38,4 +38,11 @@ module SubjectsHelper
     img = Gchart.line(:data => data.reverse, :legend => legend.reverse, :size => "#{width}x#{height}",:line_colors => colors, :axis_labels => [labels], :axis_with_labels => 'x', :title => "Historic flow of subjects in this time period")
     image_tag img + custom, :alt => "subject flow", :width => 800, :height => height
   end
+
+  def bull_or_bear(percent)
+    prefix = percent > 0 ? 'bull' : 'bear';
+    value = (percent / 10).round * 10
+    value = value > 100 ? 100 : value;
+    return prefix + value.abs.to_s
+  end
 end

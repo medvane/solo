@@ -209,6 +209,49 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
   border-radius: 4px;
 }
 
+/* bull or bear start */
+.bull0, .bull10, .bull20, .bull30, .bull40, .bull50, .bull60, .bull70, .bull80, .bull90, .bull100, 
+.bear0, .bear10, .bear20, .bear30, .bear40, .bear50, .bear60, .bear70, .bear80, .bear90, .bear100 {
+  font-size: 85%;
+  text-align: center;
+  font-weight: normal;
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.bear0, .bear10, .bear20, .bear30, .bear40, .bear50, .bear60, .bear70, .bear80, .bear90, .bear100 {
+  background:transparent url(/images/down-arrow.gif) no-repeat bottom center;
+}
+
+.bull10, .bull20, .bull30, .bull40, .bull50, .bull60, .bull70, .bull80, .bull90, .bull100 {
+  background:transparent url(/images/up-arrow.gif) no-repeat top center;
+}
+
+.bear0   { background-color: #ffffff; color: #000; }
+.bear10  { background-color: #f0f2f5; color: #000; }
+.bear20  { background-color: #dbe0e9; color: #000; }
+.bear30  { background-color: #c1cada; color: #333; }
+.bear40  { background-color: #a5b2c8; color: #333; }
+.bear50  { background-color: #8799b6; color: #333; }
+.bear60  { background-color: #697fa4; color: #fff; }
+.bear70  { background-color: #4d6692; color: #fff; }
+.bear80  { background-color: #345284; color: #fff; }
+.bear90  { background-color: #1e3f76; color: #fff; }
+.bear100 { background-color: #0f326d; color: #fff; }
+
+.bull10 { background-color: #f7eff1; color: #000; }
+.bull20 { background-color: #ebd9de; color: #000; }
+.bull30 { background-color: #ddbfc6; color: #333; }
+.bull40 { background-color: #cea2ad; color: #333; }
+.bull50 { background-color: #be8392; color: #fff; }
+.bull60 { background-color: #ae6677; color: #fff; }
+.bull70 { background-color: #9f485e; color: #fff; }
+.bull80 { background-color: #912e47; color: #fff; }
+.bull90 { background-color: #861934; color: #fff; }
+.bull100 { background-color: #7e0a27; color: #fff; }
+.bull110 { background-color: #7c0a27; color: #fff; }
+/* bull or bear end */
+
 /* pagination start */
 .pagination {
   background: white;

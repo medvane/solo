@@ -2,3 +2,28 @@
 <%= subject_flow @subjects, @period %>
 <%= alphabetical_query_list @q %>
 <%= paginated_list @subjects, @period %>
+
+<h2>Rising or Falling Subjects</h2>
+
+<table>
+  <tr>
+    <th>Subjects</th>
+    <th>one &mdash; five</th>
+    <th>one &mdash; ten</th>
+    <th>one &mdash; all</th>
+    <th>five &mdash; ten</th>
+    <th>five &mdash; all</th>
+    <th>ten &mdash; all</th>
+  </tr>
+<% for r in @rf_subjects -%>
+  <tr>
+    <td><%= link_to r.term, subject_path(r) + "/#{@period}" %></td>
+    <td class="<%= bull_or_bear(r.one_to_five) %>"><%= r.one_to_five.round %></td>
+    <td class="<%= bull_or_bear(r.one_to_ten) %>"><%= r.one_to_ten.round %></td>
+    <td class="<%= bull_or_bear(r.one_to_all) %>"><%= r.one_to_all.round %></td>
+    <td class="<%= bull_or_bear(r.five_to_ten) %>"><%= r.five_to_ten.round %></td>
+    <td class="<%= bull_or_bear(r.five_to_all) %>"><%= r.five_to_all.round %></td>
+    <td class="<%= bull_or_bear(r.ten_to_all) %>"><%= r.ten_to_all.round %></td>
+  </tr>
+<% end -%>
+</table>
