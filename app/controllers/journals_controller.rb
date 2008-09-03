@@ -5,7 +5,6 @@ class JournalsController < ApplicationController
     order = @q.blank? ? "`#{period}` desc" : "abbr"
     total_entries = BibliomeStat.last_cached.send("#{period}_journals") if @q.blank?
     @journals = Journal.search @q, :page => params[:page], :order => order, :conditions => "`#{period}` > 0", :total_entries => total_entries
-    @period = period
 
     respond_to do |format|
       format.html { render :action => "index"}
@@ -14,7 +13,6 @@ class JournalsController < ApplicationController
 
   # GET /journals/1
   def show(period = "all")
-    @period = period
     @journal = Journal.find(params[:id])
     total_entries = @journal.send(period)
     per_page = per_page(total_entries)

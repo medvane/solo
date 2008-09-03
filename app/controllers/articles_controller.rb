@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
     total_entries = BibliomeStat.last_cached.send("#{period}_articles")
     per_page = per_page(total_entries)
     @articles = Article.search params[:q], :page => params[:page], :order => "pubdate desc", :per_page => per_page, :total_entries => total_entries, :include => :journal
-    @period = period
 
     respond_to do |format|
       format.html { render :action => "index"}
@@ -13,7 +12,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show(period = "all")
-    @period = period
     @article = Article.find(params[:id])
 
     respond_to do |format|

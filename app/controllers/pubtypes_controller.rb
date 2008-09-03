@@ -5,7 +5,6 @@ class PubtypesController < ApplicationController
     total_entries = Pubtype.total_entries(period) if @q.blank?
     order = @q.blank? ? "`#{period}` desc" : "title"
     @pubtypes = Pubtype.search @q, :page => params[:page], :order => order, :conditions => "`#{period}` > 0", :total_entries => total_entries
-    @period = period
 
     respond_to do |format|
       format.html { render :action => "index"}
@@ -14,7 +13,6 @@ class PubtypesController < ApplicationController
 
   # GET /pubtypes/1
   def show(period = "all")
-    @period = period
     @pubtype = Pubtype.find(params[:id])
     total_entries = @pubtype.send(period)
     per_page = per_page(total_entries)

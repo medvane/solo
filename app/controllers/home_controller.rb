@@ -3,7 +3,6 @@ class HomeController < ApplicationController
 
   def index(period = "all")
     @bibliome_stat = BibliomeStat.last_cached
-    @period = period
 
     respond_to do |format|
       format.html { render :action => "index"}

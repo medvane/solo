@@ -5,8 +5,6 @@ class AuthorsController < ApplicationController
     total_entries = BibliomeStat.last_cached.send("#{period}_authors") if @q.blank?
     order = @q.blank? ? AUTHOR_ORDER[period] : "last_name, fore_name"
     @authors = Author.search @q, :page => params[:page], :order => order, :conditions => "#{period}_total > 0", :total_entries => total_entries
-    @period = period
-
     respond_to do |format|
       format.html { render :action => "index"}
     end
@@ -14,7 +12,6 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1
   def show(period = "all")
-    @period = period
     @author = Author.find(params[:id])
     total_entries = @author.send("#{period}_total")
     per_page = per_page(total_entries)

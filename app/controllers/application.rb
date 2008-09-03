@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   def one
+    @period = "one"
     if params[:id].nil?
       index("one")
     else
@@ -21,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
   
   def five
+    @period = "five"
     if params[:id].nil?
       index("five")
     else
@@ -29,6 +31,7 @@ class ApplicationController < ActionController::Base
   end
   
   def ten
+    @period = "ten"
     if params[:id].nil?
       index("ten")
     else
@@ -37,6 +40,7 @@ class ApplicationController < ActionController::Base
   end
   
   def all
+    @period = "all"
     if params[:id].nil?
       index("all")
     else
