@@ -12,6 +12,8 @@ class Article < ActiveRecord::Base
   def self.search(query, options = {})
     options[:page]      ||= 1
     options[:per_page]  ||= 10
+    options[:order]     ||= "pubdate desc"
+    options[:include]   ||= :journal
     paginate options
   end
 
