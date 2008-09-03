@@ -5,11 +5,17 @@ class SubjectsController < ApplicationController
     total_entries = Subject.total_entries(period) if @q.blank?
     order = @q.blank? ? SUBJECT_ORDER[period] : "term"
     @subjects = Subject.search @q, :page => params[:page], :order => order, :conditions => "`#{period}_major` > 0", :total_entries => total_entries
-    # period all: one_to_all, five_to_all, ten_to_all
-    # period one: one_to_all, one_to_five, one_to_ten
-    # period five: one_to_five, five_to_ten, five_to_all
-    # period ten: one_to_ten, five_to_ten, ten_to_all
-    @rf_subjects = Subject.find :all, :order => "one_to_all_score desc", :limit => 30
+    order = {}
+    order["all"]   = %w(one_to_all five_to_all ten_to_all)
+    order["one"]   = %w(one_to_all one_to_five one_to_ten)
+    order["five"]  = %w(one_to_five five_to_ten five_to_all)
+    order["ten"]   = %w(one_to_ten five_to_ten ten_to_all)
+    @rf_subjects = []
+    order[period].each do |o|
+      @rf = Subject.find :all, :order => "#{o}_score desc", :limit => 20
+      @rf_subjects.push(@rf)
+    end
+    @rf_subjects.flatten!.uniq!.sort! {|a, b| (b.one_to_five_score + b.one_to_ten_score + b.one_to_all_score + b.five_to_ten_score + b.five_to_all_score + b.ten_to_all_score) <=> (a.one_to_five_score + a.one_to_ten_score + a.one_to_all_score + a.five_to_ten_score + a.five_to_all_score + a.ten_to_all_score)}
 
     respond_to do |format|
       format.html { render :action => "index"}

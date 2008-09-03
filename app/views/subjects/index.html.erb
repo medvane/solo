@@ -5,7 +5,7 @@
 
 <h2>Rising or Falling Subjects</h2>
 
-<table>
+<table id="bull_or_bear">
   <tr>
     <th>Subjects</th>
     <th>one &mdash; five</th>
@@ -18,12 +18,12 @@
 <% for r in @rf_subjects -%>
   <tr>
     <td><%= link_to r.term, subject_path(r) + "/#{@period}" %></td>
-    <td class="<%= bull_or_bear(r.one_to_five) %>"><%= r.one_to_five.round %></td>
-    <td class="<%= bull_or_bear(r.one_to_ten) %>"><%= r.one_to_ten.round %></td>
-    <td class="<%= bull_or_bear(r.one_to_all) %>"><%= r.one_to_all.round %></td>
-    <td class="<%= bull_or_bear(r.five_to_ten) %>"><%= r.five_to_ten.round %></td>
-    <td class="<%= bull_or_bear(r.five_to_all) %>"><%= r.five_to_all.round %></td>
-    <td class="<%= bull_or_bear(r.ten_to_all) %>"><%= r.ten_to_all.round %></td>
+    <td class="<%= bull_or_bear(r.one_to_five) %>"><%= r.one_to_five.round %><%= "%" if @rf_subjects.index(r) == 0 %></td>
+    <td class="<%= bull_or_bear(r.one_to_ten) %>"><%= r.one_to_ten.round %><%= "%" if @rf_subjects.index(r) == 0 %></td>
+    <td class="<%= bull_or_bear(r.one_to_all) %>"><%= r.one_to_all.round %><%= "%" if @rf_subjects.index(r) == 0 %></td>
+    <td class="<%= bull_or_bear(r.five_to_ten) %>"><%= r.five_to_ten.round %><%= "%" if @rf_subjects.index(r) == 0 %></td>
+    <td class="<%= bull_or_bear(r.five_to_all) %>"><%= r.five_to_all.round %><%= "%" if @rf_subjects.index(r) == 0 %></td>
+    <td class="<%= bull_or_bear(r.ten_to_all) %>"><%= r.ten_to_all.round %><%= "%" if @rf_subjects.index(r) == 0 %></td>
   </tr>
 <% end -%>
 </table>

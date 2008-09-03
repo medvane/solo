@@ -210,13 +210,22 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 }
 
 /* bull or bear start */
+#bull_or_bear {
+  width: 100%;
+}
+#bull_or_bear th {
+  line-height: 70%;
+}
 .bull0, .bull10, .bull20, .bull30, .bull40, .bull50, .bull60, .bull70, .bull80, .bull90, .bull100, 
 .bear0, .bear10, .bear20, .bear30, .bear40, .bear50, .bear60, .bear70, .bear80, .bear90, .bear100 {
-  font-size: 85%;
+  font-size: 77%;
   text-align: center;
   font-weight: normal;
   width: 2.5em;
   height: 2.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  padding:0;
 }
 
 .bear0, .bear10, .bear20, .bear30, .bear40, .bear50, .bear60, .bear70, .bear80, .bear90, .bear100 {
