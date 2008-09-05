@@ -13,7 +13,7 @@ class Journal < ActiveRecord::Base
   def self.search(query, options = {})
     options[:conditions] = ["#{options[:conditions]} AND #{Journal.table_name}.abbr LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
-    options[:per_page]  ||= 24
+    options[:per_page]  ||= 50
     paginate options
   end
 

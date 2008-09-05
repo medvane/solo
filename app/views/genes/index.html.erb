@@ -1,3 +1,5 @@
 <h1>Genes</h1>
-<%= alphabetical_query_list @q %>
-<%= paginated_list @genes, @period %>
+<%= clouds(@genes.sort_by(&:to_s), @period) if first_page? %>
+<%= will_paginate(@genes) if first_page? %>
+<%= alphabetical_query_list @q unless first_page? %>
+<%= paginated_list @genes, @period  unless first_page? %>

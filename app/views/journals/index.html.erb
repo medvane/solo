@@ -1,3 +1,5 @@
 <h1>Journals</h1>
-<%= alphabetical_query_list @q %>
-<%= paginated_list @journals, @period %>
+<%= clouds(@journals.sort_by(&:to_s), @period) if first_page? %>
+<%= will_paginate(@journals) %>
+<%= alphabetical_query_list @q unless first_page? %>
+<%= paginated_list @journals, @period unless first_page? %>

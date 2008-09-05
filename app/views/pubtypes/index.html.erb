@@ -1,3 +1,6 @@
 <h1>Publication Types</h1>
-<%= alphabetical_query_list @q %>
-<%= paginated_list @pubtypes, @period %>
+
+<%= clouds(@pubtypes.sort_by(&:to_s), @period) if first_page? %>
+<%= will_paginate(@pubtypes) if first_page? %>
+<%= alphabetical_query_list @q unless first_page? %>
+<%= paginated_list @pubtypes, @period  unless first_page? %>

@@ -129,4 +129,29 @@ module ApplicationHelper
       content_tag(:div, column.join("\n"), :class => "yui-gb")
     end
   end
+  
+  def first_page?
+    params[:page].nil? || params[:page].to_i == 1
+  end
+  
+  def clouds(list, counter, log = false, classes = nil)
+    css_classes ||= %w(cloud1 cloud2 cloud3 cloud4 cloud5 cloud6 cloud7 cloud8 cloud9)
+    max, min = 0, 1000000
+    list.each do |l|
+      raw_count = l.send(:read_attribute, counter)
+      count = log ? Math.log(raw_count) : raw_count
+      max = count if count > max
+      min = count if count < min
+    end
+    divisor = ((max - min) / css_classes.size) + 1
+    li = []
+    list.each do |l|
+      raw_count = l.send(:read_attribute, counter)
+      count = log ? Math.log(raw_count) : raw_count
+      css_class = css_classes[(count - min) / divisor]
+      span = content_tag(:span, number_with_delimiter(raw_count))
+      li.push(content_tag(:li, link_to(l.to_s, url_for(l) +"/#{@period}", :title => number_with_delimiter(raw_count)) + span, :class => css_class))
+    end
+    content_tag(:ul, li.join("\n"), :class => "clouds")
+  end
 end

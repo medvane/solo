@@ -15,7 +15,7 @@ class Pubtype < ActiveRecord::Base
   def self.search(query, options = {})
     options[:conditions] = ["#{options[:conditions]} AND #{Pubtype.table_name}.title LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
-    options[:per_page]  ||= 24
+    options[:per_page]  ||= 100
     paginate options
   end
 

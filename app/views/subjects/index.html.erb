@@ -1,8 +1,12 @@
 <h1>Subjects</h1>
 <%= subject_flow @subjects, @period %>
-<%= alphabetical_query_list @q %>
-<%= paginated_list @subjects, @period %>
 
+<%= clouds(@subjects.sort_by(&:to_s), @period + "_major") if first_page? %>
+<%= will_paginate(@subjects) if first_page? %>
+<%= alphabetical_query_list @q unless first_page? %>
+<%= paginated_list @subjects, @period  unless first_page? %>
+
+<% if first_page? -%>
 <h2>Rising or Falling Subjects</h2>
 
 <table id="bull_or_bear">
@@ -27,3 +31,4 @@
   </tr>
 <% end -%>
 </table>
+<% end -%> 
