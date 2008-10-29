@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
     @q = params[:q]
     total_entries = Subject.total_entries(period) if @q.blank?
     order = @q.blank? ? SUBJECT_ORDER[period] : "term"
-    @subjects = Subject.search @q, :page => params[:page], :order => order, :conditions => "`#{period}_major` > 0", :total_entries => total_entries
+    @subjects = Subject.search @q, :page => params[:page], :order => order, :conditions => "`#{period}_major` > 0", :total_entries => total_entries, :include => :subject_stats
     order = {}
     order["all"]   = %w(one_to_all five_to_all ten_to_all)
     order["one"]   = %w(one_to_all one_to_five one_to_ten)
