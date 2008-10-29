@@ -1,3 +1,5 @@
+<% page_title "Journal: " + @journal.to_s %>
+
 <h1><%= @journal.to_s %></h1>
 <div id="charts">
 <%= publication_history(@journal.journal_stats) %>

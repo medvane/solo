@@ -1,3 +1,5 @@
+<% page_title "Subject: " + @subject.to_s %>
+
 <h1><%= @subject.to_s %></h1>
 <div id="charts">
 <%= subject_publication_history(@subject.subject_stats) %>

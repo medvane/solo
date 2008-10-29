@@ -1,3 +1,4 @@
+<% page_title "Publication Type: " + @pubtype.to_s %>
 <h1><%= @pubtype.to_s %></h1>
 <div id="charts">
 <%= publication_history(@pubtype.pubtype_stats) %>

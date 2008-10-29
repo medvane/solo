@@ -154,4 +154,8 @@ module ApplicationHelper
     end
     content_tag(:ul, li.join("\n"), :class => "clouds")
   end
+  
+  def page_title(title)
+    content_for(:title) {title}
+  end
 end

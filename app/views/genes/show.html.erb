@@ -1,3 +1,4 @@
+<% page_title "Gene: " + @gene.to_s %>
 <h1><%= @gene.to_s %></h1>
 <div id="charts">
 <%= publication_history(@gene.gene_stats) %>
