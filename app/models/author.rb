@@ -16,7 +16,7 @@ class Author < ActiveRecord::Base
   def self.search(query, options = {})
     options[:conditions] = ["#{options[:conditions]} AND #{Author.table_name}.last_name LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
-    options[:per_page]  ||= 24
+    options[:per_page]  ||= 30 
     options[:order] ||= AUTHOR_ORDER['all']
     paginate options
   end
