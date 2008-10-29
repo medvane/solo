@@ -33,6 +33,10 @@ class CreateAuthors < ActiveRecord::Migration
     add_index :authors, [:five_total, :five_first, :five_last, :five_middle, :last_name, :fore_name], :name => 'index_authors_on_five'
     add_index :authors, [:ten_total, :ten_first, :ten_last, :ten_middle, :last_name, :fore_name], :name => 'index_authors_on_ten'
     add_index :authors, [:all_total, :all_first, :all_last, :all_middle, :last_name, :fore_name], :name => 'index_authors_on_all'
+    add_index :authors, [:last_name, :fore_name, :one_total]
+    add_index :authors, [:last_name, :fore_name, :five_total]
+    add_index :authors, [:last_name, :fore_name, :ten_total]
+    add_index :authors, [:last_name, :fore_name, :all_total]
   end
 
   def self.down
