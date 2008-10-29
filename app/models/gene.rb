@@ -12,7 +12,7 @@ class Gene < ActiveRecord::Base
   def self.search(query, options = {})
     options[:conditions] = ["#{options[:conditions]} AND #{Gene.table_name}.symbol LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
-    options[:per_page]  ||= 24
+    options[:per_page]  ||= 30 
     paginate options
   end
 
