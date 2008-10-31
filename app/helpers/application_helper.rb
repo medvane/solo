@@ -18,7 +18,7 @@ module ApplicationHelper
           articles_count = content_tag(:span, pluralize(articles, "article"), :class => "articles_count")
           objects.push(content_tag(:li, link_to(name, url_for(oo) + "/#{period}") + articles_count))
         end
-        content.push("<h2>#{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n"))) if objects.size > 0
+        content.push("<h2>Top #{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n"))) if objects.size > 0
       end
     end
     content_tag :div, columns(content), :id => "neighbors"
