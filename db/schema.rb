@@ -12,23 +12,23 @@
 ActiveRecord::Schema.define(:version => 20080818163139) do
 
   create_table "article_stats", :force => true do |t|
-    t.integer "year",           :limit => 11
-    t.integer "articles",       :limit => 11
-    t.integer "total_articles", :limit => 11
+    t.integer "year"
+    t.integer "articles"
+    t.integer "total_articles"
   end
 
   add_index "article_stats", ["year"], :name => "index_article_stats_on_year"
 
   create_table "article_types", :force => true do |t|
-    t.integer "article_id", :limit => 11
-    t.integer "pubtype_id", :limit => 11
+    t.integer "article_id"
+    t.integer "pubtype_id"
   end
 
   add_index "article_types", ["article_id"], :name => "index_article_types_on_article_id"
   add_index "article_types", ["pubtype_id"], :name => "index_article_types_on_pubtype_id"
 
   create_table "articles", :force => true do |t|
-    t.integer  "journal_id",       :limit => 11
+    t.integer  "journal_id"
     t.string   "vol"
     t.string   "issue"
     t.string   "page"
@@ -46,37 +46,37 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "articles", ["pubdate"], :name => "index_articles_on_pubdate"
 
   create_table "author_gene_years", :force => true do |t|
-    t.integer "author_id", :limit => 11
-    t.integer "gene_id",   :limit => 11
-    t.integer "year",      :limit => 11
-    t.integer "first",     :limit => 11
-    t.integer "last",      :limit => 11
-    t.integer "middle",    :limit => 11
-    t.integer "total",     :limit => 11
+    t.integer "author_id"
+    t.integer "gene_id"
+    t.integer "year"
+    t.integer "first"
+    t.integer "last"
+    t.integer "middle"
+    t.integer "total"
   end
 
   add_index "author_gene_years", ["author_id", "year"], :name => "index_author_gene_years_on_author_id_and_year"
   add_index "author_gene_years", ["gene_id", "year"], :name => "index_author_gene_years_on_gene_id_and_year"
 
   create_table "author_genes", :force => true do |t|
-    t.integer "author_id",   :limit => 11
-    t.integer "gene_id",     :limit => 11
-    t.integer "one_first",   :limit => 11
-    t.integer "one_last",    :limit => 11
-    t.integer "one_middle",  :limit => 11
-    t.integer "one_total",   :limit => 11
-    t.integer "five_first",  :limit => 11
-    t.integer "five_last",   :limit => 11
-    t.integer "five_middle", :limit => 11
-    t.integer "five_total",  :limit => 11
-    t.integer "ten_first",   :limit => 11
-    t.integer "ten_last",    :limit => 11
-    t.integer "ten_middle",  :limit => 11
-    t.integer "ten_total",   :limit => 11
-    t.integer "all_first",   :limit => 11
-    t.integer "all_last",    :limit => 11
-    t.integer "all_middle",  :limit => 11
-    t.integer "all_total",   :limit => 11
+    t.integer "author_id"
+    t.integer "gene_id"
+    t.integer "one_first"
+    t.integer "one_last"
+    t.integer "one_middle"
+    t.integer "one_total"
+    t.integer "five_first"
+    t.integer "five_last"
+    t.integer "five_middle"
+    t.integer "five_total"
+    t.integer "ten_first"
+    t.integer "ten_last"
+    t.integer "ten_middle"
+    t.integer "ten_total"
+    t.integer "all_first"
+    t.integer "all_last"
+    t.integer "all_middle"
+    t.integer "all_total"
   end
 
   add_index "author_genes", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_genes_on_author_id_and_one"
@@ -89,37 +89,37 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "author_genes", ["gene_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_genes_on_gene_id_and_all"
 
   create_table "author_journal_years", :force => true do |t|
-    t.integer "author_id",  :limit => 11
-    t.integer "journal_id", :limit => 11
-    t.integer "year",       :limit => 11
-    t.integer "first",      :limit => 11
-    t.integer "last",       :limit => 11
-    t.integer "middle",     :limit => 11
-    t.integer "total",      :limit => 11
+    t.integer "author_id"
+    t.integer "journal_id"
+    t.integer "year"
+    t.integer "first"
+    t.integer "last"
+    t.integer "middle"
+    t.integer "total"
   end
 
   add_index "author_journal_years", ["author_id", "year"], :name => "index_author_journal_years_on_author_id_and_year"
   add_index "author_journal_years", ["journal_id", "year"], :name => "index_author_journal_years_on_journal_id_and_year"
 
   create_table "author_journals", :force => true do |t|
-    t.integer "author_id",   :limit => 11
-    t.integer "journal_id",  :limit => 11
-    t.integer "one_first",   :limit => 11
-    t.integer "one_last",    :limit => 11
-    t.integer "one_middle",  :limit => 11
-    t.integer "one_total",   :limit => 11
-    t.integer "five_first",  :limit => 11
-    t.integer "five_last",   :limit => 11
-    t.integer "five_middle", :limit => 11
-    t.integer "five_total",  :limit => 11
-    t.integer "ten_first",   :limit => 11
-    t.integer "ten_last",    :limit => 11
-    t.integer "ten_middle",  :limit => 11
-    t.integer "ten_total",   :limit => 11
-    t.integer "all_first",   :limit => 11
-    t.integer "all_last",    :limit => 11
-    t.integer "all_middle",  :limit => 11
-    t.integer "all_total",   :limit => 11
+    t.integer "author_id"
+    t.integer "journal_id"
+    t.integer "one_first"
+    t.integer "one_last"
+    t.integer "one_middle"
+    t.integer "one_total"
+    t.integer "five_first"
+    t.integer "five_last"
+    t.integer "five_middle"
+    t.integer "five_total"
+    t.integer "ten_first"
+    t.integer "ten_last"
+    t.integer "ten_middle"
+    t.integer "ten_total"
+    t.integer "all_first"
+    t.integer "all_last"
+    t.integer "all_middle"
+    t.integer "all_total"
   end
 
   add_index "author_journals", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_journals_on_author_id_and_one"
@@ -132,37 +132,37 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "author_journals", ["journal_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_journals_on_journal_id_and_all"
 
   create_table "author_pubtype_years", :force => true do |t|
-    t.integer "author_id",  :limit => 11
-    t.integer "pubtype_id", :limit => 11
-    t.integer "year",       :limit => 11
-    t.integer "first",      :limit => 11
-    t.integer "last",       :limit => 11
-    t.integer "middle",     :limit => 11
-    t.integer "total",      :limit => 11
+    t.integer "author_id"
+    t.integer "pubtype_id"
+    t.integer "year"
+    t.integer "first"
+    t.integer "last"
+    t.integer "middle"
+    t.integer "total"
   end
 
   add_index "author_pubtype_years", ["author_id", "year"], :name => "index_author_pubtype_years_on_author_id_and_year"
   add_index "author_pubtype_years", ["pubtype_id", "year"], :name => "index_author_pubtype_years_on_pubtype_id_and_year"
 
   create_table "author_pubtypes", :force => true do |t|
-    t.integer "author_id",   :limit => 11
-    t.integer "pubtype_id",  :limit => 11
-    t.integer "one_first",   :limit => 11
-    t.integer "one_last",    :limit => 11
-    t.integer "one_middle",  :limit => 11
-    t.integer "one_total",   :limit => 11
-    t.integer "five_first",  :limit => 11
-    t.integer "five_last",   :limit => 11
-    t.integer "five_middle", :limit => 11
-    t.integer "five_total",  :limit => 11
-    t.integer "ten_first",   :limit => 11
-    t.integer "ten_last",    :limit => 11
-    t.integer "ten_middle",  :limit => 11
-    t.integer "ten_total",   :limit => 11
-    t.integer "all_first",   :limit => 11
-    t.integer "all_last",    :limit => 11
-    t.integer "all_middle",  :limit => 11
-    t.integer "all_total",   :limit => 11
+    t.integer "author_id"
+    t.integer "pubtype_id"
+    t.integer "one_first"
+    t.integer "one_last"
+    t.integer "one_middle"
+    t.integer "one_total"
+    t.integer "five_first"
+    t.integer "five_last"
+    t.integer "five_middle"
+    t.integer "five_total"
+    t.integer "ten_first"
+    t.integer "ten_last"
+    t.integer "ten_middle"
+    t.integer "ten_total"
+    t.integer "all_first"
+    t.integer "all_last"
+    t.integer "all_middle"
+    t.integer "all_total"
   end
 
   add_index "author_pubtypes", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_pubtypes_on_author_id_and_one"
@@ -175,49 +175,49 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "author_pubtypes", ["pubtype_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_all"
 
   create_table "author_stats", :force => true do |t|
-    t.integer "author_id",      :limit => 11
-    t.integer "year",           :limit => 11
-    t.integer "first",          :limit => 11
-    t.integer "last",           :limit => 11
-    t.integer "middle",         :limit => 11
-    t.integer "total",          :limit => 11
-    t.integer "total_articles", :limit => 11
+    t.integer "author_id"
+    t.integer "year"
+    t.integer "first"
+    t.integer "last"
+    t.integer "middle"
+    t.integer "total"
+    t.integer "total_articles"
   end
 
   add_index "author_stats", ["author_id", "year"], :name => "index_author_stats_on_author_id_and_year"
 
   create_table "author_subject_years", :force => true do |t|
-    t.integer "author_id",  :limit => 11
-    t.integer "subject_id", :limit => 11
-    t.integer "year",       :limit => 11
-    t.integer "first",      :limit => 11
-    t.integer "last",       :limit => 11
-    t.integer "middle",     :limit => 11
-    t.integer "total",      :limit => 11
+    t.integer "author_id"
+    t.integer "subject_id"
+    t.integer "year"
+    t.integer "first"
+    t.integer "last"
+    t.integer "middle"
+    t.integer "total"
   end
 
   add_index "author_subject_years", ["author_id", "year"], :name => "index_author_subject_years_on_author_id_and_year"
   add_index "author_subject_years", ["subject_id", "year"], :name => "index_author_subject_years_on_subject_id_and_year"
 
   create_table "author_subjects", :force => true do |t|
-    t.integer "author_id",   :limit => 11
-    t.integer "subject_id",  :limit => 11
-    t.integer "one_first",   :limit => 11
-    t.integer "one_last",    :limit => 11
-    t.integer "one_middle",  :limit => 11
-    t.integer "one_total",   :limit => 11
-    t.integer "five_first",  :limit => 11
-    t.integer "five_last",   :limit => 11
-    t.integer "five_middle", :limit => 11
-    t.integer "five_total",  :limit => 11
-    t.integer "ten_first",   :limit => 11
-    t.integer "ten_last",    :limit => 11
-    t.integer "ten_middle",  :limit => 11
-    t.integer "ten_total",   :limit => 11
-    t.integer "all_first",   :limit => 11
-    t.integer "all_last",    :limit => 11
-    t.integer "all_middle",  :limit => 11
-    t.integer "all_total",   :limit => 11
+    t.integer "author_id"
+    t.integer "subject_id"
+    t.integer "one_first"
+    t.integer "one_last"
+    t.integer "one_middle"
+    t.integer "one_total"
+    t.integer "five_first"
+    t.integer "five_last"
+    t.integer "five_middle"
+    t.integer "five_total"
+    t.integer "ten_first"
+    t.integer "ten_last"
+    t.integer "ten_middle"
+    t.integer "ten_total"
+    t.integer "all_first"
+    t.integer "all_last"
+    t.integer "all_middle"
+    t.integer "all_total"
   end
 
   add_index "author_subjects", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_subjects_on_author_id_and_one"
@@ -230,31 +230,31 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "author_subjects", ["subject_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_subjects_on_subject_id_and_all"
 
   create_table "authors", :force => true do |t|
-    t.string  "last_name",                     :default => "", :null => false
-    t.string  "fore_name",                     :default => "", :null => false
-    t.string  "initials",                      :default => "", :null => false
-    t.string  "suffix",                        :default => "", :null => false
-    t.string  "collective_name",               :default => "", :null => false
-    t.integer "one_first",       :limit => 11, :default => 0,  :null => false
-    t.integer "one_last",        :limit => 11, :default => 0,  :null => false
-    t.integer "one_middle",      :limit => 11, :default => 0,  :null => false
-    t.integer "one_total",       :limit => 11, :default => 0,  :null => false
-    t.integer "five_first",      :limit => 11, :default => 0,  :null => false
-    t.integer "five_last",       :limit => 11, :default => 0,  :null => false
-    t.integer "five_middle",     :limit => 11, :default => 0,  :null => false
-    t.integer "five_total",      :limit => 11, :default => 0,  :null => false
-    t.integer "ten_first",       :limit => 11, :default => 0,  :null => false
-    t.integer "ten_last",        :limit => 11, :default => 0,  :null => false
-    t.integer "ten_middle",      :limit => 11, :default => 0,  :null => false
-    t.integer "ten_total",       :limit => 11, :default => 0,  :null => false
-    t.integer "all_first",       :limit => 11, :default => 0,  :null => false
-    t.integer "all_last",        :limit => 11, :default => 0,  :null => false
-    t.integer "all_middle",      :limit => 11, :default => 0,  :null => false
-    t.integer "all_total",       :limit => 11, :default => 0,  :null => false
-    t.integer "one_rank",        :limit => 11, :default => 0,  :null => false
-    t.integer "five_rank",       :limit => 11, :default => 0,  :null => false
-    t.integer "ten_rank",        :limit => 11, :default => 0,  :null => false
-    t.integer "all_rank",        :limit => 11, :default => 0,  :null => false
+    t.string  "last_name",       :default => "", :null => false
+    t.string  "fore_name",       :default => "", :null => false
+    t.string  "initials",        :default => "", :null => false
+    t.string  "suffix",          :default => "", :null => false
+    t.string  "collective_name", :default => "", :null => false
+    t.integer "one_first",       :default => 0,  :null => false
+    t.integer "one_last",        :default => 0,  :null => false
+    t.integer "one_middle",      :default => 0,  :null => false
+    t.integer "one_total",       :default => 0,  :null => false
+    t.integer "five_first",      :default => 0,  :null => false
+    t.integer "five_last",       :default => 0,  :null => false
+    t.integer "five_middle",     :default => 0,  :null => false
+    t.integer "five_total",      :default => 0,  :null => false
+    t.integer "ten_first",       :default => 0,  :null => false
+    t.integer "ten_last",        :default => 0,  :null => false
+    t.integer "ten_middle",      :default => 0,  :null => false
+    t.integer "ten_total",       :default => 0,  :null => false
+    t.integer "all_first",       :default => 0,  :null => false
+    t.integer "all_last",        :default => 0,  :null => false
+    t.integer "all_middle",      :default => 0,  :null => false
+    t.integer "all_total",       :default => 0,  :null => false
+    t.integer "one_rank",        :default => 0,  :null => false
+    t.integer "five_rank",       :default => 0,  :null => false
+    t.integer "ten_rank",        :default => 0,  :null => false
+    t.integer "all_rank",        :default => 0,  :null => false
   end
 
   add_index "authors", ["collective_name"], :name => "index_authors_on_collective_name"
@@ -263,73 +263,77 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "authors", ["five_total", "five_first", "five_last", "five_middle", "last_name", "fore_name"], :name => "index_authors_on_five"
   add_index "authors", ["ten_total", "ten_first", "ten_last", "ten_middle", "last_name", "fore_name"], :name => "index_authors_on_ten"
   add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name", "fore_name"], :name => "index_authors_on_all"
+  add_index "authors", ["last_name", "fore_name", "one_total"], :name => "index_authors_on_last_name_and_fore_name_and_one_total"
+  add_index "authors", ["last_name", "fore_name", "five_total"], :name => "index_authors_on_last_name_and_fore_name_and_five_total"
+  add_index "authors", ["last_name", "fore_name", "ten_total"], :name => "index_authors_on_last_name_and_fore_name_and_ten_total"
+  add_index "authors", ["last_name", "fore_name", "all_total"], :name => "index_authors_on_last_name_and_fore_name_and_all_total"
 
   create_table "authorships", :force => true do |t|
-    t.integer "article_id",    :limit => 11
+    t.integer "article_id"
     t.integer "position",      :limit => 2
     t.integer "last_position", :limit => 2
-    t.integer "author_id",     :limit => 11
-    t.boolean "complete",                    :default => true
+    t.integer "author_id"
+    t.boolean "complete",                   :default => true
   end
 
   add_index "authorships", ["article_id", "position"], :name => "index_authorships_on_article_id_and_position"
   add_index "authorships", ["author_id"], :name => "index_authorships_on_author_id"
 
   create_table "bibliome_stats", :force => true do |t|
-    t.integer  "one_journals",  :limit => 11
-    t.integer  "five_journals", :limit => 11
-    t.integer  "ten_journals",  :limit => 11
-    t.integer  "all_journals",  :limit => 11
-    t.integer  "one_articles",  :limit => 11
-    t.integer  "five_articles", :limit => 11
-    t.integer  "ten_articles",  :limit => 11
-    t.integer  "all_articles",  :limit => 11
-    t.integer  "one_authors",   :limit => 11
-    t.integer  "five_authors",  :limit => 11
-    t.integer  "ten_authors",   :limit => 11
-    t.integer  "all_authors",   :limit => 11
-    t.integer  "one_subjects",  :limit => 11
-    t.integer  "five_subjects", :limit => 11
-    t.integer  "ten_subjects",  :limit => 11
-    t.integer  "all_subjects",  :limit => 11
-    t.integer  "one_genes",     :limit => 11
-    t.integer  "five_genes",    :limit => 11
-    t.integer  "ten_genes",     :limit => 11
-    t.integer  "all_genes",     :limit => 11
+    t.integer  "one_journals"
+    t.integer  "five_journals"
+    t.integer  "ten_journals"
+    t.integer  "all_journals"
+    t.integer  "one_articles"
+    t.integer  "five_articles"
+    t.integer  "ten_articles"
+    t.integer  "all_articles"
+    t.integer  "one_authors"
+    t.integer  "five_authors"
+    t.integer  "ten_authors"
+    t.integer  "all_authors"
+    t.integer  "one_subjects"
+    t.integer  "five_subjects"
+    t.integer  "ten_subjects"
+    t.integer  "all_subjects"
+    t.integer  "one_genes"
+    t.integer  "five_genes"
+    t.integer  "ten_genes"
+    t.integer  "all_genes"
     t.datetime "created_at"
   end
 
   create_table "coauthorship_years", :force => true do |t|
-    t.integer "author_id",   :limit => 11
-    t.integer "coauthor_id", :limit => 11
-    t.integer "year",        :limit => 11
-    t.integer "first",       :limit => 11
-    t.integer "last",        :limit => 11
-    t.integer "middle",      :limit => 11
-    t.integer "total",       :limit => 11
+    t.integer "author_id"
+    t.integer "coauthor_id"
+    t.integer "year"
+    t.integer "first"
+    t.integer "last"
+    t.integer "middle"
+    t.integer "total"
   end
 
   add_index "coauthorship_years", ["author_id", "year"], :name => "index_coauthorship_years_on_author_id_and_year"
 
   create_table "coauthorships", :force => true do |t|
-    t.integer "author_id",   :limit => 11
-    t.integer "coauthor_id", :limit => 11
-    t.integer "one_first",   :limit => 11
-    t.integer "one_last",    :limit => 11
-    t.integer "one_middle",  :limit => 11
-    t.integer "one_total",   :limit => 11
-    t.integer "five_first",  :limit => 11
-    t.integer "five_last",   :limit => 11
-    t.integer "five_middle", :limit => 11
-    t.integer "five_total",  :limit => 11
-    t.integer "ten_first",   :limit => 11
-    t.integer "ten_last",    :limit => 11
-    t.integer "ten_middle",  :limit => 11
-    t.integer "ten_total",   :limit => 11
-    t.integer "all_first",   :limit => 11
-    t.integer "all_last",    :limit => 11
-    t.integer "all_middle",  :limit => 11
-    t.integer "all_total",   :limit => 11
+    t.integer "author_id"
+    t.integer "coauthor_id"
+    t.integer "one_first"
+    t.integer "one_last"
+    t.integer "one_middle"
+    t.integer "one_total"
+    t.integer "five_first"
+    t.integer "five_last"
+    t.integer "five_middle"
+    t.integer "five_total"
+    t.integer "ten_first"
+    t.integer "ten_last"
+    t.integer "ten_middle"
+    t.integer "ten_total"
+    t.integer "all_first"
+    t.integer "all_last"
+    t.integer "all_middle"
+    t.integer "all_total"
   end
 
   add_index "coauthorships", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_coauthorships_on_author_id_and_one"
@@ -338,10 +342,10 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "coauthorships", ["author_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_coauthorships_on_author_id_and_all"
 
   create_table "gene_stats", :force => true do |t|
-    t.integer "gene_id",        :limit => 11
-    t.integer "year",           :limit => 11
-    t.integer "articles",       :limit => 11
-    t.integer "total_articles", :limit => 11
+    t.integer "gene_id"
+    t.integer "year"
+    t.integer "articles"
+    t.integer "total_articles"
   end
 
   add_index "gene_stats", ["gene_id", "year"], :name => "index_gene_stats_on_gene_id_and_year"
@@ -353,10 +357,10 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.string  "chromosome"
     t.string  "map_location"
     t.string  "description"
-    t.integer "one",          :limit => 11
-    t.integer "five",         :limit => 11
-    t.integer "ten",          :limit => 11
-    t.integer "all",          :limit => 11
+    t.integer "one"
+    t.integer "five"
+    t.integer "ten"
+    t.integer "all"
   end
 
   add_index "genes", ["symbol"], :name => "index_genes_on_symbol"
@@ -366,22 +370,22 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "genes", ["all"], :name => "index_genes_on_all"
 
   create_table "journal_gene_years", :force => true do |t|
-    t.integer "journal_id", :limit => 11
-    t.integer "gene_id",    :limit => 11
-    t.integer "year",       :limit => 11
-    t.integer "articles",   :limit => 11
+    t.integer "journal_id"
+    t.integer "gene_id"
+    t.integer "year"
+    t.integer "articles"
   end
 
   add_index "journal_gene_years", ["journal_id", "year"], :name => "index_journal_gene_years_on_journal_id_and_year"
   add_index "journal_gene_years", ["gene_id", "year"], :name => "index_journal_gene_years_on_gene_id_and_year"
 
   create_table "journal_genes", :force => true do |t|
-    t.integer "journal_id", :limit => 11
-    t.integer "gene_id",    :limit => 11
-    t.integer "one",        :limit => 11
-    t.integer "five",       :limit => 11
-    t.integer "ten",        :limit => 11
-    t.integer "all",        :limit => 11
+    t.integer "journal_id"
+    t.integer "gene_id"
+    t.integer "one"
+    t.integer "five"
+    t.integer "ten"
+    t.integer "all"
   end
 
   add_index "journal_genes", ["journal_id", "one"], :name => "index_journal_genes_on_journal_id_and_one"
@@ -394,22 +398,22 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "journal_genes", ["gene_id", "all"], :name => "index_journal_genes_on_gene_id_and_all"
 
   create_table "journal_pubtype_years", :force => true do |t|
-    t.integer "journal_id", :limit => 11
-    t.integer "pubtype_id", :limit => 11
-    t.integer "year",       :limit => 11
-    t.integer "articles",   :limit => 11
+    t.integer "journal_id"
+    t.integer "pubtype_id"
+    t.integer "year"
+    t.integer "articles"
   end
 
   add_index "journal_pubtype_years", ["journal_id", "year"], :name => "index_journal_pubtype_years_on_journal_id_and_year"
   add_index "journal_pubtype_years", ["pubtype_id", "year"], :name => "index_journal_pubtype_years_on_pubtype_id_and_year"
 
   create_table "journal_pubtypes", :force => true do |t|
-    t.integer "journal_id", :limit => 11
-    t.integer "pubtype_id", :limit => 11
-    t.integer "one",        :limit => 11
-    t.integer "five",       :limit => 11
-    t.integer "ten",        :limit => 11
-    t.integer "all",        :limit => 11
+    t.integer "journal_id"
+    t.integer "pubtype_id"
+    t.integer "one"
+    t.integer "five"
+    t.integer "ten"
+    t.integer "all"
   end
 
   add_index "journal_pubtypes", ["journal_id", "one"], :name => "index_journal_pubtypes_on_journal_id_and_one"
@@ -422,41 +426,41 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "journal_pubtypes", ["pubtype_id", "all"], :name => "index_journal_pubtypes_on_pubtype_id_and_all"
 
   create_table "journal_stats", :force => true do |t|
-    t.integer "journal_id",     :limit => 11
-    t.integer "year",           :limit => 11
-    t.integer "articles",       :limit => 11
-    t.integer "total_articles", :limit => 11
+    t.integer "journal_id"
+    t.integer "year"
+    t.integer "articles"
+    t.integer "total_articles"
   end
 
   add_index "journal_stats", ["journal_id", "year"], :name => "index_journal_stats_on_journal_id_and_year"
 
   create_table "journal_subject_years", :force => true do |t|
-    t.integer "journal_id", :limit => 11
-    t.integer "subject_id", :limit => 11
-    t.integer "year",       :limit => 11
-    t.integer "major",      :limit => 11
-    t.integer "minor",      :limit => 11
-    t.integer "total",      :limit => 11
+    t.integer "journal_id"
+    t.integer "subject_id"
+    t.integer "year"
+    t.integer "major"
+    t.integer "minor"
+    t.integer "total"
   end
 
   add_index "journal_subject_years", ["journal_id", "year"], :name => "index_journal_subject_years_on_journal_id_and_year"
   add_index "journal_subject_years", ["subject_id", "year"], :name => "index_journal_subject_years_on_subject_id_and_year"
 
   create_table "journal_subjects", :force => true do |t|
-    t.integer "journal_id", :limit => 11
-    t.integer "subject_id", :limit => 11
-    t.integer "one_major",  :limit => 11
-    t.integer "one_minor",  :limit => 11
-    t.integer "one_total",  :limit => 11
-    t.integer "five_major", :limit => 11
-    t.integer "five_minor", :limit => 11
-    t.integer "five_total", :limit => 11
-    t.integer "ten_major",  :limit => 11
-    t.integer "ten_minor",  :limit => 11
-    t.integer "ten_total",  :limit => 11
-    t.integer "all_major",  :limit => 11
-    t.integer "all_minor",  :limit => 11
-    t.integer "all_total",  :limit => 11
+    t.integer "journal_id"
+    t.integer "subject_id"
+    t.integer "one_major"
+    t.integer "one_minor"
+    t.integer "one_total"
+    t.integer "five_major"
+    t.integer "five_minor"
+    t.integer "five_total"
+    t.integer "ten_major"
+    t.integer "ten_minor"
+    t.integer "ten_total"
+    t.integer "all_major"
+    t.integer "all_minor"
+    t.integer "all_total"
   end
 
   add_index "journal_subjects", ["journal_id", "one_major", "one_total"], :name => "index_journal_subjects_on_journal_id_and_one"
@@ -475,10 +479,10 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.string  "essn"
     t.string  "nlm_id"
     t.float   "impact_factor"
-    t.integer "one",           :limit => 11, :default => 0, :null => false
-    t.integer "five",          :limit => 11, :default => 0, :null => false
-    t.integer "ten",           :limit => 11, :default => 0, :null => false
-    t.integer "all",           :limit => 11, :default => 0, :null => false
+    t.integer "one",           :default => 0, :null => false
+    t.integer "five",          :default => 0, :null => false
+    t.integer "ten",           :default => 0, :null => false
+    t.integer "all",           :default => 0, :null => false
   end
 
   add_index "journals", ["title"], :name => "index_journals_on_title"
@@ -489,28 +493,28 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "journals", ["all"], :name => "index_journals_on_all"
 
   create_table "published_genes", :force => true do |t|
-    t.integer "gene_id",    :limit => 11
-    t.integer "article_id", :limit => 11
+    t.integer "gene_id"
+    t.integer "article_id"
   end
 
   add_index "published_genes", ["gene_id", "article_id"], :name => "index_published_genes_on_gene_id_and_article_id"
   add_index "published_genes", ["article_id"], :name => "index_published_genes_on_article_id"
 
   create_table "pubtype_stats", :force => true do |t|
-    t.integer "pubtype_id",     :limit => 11
-    t.integer "year",           :limit => 11
-    t.integer "articles",       :limit => 11
-    t.integer "total_articles", :limit => 11
+    t.integer "pubtype_id"
+    t.integer "year"
+    t.integer "articles"
+    t.integer "total_articles"
   end
 
   add_index "pubtype_stats", ["pubtype_id", "year"], :name => "index_pubtype_stats_on_pubtype_id_and_year"
 
   create_table "pubtypes", :force => true do |t|
     t.string  "title"
-    t.integer "one",   :limit => 11, :default => 0, :null => false
-    t.integer "five",  :limit => 11, :default => 0, :null => false
-    t.integer "ten",   :limit => 11, :default => 0, :null => false
-    t.integer "all",   :limit => 11, :default => 0, :null => false
+    t.integer "one",   :default => 0, :null => false
+    t.integer "five",  :default => 0, :null => false
+    t.integer "ten",   :default => 0, :null => false
+    t.integer "all",   :default => 0, :null => false
   end
 
   add_index "pubtypes", ["title"], :name => "index_pubtypes_on_title"
@@ -520,22 +524,22 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "pubtypes", ["all"], :name => "index_pubtypes_on_all"
 
   create_table "subject_gene_years", :force => true do |t|
-    t.integer "subject_id", :limit => 11
-    t.integer "gene_id",    :limit => 11
-    t.integer "year",       :limit => 11
-    t.integer "articles",   :limit => 11
+    t.integer "subject_id"
+    t.integer "gene_id"
+    t.integer "year"
+    t.integer "articles"
   end
 
   add_index "subject_gene_years", ["subject_id", "year"], :name => "index_subject_gene_years_on_subject_id_and_year"
   add_index "subject_gene_years", ["gene_id", "year"], :name => "index_subject_gene_years_on_gene_id_and_year"
 
   create_table "subject_genes", :force => true do |t|
-    t.integer "subject_id", :limit => 11
-    t.integer "gene_id",    :limit => 11
-    t.integer "one",        :limit => 11
-    t.integer "five",       :limit => 11
-    t.integer "ten",        :limit => 11
-    t.integer "all",        :limit => 11
+    t.integer "subject_id"
+    t.integer "gene_id"
+    t.integer "one"
+    t.integer "five"
+    t.integer "ten"
+    t.integer "all"
   end
 
   add_index "subject_genes", ["subject_id", "one"], :name => "index_subject_genes_on_subject_id_and_one"
@@ -548,32 +552,32 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "subject_genes", ["gene_id", "all"], :name => "index_subject_genes_on_gene_id_and_all"
 
   create_table "subject_stats", :force => true do |t|
-    t.integer "subject_id",     :limit => 11
-    t.integer "year",           :limit => 11
-    t.integer "major",          :limit => 11
-    t.integer "minor",          :limit => 11
-    t.integer "total",          :limit => 11
-    t.integer "rank",           :limit => 11
-    t.integer "total_subjects", :limit => 11
-    t.integer "total_articles", :limit => 11
+    t.integer "subject_id"
+    t.integer "year"
+    t.integer "major"
+    t.integer "minor"
+    t.integer "total"
+    t.integer "rank"
+    t.integer "total_subjects"
+    t.integer "total_articles"
   end
 
   add_index "subject_stats", ["subject_id", "year"], :name => "index_subject_stats_on_subject_id_and_year"
 
   create_table "subjects", :force => true do |t|
     t.string  "term"
-    t.integer "one_major",         :limit => 11
-    t.integer "one_minor",         :limit => 11
-    t.integer "one_total",         :limit => 11
-    t.integer "five_major",        :limit => 11
-    t.integer "five_minor",        :limit => 11
-    t.integer "five_total",        :limit => 11
-    t.integer "ten_major",         :limit => 11
-    t.integer "ten_minor",         :limit => 11
-    t.integer "ten_total",         :limit => 11
-    t.integer "all_major",         :limit => 11
-    t.integer "all_minor",         :limit => 11
-    t.integer "all_total",         :limit => 11
+    t.integer "one_major"
+    t.integer "one_minor"
+    t.integer "one_total"
+    t.integer "five_major"
+    t.integer "five_minor"
+    t.integer "five_total"
+    t.integer "ten_major"
+    t.integer "ten_minor"
+    t.integer "ten_total"
+    t.integer "all_major"
+    t.integer "all_minor"
+    t.integer "all_total"
     t.float   "one_to_five"
     t.float   "one_to_five_score"
     t.float   "one_to_ten"
@@ -600,8 +604,8 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "subjects", ["ten_to_all_score"], :name => "index_subjects_on_ten_to_all_score"
 
   create_table "topics", :force => true do |t|
-    t.integer "article_id",  :limit => 11
-    t.integer "subject_id",  :limit => 11
+    t.integer "article_id"
+    t.integer "subject_id"
     t.boolean "major_topic"
   end
 
