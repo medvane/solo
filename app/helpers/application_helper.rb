@@ -16,7 +16,8 @@ module ApplicationHelper
             articles = o.send(period)
           end
           articles_count = content_tag(:span, pluralize(articles, "article"), :class => "articles_count")
-          objects.push(content_tag(:li, link_to(name, url_for(oo) + "/#{period}") + articles_count))
+          title = link_title(o, period)
+          objects.push(content_tag(:li, link_to(name, url_for(oo) + "/#{period}", :title => title) + articles_count))
         end
         content.push("<h2>Top #{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n"))) if objects.size > 0
       end
@@ -71,12 +72,7 @@ module ApplicationHelper
     li = { "left" => [], "right" => [] }
     for item in collection
       bucket = collection.index(item) < half ? "left" : "right"
-      rel = case dom_class(item)
-        when "article" : ""
-        when "author" : ["first", "middle", "last"].map {|pos| pluralize(item.send("#{period}_#{pos}"), "#{pos} author article")}.join(", ")
-        when "subject" : ["major", "minor"].map {|type| pluralize(item.send("#{period}_#{type}"), "#{type} topic article")}.join(", ")
-        else pluralize(item.send(period), "article")
-      end
+      link_title = link_title(item, period)
       articles = case dom_class(item)
         when "article" : ""
         when "author" : "#{pluralize(item.send("#{period}_total"), "article")}"
@@ -84,7 +80,7 @@ module ApplicationHelper
         else "#{pluralize(item.send(period), "article")}"
       end
       articles_count = dom_class(item).match(/article/) ? ' ' + citation(item, period) : content_tag(:span, number_with_delimiter(articles), :class => "articles_count")
-      li[bucket].push(content_tag(:li, link_to(item.to_s, url_for(item) + "/#{period}") + articles_count, :title => rel))
+      li[bucket].push(content_tag(:li, link_to(item.to_s, url_for(item) + "/#{period}") + articles_count, :title => link_title))
     end
     column = []
     column.push(content_tag(:div, content_tag(:ul, li["left"].join("\n")), :class => "yui-u first"))
@@ -92,6 +88,18 @@ module ApplicationHelper
     list.push(content_tag(:div, column.join("\n"), :class => "yui-g"))
     list.push(content_tag(:div, will_paginate(collection), :class => "yui-g")) 
     list.join("\n")
+  end
+
+  def link_title(item, period)
+    title = ""
+    if item.respond_to?("#{period}_first")
+      title = ["first", "middle", "last"].map {|pos| pluralize(item.send("#{period}_#{pos}"), "#{pos} author article")}.join(", ")
+    elsif item.respond_to?("#{period}_major")
+      title = ["major", "minor"].map {|type| pluralize(item.send("#{period}_#{type}"), "#{type} topic article")}.join(", ")
+    elsif item.respond_to?(period)
+      title = pluralize(item.send(period), "article")
+    end
+    title
   end
 
   def pagination_info(collection)
