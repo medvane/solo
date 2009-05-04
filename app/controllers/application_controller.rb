@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  before_filter :set_time_period
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -46,4 +47,9 @@ class ApplicationController < ActionController::Base
   def per_page(total_entries, per_page = ARTICLES_IN_MEMBER_PAGE)
     total_entries < per_page ? total_entries : per_page
   end
+  
+  private
+    def set_time_period
+      @period = "all"
+    end
 end
