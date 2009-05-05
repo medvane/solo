@@ -36,4 +36,8 @@ class Author < ActiveRecord::Base
     else return
     end
   end
+  
+  def affiliations
+    authorships.select {|a| a.position == 1}.sort {|a, b| b.article.pubdate <=> a.article.pubdate}.reject {|a| a.article.affiliation.empty?}.map {|a| [a.article.affiliation, a.article.pubdate.year]}.uniq
+  end
 end
