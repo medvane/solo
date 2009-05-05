@@ -29,4 +29,14 @@ module AuthorsHelper
     ul = content_tag :ul, li.join("\n")
     content_tag :div,"See also:" + ul, :id => "see_also"
   end
+
+  def affiliations(author)
+    return "" unless author.affiliations.size > 0
+    li = []
+    author.affiliations.each do |a|
+      li.push(content_tag(:li, "[#{a[0]}] #{a[1]}"))
+    end
+    ul = content_tag(:ul, li.join("\n"))
+    content_tag(:h2, "Affiliations") + ul
+  end
 end

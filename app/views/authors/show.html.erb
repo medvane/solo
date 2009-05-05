@@ -9,14 +9,7 @@
 <%= neighbors(@author, @period) %>
 <%= subject_flow(@author.subjects.period(@period, 10).map {|s| s.subject}, @period) %>
 
-<% if @author.affiliations.size > 0 -%>
-<h2>Affiliations</h2>
-<ul>
-<% @author.affiliations.each do |affiliation| -%>
-  <li>[<%= affiliation[1] %>] <%= affiliation[0] %></li>
-<% end -%>
-</ul>
-<% end -%>
+<%= affiliations(@author) %>
 
 <h2>Articles</h2>
 <%= paginated_list @articles, @period %>
