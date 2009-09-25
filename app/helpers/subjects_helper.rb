@@ -23,7 +23,7 @@ module SubjectsHelper
     data.push(Array.new(years.size, 0))
     subjects[0 .. show - 1].each do |subject|
       stats = subject.subject_stats.sort {|a, b| a.year <=> b.year}.group_by(&:year)
-      legend.push(u(subject.term.length > 35 ? subject.term[0 .. 34] + " ..." : subject.term))
+      legend.push(subject.term.length > 35 ? subject.term[0 .. 34] + " ..." : subject.term)
       dat = years.map {|y| stats[y].nil? ? cumm[years.index(y)] : cumm[years.index(y)] + stats[y][0].major.to_f / stats[y][0].total_articles.to_f}
       dat.each {|d| cumm[dat.index(d)] = d}
       data.push(dat)
