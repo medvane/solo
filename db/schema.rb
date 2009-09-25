@@ -79,14 +79,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_total"
   end
 
-  add_index "author_genes", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_genes_on_author_id_and_one"
-  add_index "author_genes", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_genes_on_author_id_and_five"
-  add_index "author_genes", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_genes_on_author_id_and_ten"
   add_index "author_genes", ["author_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_genes_on_author_id_and_all"
-  add_index "author_genes", ["gene_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_genes_on_gene_id_and_one"
-  add_index "author_genes", ["gene_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_genes_on_gene_id_and_five"
-  add_index "author_genes", ["gene_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_genes_on_gene_id_and_ten"
+  add_index "author_genes", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_genes_on_author_id_and_five"
+  add_index "author_genes", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_genes_on_author_id_and_one"
+  add_index "author_genes", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_genes_on_author_id_and_ten"
   add_index "author_genes", ["gene_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_genes_on_gene_id_and_all"
+  add_index "author_genes", ["gene_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_genes_on_gene_id_and_five"
+  add_index "author_genes", ["gene_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_genes_on_gene_id_and_one"
+  add_index "author_genes", ["gene_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_genes_on_gene_id_and_ten"
 
   create_table "author_journal_years", :force => true do |t|
     t.integer "author_id"
@@ -122,14 +122,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_total"
   end
 
-  add_index "author_journals", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_journals_on_author_id_and_one"
-  add_index "author_journals", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_journals_on_author_id_and_five"
-  add_index "author_journals", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_journals_on_author_id_and_ten"
   add_index "author_journals", ["author_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_journals_on_author_id_and_all"
-  add_index "author_journals", ["journal_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_journals_on_journal_id_and_one"
-  add_index "author_journals", ["journal_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_journals_on_journal_id_and_five"
-  add_index "author_journals", ["journal_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_journals_on_journal_id_and_ten"
+  add_index "author_journals", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_journals_on_author_id_and_five"
+  add_index "author_journals", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_journals_on_author_id_and_one"
+  add_index "author_journals", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_journals_on_author_id_and_ten"
   add_index "author_journals", ["journal_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_journals_on_journal_id_and_all"
+  add_index "author_journals", ["journal_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_journals_on_journal_id_and_five"
+  add_index "author_journals", ["journal_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_journals_on_journal_id_and_one"
+  add_index "author_journals", ["journal_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_journals_on_journal_id_and_ten"
 
   create_table "author_pubtype_years", :force => true do |t|
     t.integer "author_id"
@@ -165,14 +165,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_total"
   end
 
-  add_index "author_pubtypes", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_pubtypes_on_author_id_and_one"
-  add_index "author_pubtypes", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_pubtypes_on_author_id_and_five"
-  add_index "author_pubtypes", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_pubtypes_on_author_id_and_ten"
   add_index "author_pubtypes", ["author_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_pubtypes_on_author_id_and_all"
-  add_index "author_pubtypes", ["pubtype_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_one"
-  add_index "author_pubtypes", ["pubtype_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_five"
-  add_index "author_pubtypes", ["pubtype_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_ten"
+  add_index "author_pubtypes", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_pubtypes_on_author_id_and_five"
+  add_index "author_pubtypes", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_pubtypes_on_author_id_and_one"
+  add_index "author_pubtypes", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_pubtypes_on_author_id_and_ten"
   add_index "author_pubtypes", ["pubtype_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_all"
+  add_index "author_pubtypes", ["pubtype_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_five"
+  add_index "author_pubtypes", ["pubtype_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_one"
+  add_index "author_pubtypes", ["pubtype_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_pubtypes_on_pubtype_id_and_ten"
 
   create_table "author_stats", :force => true do |t|
     t.integer "author_id"
@@ -220,14 +220,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_total"
   end
 
-  add_index "author_subjects", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_subjects_on_author_id_and_one"
-  add_index "author_subjects", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_subjects_on_author_id_and_five"
-  add_index "author_subjects", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_subjects_on_author_id_and_ten"
   add_index "author_subjects", ["author_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_subjects_on_author_id_and_all"
-  add_index "author_subjects", ["subject_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_subjects_on_subject_id_and_one"
-  add_index "author_subjects", ["subject_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_subjects_on_subject_id_and_five"
-  add_index "author_subjects", ["subject_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_subjects_on_subject_id_and_ten"
+  add_index "author_subjects", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_subjects_on_author_id_and_five"
+  add_index "author_subjects", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_subjects_on_author_id_and_one"
+  add_index "author_subjects", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_subjects_on_author_id_and_ten"
   add_index "author_subjects", ["subject_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_author_subjects_on_subject_id_and_all"
+  add_index "author_subjects", ["subject_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_author_subjects_on_subject_id_and_five"
+  add_index "author_subjects", ["subject_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_author_subjects_on_subject_id_and_one"
+  add_index "author_subjects", ["subject_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_subjects_on_subject_id_and_ten"
 
   create_table "authors", :force => true do |t|
     t.string  "last_name",       :default => "", :null => false
@@ -257,16 +257,16 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_rank",        :default => 0,  :null => false
   end
 
+  add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name", "fore_name"], :name => "index_authors_on_all"
   add_index "authors", ["collective_name"], :name => "index_authors_on_collective_name"
+  add_index "authors", ["five_total", "five_first", "five_last", "five_middle", "last_name", "fore_name"], :name => "index_authors_on_five"
+  add_index "authors", ["last_name", "fore_name", "all_total"], :name => "index_authors_on_last_name_and_fore_name_and_all_total"
+  add_index "authors", ["last_name", "fore_name", "five_total"], :name => "index_authors_on_last_name_and_fore_name_and_five_total"
+  add_index "authors", ["last_name", "fore_name", "one_total"], :name => "index_authors_on_last_name_and_fore_name_and_one_total"
+  add_index "authors", ["last_name", "fore_name", "ten_total"], :name => "index_authors_on_last_name_and_fore_name_and_ten_total"
   add_index "authors", ["last_name", "initials"], :name => "index_authors_on_last_name_and_initials"
   add_index "authors", ["one_total", "one_first", "one_last", "one_middle", "last_name", "fore_name"], :name => "index_authors_on_one"
-  add_index "authors", ["five_total", "five_first", "five_last", "five_middle", "last_name", "fore_name"], :name => "index_authors_on_five"
   add_index "authors", ["ten_total", "ten_first", "ten_last", "ten_middle", "last_name", "fore_name"], :name => "index_authors_on_ten"
-  add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name", "fore_name"], :name => "index_authors_on_all"
-  add_index "authors", ["last_name", "fore_name", "one_total"], :name => "index_authors_on_last_name_and_fore_name_and_one_total"
-  add_index "authors", ["last_name", "fore_name", "five_total"], :name => "index_authors_on_last_name_and_fore_name_and_five_total"
-  add_index "authors", ["last_name", "fore_name", "ten_total"], :name => "index_authors_on_last_name_and_fore_name_and_ten_total"
-  add_index "authors", ["last_name", "fore_name", "all_total"], :name => "index_authors_on_last_name_and_fore_name_and_all_total"
 
   create_table "authorships", :force => true do |t|
     t.integer "article_id"
@@ -336,10 +336,10 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_total"
   end
 
-  add_index "coauthorships", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_coauthorships_on_author_id_and_one"
-  add_index "coauthorships", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_coauthorships_on_author_id_and_five"
-  add_index "coauthorships", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_coauthorships_on_author_id_and_ten"
   add_index "coauthorships", ["author_id", "all_total", "all_first", "all_last", "all_middle"], :name => "index_coauthorships_on_author_id_and_all"
+  add_index "coauthorships", ["author_id", "five_total", "five_first", "five_last", "five_middle"], :name => "index_coauthorships_on_author_id_and_five"
+  add_index "coauthorships", ["author_id", "one_total", "one_first", "one_last", "one_middle"], :name => "index_coauthorships_on_author_id_and_one"
+  add_index "coauthorships", ["author_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_coauthorships_on_author_id_and_ten"
 
   create_table "gene_stats", :force => true do |t|
     t.integer "gene_id"
@@ -363,11 +363,11 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all"
   end
 
-  add_index "genes", ["symbol"], :name => "index_genes_on_symbol"
-  add_index "genes", ["one"], :name => "index_genes_on_one"
-  add_index "genes", ["five"], :name => "index_genes_on_five"
-  add_index "genes", ["ten"], :name => "index_genes_on_ten"
   add_index "genes", ["all"], :name => "index_genes_on_all"
+  add_index "genes", ["five"], :name => "index_genes_on_five"
+  add_index "genes", ["one"], :name => "index_genes_on_one"
+  add_index "genes", ["symbol"], :name => "index_genes_on_symbol"
+  add_index "genes", ["ten"], :name => "index_genes_on_ten"
 
   create_table "journal_gene_years", :force => true do |t|
     t.integer "journal_id"
@@ -376,8 +376,8 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "articles"
   end
 
-  add_index "journal_gene_years", ["journal_id", "year"], :name => "index_journal_gene_years_on_journal_id_and_year"
   add_index "journal_gene_years", ["gene_id", "year"], :name => "index_journal_gene_years_on_gene_id_and_year"
+  add_index "journal_gene_years", ["journal_id", "year"], :name => "index_journal_gene_years_on_journal_id_and_year"
 
   create_table "journal_genes", :force => true do |t|
     t.integer "journal_id"
@@ -388,14 +388,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all"
   end
 
-  add_index "journal_genes", ["journal_id", "one"], :name => "index_journal_genes_on_journal_id_and_one"
-  add_index "journal_genes", ["journal_id", "five"], :name => "index_journal_genes_on_journal_id_and_five"
-  add_index "journal_genes", ["journal_id", "ten"], :name => "index_journal_genes_on_journal_id_and_ten"
-  add_index "journal_genes", ["journal_id", "all"], :name => "index_journal_genes_on_journal_id_and_all"
-  add_index "journal_genes", ["gene_id", "one"], :name => "index_journal_genes_on_gene_id_and_one"
-  add_index "journal_genes", ["gene_id", "five"], :name => "index_journal_genes_on_gene_id_and_five"
-  add_index "journal_genes", ["gene_id", "ten"], :name => "index_journal_genes_on_gene_id_and_ten"
   add_index "journal_genes", ["gene_id", "all"], :name => "index_journal_genes_on_gene_id_and_all"
+  add_index "journal_genes", ["gene_id", "five"], :name => "index_journal_genes_on_gene_id_and_five"
+  add_index "journal_genes", ["gene_id", "one"], :name => "index_journal_genes_on_gene_id_and_one"
+  add_index "journal_genes", ["gene_id", "ten"], :name => "index_journal_genes_on_gene_id_and_ten"
+  add_index "journal_genes", ["journal_id", "all"], :name => "index_journal_genes_on_journal_id_and_all"
+  add_index "journal_genes", ["journal_id", "five"], :name => "index_journal_genes_on_journal_id_and_five"
+  add_index "journal_genes", ["journal_id", "one"], :name => "index_journal_genes_on_journal_id_and_one"
+  add_index "journal_genes", ["journal_id", "ten"], :name => "index_journal_genes_on_journal_id_and_ten"
 
   create_table "journal_pubtype_years", :force => true do |t|
     t.integer "journal_id"
@@ -416,14 +416,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all"
   end
 
-  add_index "journal_pubtypes", ["journal_id", "one"], :name => "index_journal_pubtypes_on_journal_id_and_one"
-  add_index "journal_pubtypes", ["journal_id", "five"], :name => "index_journal_pubtypes_on_journal_id_and_five"
-  add_index "journal_pubtypes", ["journal_id", "ten"], :name => "index_journal_pubtypes_on_journal_id_and_ten"
   add_index "journal_pubtypes", ["journal_id", "all"], :name => "index_journal_pubtypes_on_journal_id_and_all"
-  add_index "journal_pubtypes", ["pubtype_id", "one"], :name => "index_journal_pubtypes_on_pubtype_id_and_one"
-  add_index "journal_pubtypes", ["pubtype_id", "five"], :name => "index_journal_pubtypes_on_pubtype_id_and_five"
-  add_index "journal_pubtypes", ["pubtype_id", "ten"], :name => "index_journal_pubtypes_on_pubtype_id_and_ten"
+  add_index "journal_pubtypes", ["journal_id", "five"], :name => "index_journal_pubtypes_on_journal_id_and_five"
+  add_index "journal_pubtypes", ["journal_id", "one"], :name => "index_journal_pubtypes_on_journal_id_and_one"
+  add_index "journal_pubtypes", ["journal_id", "ten"], :name => "index_journal_pubtypes_on_journal_id_and_ten"
   add_index "journal_pubtypes", ["pubtype_id", "all"], :name => "index_journal_pubtypes_on_pubtype_id_and_all"
+  add_index "journal_pubtypes", ["pubtype_id", "five"], :name => "index_journal_pubtypes_on_pubtype_id_and_five"
+  add_index "journal_pubtypes", ["pubtype_id", "one"], :name => "index_journal_pubtypes_on_pubtype_id_and_one"
+  add_index "journal_pubtypes", ["pubtype_id", "ten"], :name => "index_journal_pubtypes_on_pubtype_id_and_ten"
 
   create_table "journal_stats", :force => true do |t|
     t.integer "journal_id"
@@ -463,14 +463,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all_total"
   end
 
-  add_index "journal_subjects", ["journal_id", "one_major", "one_total"], :name => "index_journal_subjects_on_journal_id_and_one"
-  add_index "journal_subjects", ["journal_id", "five_major", "five_total"], :name => "index_journal_subjects_on_journal_id_and_five"
-  add_index "journal_subjects", ["journal_id", "ten_major", "ten_total"], :name => "index_journal_subjects_on_journal_id_and_ten"
   add_index "journal_subjects", ["journal_id", "all_major", "all_total"], :name => "index_journal_subjects_on_journal_id_and_all"
-  add_index "journal_subjects", ["subject_id", "one_major", "one_total"], :name => "index_journal_subjects_on_subject_id_and_one"
-  add_index "journal_subjects", ["subject_id", "five_major", "five_total"], :name => "index_journal_subjects_on_subject_id_and_five"
-  add_index "journal_subjects", ["subject_id", "ten_major", "ten_total"], :name => "index_journal_subjects_on_subject_id_and_ten"
+  add_index "journal_subjects", ["journal_id", "five_major", "five_total"], :name => "index_journal_subjects_on_journal_id_and_five"
+  add_index "journal_subjects", ["journal_id", "one_major", "one_total"], :name => "index_journal_subjects_on_journal_id_and_one"
+  add_index "journal_subjects", ["journal_id", "ten_major", "ten_total"], :name => "index_journal_subjects_on_journal_id_and_ten"
   add_index "journal_subjects", ["subject_id", "all_major", "all_total"], :name => "index_journal_subjects_on_subject_id_and_all"
+  add_index "journal_subjects", ["subject_id", "five_major", "five_total"], :name => "index_journal_subjects_on_subject_id_and_five"
+  add_index "journal_subjects", ["subject_id", "one_major", "one_total"], :name => "index_journal_subjects_on_subject_id_and_one"
+  add_index "journal_subjects", ["subject_id", "ten_major", "ten_total"], :name => "index_journal_subjects_on_subject_id_and_ten"
 
   create_table "journals", :force => true do |t|
     t.string  "title"
@@ -485,20 +485,20 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all",           :default => 0, :null => false
   end
 
-  add_index "journals", ["title"], :name => "index_journals_on_title"
   add_index "journals", ["abbr"], :name => "index_journals_on_abbr"
-  add_index "journals", ["one"], :name => "index_journals_on_one"
-  add_index "journals", ["five"], :name => "index_journals_on_five"
-  add_index "journals", ["ten"], :name => "index_journals_on_ten"
   add_index "journals", ["all"], :name => "index_journals_on_all"
+  add_index "journals", ["five"], :name => "index_journals_on_five"
+  add_index "journals", ["one"], :name => "index_journals_on_one"
+  add_index "journals", ["ten"], :name => "index_journals_on_ten"
+  add_index "journals", ["title"], :name => "index_journals_on_title"
 
   create_table "published_genes", :force => true do |t|
     t.integer "gene_id"
     t.integer "article_id"
   end
 
-  add_index "published_genes", ["gene_id", "article_id"], :name => "index_published_genes_on_gene_id_and_article_id"
   add_index "published_genes", ["article_id"], :name => "index_published_genes_on_article_id"
+  add_index "published_genes", ["gene_id", "article_id"], :name => "index_published_genes_on_gene_id_and_article_id"
 
   create_table "pubtype_stats", :force => true do |t|
     t.integer "pubtype_id"
@@ -517,11 +517,11 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all",   :default => 0, :null => false
   end
 
-  add_index "pubtypes", ["title"], :name => "index_pubtypes_on_title"
-  add_index "pubtypes", ["one"], :name => "index_pubtypes_on_one"
-  add_index "pubtypes", ["five"], :name => "index_pubtypes_on_five"
-  add_index "pubtypes", ["ten"], :name => "index_pubtypes_on_ten"
   add_index "pubtypes", ["all"], :name => "index_pubtypes_on_all"
+  add_index "pubtypes", ["five"], :name => "index_pubtypes_on_five"
+  add_index "pubtypes", ["one"], :name => "index_pubtypes_on_one"
+  add_index "pubtypes", ["ten"], :name => "index_pubtypes_on_ten"
+  add_index "pubtypes", ["title"], :name => "index_pubtypes_on_title"
 
   create_table "subject_gene_years", :force => true do |t|
     t.integer "subject_id"
@@ -530,8 +530,8 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "articles"
   end
 
-  add_index "subject_gene_years", ["subject_id", "year"], :name => "index_subject_gene_years_on_subject_id_and_year"
   add_index "subject_gene_years", ["gene_id", "year"], :name => "index_subject_gene_years_on_gene_id_and_year"
+  add_index "subject_gene_years", ["subject_id", "year"], :name => "index_subject_gene_years_on_subject_id_and_year"
 
   create_table "subject_genes", :force => true do |t|
     t.integer "subject_id"
@@ -542,14 +542,14 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.integer "all"
   end
 
-  add_index "subject_genes", ["subject_id", "one"], :name => "index_subject_genes_on_subject_id_and_one"
-  add_index "subject_genes", ["subject_id", "five"], :name => "index_subject_genes_on_subject_id_and_five"
-  add_index "subject_genes", ["subject_id", "ten"], :name => "index_subject_genes_on_subject_id_and_ten"
-  add_index "subject_genes", ["subject_id", "all"], :name => "index_subject_genes_on_subject_id_and_all"
-  add_index "subject_genes", ["gene_id", "one"], :name => "index_subject_genes_on_gene_id_and_one"
-  add_index "subject_genes", ["gene_id", "five"], :name => "index_subject_genes_on_gene_id_and_five"
-  add_index "subject_genes", ["gene_id", "ten"], :name => "index_subject_genes_on_gene_id_and_ten"
   add_index "subject_genes", ["gene_id", "all"], :name => "index_subject_genes_on_gene_id_and_all"
+  add_index "subject_genes", ["gene_id", "five"], :name => "index_subject_genes_on_gene_id_and_five"
+  add_index "subject_genes", ["gene_id", "one"], :name => "index_subject_genes_on_gene_id_and_one"
+  add_index "subject_genes", ["gene_id", "ten"], :name => "index_subject_genes_on_gene_id_and_ten"
+  add_index "subject_genes", ["subject_id", "all"], :name => "index_subject_genes_on_subject_id_and_all"
+  add_index "subject_genes", ["subject_id", "five"], :name => "index_subject_genes_on_subject_id_and_five"
+  add_index "subject_genes", ["subject_id", "one"], :name => "index_subject_genes_on_subject_id_and_one"
+  add_index "subject_genes", ["subject_id", "ten"], :name => "index_subject_genes_on_subject_id_and_ten"
 
   create_table "subject_stats", :force => true do |t|
     t.integer "subject_id"
@@ -592,15 +592,15 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
     t.float   "ten_to_all_score"
   end
 
-  add_index "subjects", ["one_major", "one_total", "term"], :name => "index_subjects_on_one_major_and_one_total_and_term"
-  add_index "subjects", ["five_major", "five_total", "term"], :name => "index_subjects_on_five_major_and_five_total_and_term"
-  add_index "subjects", ["ten_major", "ten_total", "term"], :name => "index_subjects_on_ten_major_and_ten_total_and_term"
   add_index "subjects", ["all_major", "all_total", "term"], :name => "index_subjects_on_all_major_and_all_total_and_term"
+  add_index "subjects", ["five_major", "five_total", "term"], :name => "index_subjects_on_five_major_and_five_total_and_term"
+  add_index "subjects", ["five_to_all_score"], :name => "index_subjects_on_five_to_all_score"
+  add_index "subjects", ["five_to_ten_score"], :name => "index_subjects_on_five_to_ten_score"
+  add_index "subjects", ["one_major", "one_total", "term"], :name => "index_subjects_on_one_major_and_one_total_and_term"
+  add_index "subjects", ["one_to_all_score"], :name => "index_subjects_on_one_to_all_score"
   add_index "subjects", ["one_to_five_score"], :name => "index_subjects_on_one_to_five_score"
   add_index "subjects", ["one_to_ten_score"], :name => "index_subjects_on_one_to_ten_score"
-  add_index "subjects", ["one_to_all_score"], :name => "index_subjects_on_one_to_all_score"
-  add_index "subjects", ["five_to_ten_score"], :name => "index_subjects_on_five_to_ten_score"
-  add_index "subjects", ["five_to_all_score"], :name => "index_subjects_on_five_to_all_score"
+  add_index "subjects", ["ten_major", "ten_total", "term"], :name => "index_subjects_on_ten_major_and_ten_total_and_term"
   add_index "subjects", ["ten_to_all_score"], :name => "index_subjects_on_ten_to_all_score"
 
   create_table "topics", :force => true do |t|
@@ -610,7 +610,7 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   end
 
   add_index "topics", ["article_id"], :name => "index_topics_on_article_id"
-  add_index "topics", ["subject_id", "article_id"], :name => "index_topics_on_subject_id_and_article_id"
   add_index "topics", ["major_topic"], :name => "index_topics_on_major_topic"
+  add_index "topics", ["subject_id", "article_id"], :name => "index_topics_on_subject_id_and_article_id"
 
 end
