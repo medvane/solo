@@ -6,7 +6,6 @@ class CreateJournals < ActiveRecord::Migration
       t.string :issn
       t.string :essn
       t.string :nlm_id
-      t.float :impact_factor
       t.integer :one, :default => 0, :null => false
       t.integer :five, :default => 0, :null => false
       t.integer :ten, :default => 0, :null => false
