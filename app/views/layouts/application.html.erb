@@ -16,7 +16,7 @@
     <ul class="yui-nav">
 <% for menu in %w(home articles journals authors subjects genes pubtypes) -%>
 <% navclass = menu == controller.controller_name ? "#{menu} selected" : menu -%>
-      <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>", {:controller => menu, :action => @period} %></li>
+      <li class="<%= navclass %>"><%= link_to "<em>#{menu.titleize}</em>".html_safe, {:controller => menu, :action => @period, :id => nil} %></li>
 <% end -%>
     </ul>
     <div class="yui-content <%= controller.controller_name %>">

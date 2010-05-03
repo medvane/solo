@@ -8,7 +8,7 @@ module SubjectsHelper
     minor = years_range.map {|y| data_by_year[y].nil? ? 0 : data_by_year[y][0].minor} 
     articles = [major, minor]
     article_max = number_with_delimiter(data.map {|d| d.total}.sort.last)
-    bar_chart(articles, x_axis_label, article_max, ["major topic", "minor topic"])
+    bar_chart(articles, x_axis_label, article_max, ["major topic", "minor topic"]).html_safe
   end
   
   def subject_flow(subjects, period = 'all', show = 10)
