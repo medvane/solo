@@ -19,10 +19,10 @@ module ApplicationHelper
           title = link_title(o, period)
           objects.push(content_tag(:li, link_to(name, url_for(oo) + "/#{period}", :title => title) + articles_count))
         end
-        content.push("<h2>Top #{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n"))) if objects.size > 0
+        content.push("<h2>Top #{neighbor.capitalize}</h2>" + content_tag(:ul, objects.join("\n").html_safe)) if objects.size > 0
       end
     end
-    content_tag :div, columns(content), :id => "neighbors"
+    content_tag :div, columns(content).html_safe, :id => "neighbors"
   end
   
   def publication_history(data)
@@ -32,7 +32,7 @@ module ApplicationHelper
     data_by_year = data.group_by(&:year)
     articles = years_range.map {|y| data_by_year[y].nil? ? 0 : data_by_year[y][0].articles } 
     article_max = number_with_delimiter(articles.sort.last)
-    bar_chart(articles, x_axis_label, article_max)
+    bar_chart(articles, x_axis_label, article_max).html_safe
   end
   
   def bar_chart(data, x_axis_label, y_axis_max, legend = nil)
@@ -54,14 +54,14 @@ module ApplicationHelper
       period_key = p[0]
       period_val = p[1]
       li_class = period == period_key ? controller.controller_name  + " selected" :  controller.controller_name
-      link_text = content_tag(:em, period_val)
+      link_text = content_tag(:em, period_val).html_safe
       link = case id
         when nil: eval(period_key + "_" + controller.controller_name + "_path")
         else eval(period_key + "_" + controller.controller_name.singularize + "_path")
       end
-      li.push(content_tag(:li, link_to(link_text, link), :class => li_class))
+      li.push(content_tag(:li, link_to(link_text, link).html_safe, :class => li_class))
     end
-    content_tag(:ul, li.join("\n"), :class => "yui-nav <%= controller.controller_name %>")
+    content_tag(:ul, li.join("\n").html_safe, :class => "yui-nav <%= controller.controller_name %>")
   end
 
   def paginated_list(collection, period = "all")
@@ -80,14 +80,14 @@ module ApplicationHelper
         else "#{pluralize(item.send(period), "article")}"
       end
       articles_count = dom_class(item).match(/article/) ? ' ' + citation(item, period) : content_tag(:span, number_with_delimiter(articles), :class => "articles_count")
-      li[bucket].push(content_tag(:li, link_to(item.to_s, url_for(item) + "/#{period}") + articles_count, :title => link_title))
+      li[bucket].push(content_tag(:li, link_to(item.to_s, url_for(item) + "/#{period}") + articles_count.html_safe, :title => link_title))
     end
     column = []
-    column.push(content_tag(:div, content_tag(:ul, li["left"].join("\n")), :class => "yui-u first"))
-    column.push(content_tag(:div, content_tag(:ul, li["right"].join("\n")), :class => "yui-u"))
-    list.push(content_tag(:div, column.join("\n"), :class => "yui-g"))
+    column.push(content_tag(:div, content_tag(:ul, li["left"].join("\n").html_safe), :class => "yui-u first"))
+    column.push(content_tag(:div, content_tag(:ul, li["right"].join("\n").html_safe), :class => "yui-u"))
+    list.push(content_tag(:div, column.join("\n").html_safe, :class => "yui-g"))
     list.push(content_tag(:div, will_paginate(collection), :class => "yui-g")) 
-    list.join("\n")
+    list.join("\n").html_safe
   end
 
   def link_title(item, period)
@@ -103,7 +103,7 @@ module ApplicationHelper
   end
 
   def pagination_info(collection)
-    content_tag :div, page_entries_info(collection), :class => "pagination_info"
+    content_tag :div, page_entries_info(collection).html_safe, :class => "pagination_info"
   end
 
   def alphabetical_query_list(query)
@@ -113,7 +113,7 @@ module ApplicationHelper
       li = link_to_unless l == query, l, :q => l
       list.push(content_tag(:li, li)) 
     end
-    content_tag :ul, list.join("\n"), :class => "alphabetical"
+    content_tag :ul, list.join("\n").html_safe, :class => "alphabetical"
   end
   
   def columns(data)
@@ -122,19 +122,19 @@ module ApplicationHelper
       bucket["left"] = data.select {|d| data.index(d) % 2 == 0}
       bucket["right"] = data.select {|d| data.index(d) % 2 == 1}
       column = []
-      column.push(content_tag(:div, bucket["left"].join("\n"), :class => "yui-u first"))
-      column.push(content_tag(:div, bucket["right"].join("\n"), :class => "yui-u"))
-      content_tag(:div, column.join("\n"), :class => "yui-g")    
+      column.push(content_tag(:div, bucket["left"].join("\n").html_safe, :class => "yui-u first"))
+      column.push(content_tag(:div, bucket["right"].join("\n").html_safe, :class => "yui-u"))
+      content_tag(:div, column.join("\n").html_safe, :class => "yui-g")    
     elsif data.size == 3 or data.size == 5
       bucket = {}
       bucket["left"] = data.select {|d| data.index(d) % 3 == 0}
       bucket["middle"] = data.select {|d| data.index(d) % 3 == 1}
       bucket["right"] = data.select {|d| data.index(d) % 3 == 2}
       column = []
-      column.push(content_tag(:div, bucket["left"].join("\n"), :class => "yui-u first"))
-      column.push(content_tag(:div, bucket["middle"].join("\n"), :class => "yui-u"))
-      column.push(content_tag(:div, bucket["right"].join("\n"), :class => "yui-u"))
-      content_tag(:div, column.join("\n"), :class => "yui-gb")
+      column.push(content_tag(:div, bucket["left"].join("\n").html_safe, :class => "yui-u first"))
+      column.push(content_tag(:div, bucket["middle"].join("\n").html_safe, :class => "yui-u"))
+      column.push(content_tag(:div, bucket["right"].join("\n").html_safe, :class => "yui-u"))
+      content_tag(:div, column.join("\n").html_safe, :class => "yui-gb")
     end
   end
   
@@ -160,7 +160,7 @@ module ApplicationHelper
       span = content_tag(:span, number_with_delimiter(raw_count))
       li.push(content_tag(:li, link_to(l.to_s, url_for(l) +"/#{@period}", :title => number_with_delimiter(raw_count)) + span, :class => css_class))
     end
-    content_tag(:ul, li.join("\n"), :class => "clouds")
+    content_tag(:ul, li.join("\n").html_safe, :class => "clouds")
   end
   
   def page_title(title)

@@ -1,10 +1,5 @@
 <h1>Welcome to Medvane</h1>
 
-<table width="100%" id="summary">
-  <tr>
-<% for item in %w(articles journals authors subjects genes) -%>
-    <th width="20%" class="<%= item %>"><%= link_to number_with_delimiter(@bibliome_stat.send("#{@period}_#{item}")) + "<br>" + item.capitalize, eval("#{@period}_#{item}_path") %></th>
-<% end -%>
-  </tr>
-</table>
+<%= dashboard() %>
+
 Last updated at <%= @bibliome_stat.created_at %>
