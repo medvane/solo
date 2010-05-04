@@ -24,7 +24,7 @@
         <%= period_tab(params[:id], @period) %>
 <% unless controller.controller_name == 'home' or controller.controller_name == 'articles' -%>
     <div id="search">
-      <% form_tag({:action => @period}, {:method => :get}) do -%>
+      <%= form_tag({:action => @period}, {:method => :get}) do -%>
         <%= text_field_tag :q, params[:q] %>
         <%= submit_tag "Search #{controller.controller_name.titleize}", :name => nil %>
       <% end -%>

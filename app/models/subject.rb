@@ -1,6 +1,6 @@
 class Subject < ActiveRecord::Base
   has_many :topics
-  has_many :articles, :through => :topics, :order => "`topics`.article_id desc"
+  has_many :articles, :through => :topics, :order => "`articles`.id desc", :include => :journal
   has_many :subject_stats
   has_many :authors, :class_name => "AuthorSubject", :include => :author
   has_many :author_subject_years

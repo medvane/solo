@@ -6,7 +6,7 @@ class Gene < ActiveRecord::Base
   has_many :author_gene_years
   has_many :journals, :class_name => "JournalGene", :include => :journal
   has_many :journal_gene_years
-  has_many :subjects, :class_name => "SubjectGene", :include => :subject
+  has_many :subjects, :class_name => "SubjectGene", :include => [:subject => :subject_stats]
   has_many :subject_gene_years
 
   def self.search(query, options = {})

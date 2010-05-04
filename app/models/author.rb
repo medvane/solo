@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
-  has_many :authorships
+  has_many :authorships, :include => :article
   has_many :articles, :through => :authorships, :include => :journal
   has_many :author_stats, :order => "`author_stats`.year"
   has_many :coauthors, :class_name => "Coauthorship", :include => :coauthor
