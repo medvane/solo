@@ -1,4 +1,4 @@
-Autism::Application.routes.draw do |map|
+Medvane::Application.routes.draw do |map|
   resources :articles, :journals, :authors, :subjects, :pubtypes, :genes do
     member do
       get :one, :five, :ten, :all
