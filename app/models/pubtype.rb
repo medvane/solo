@@ -1,7 +1,7 @@
 class Pubtype < ActiveRecord::Base
   has_many :article_types
   has_many :articles, :through => :article_types, :include => :journal
-  has_many :pubtype_stats, :order => "`pubtype_stats`.year"
+  has_many :pubtype_stats, :order => "pubtype_stats.year"
   has_many :authors, :class_name => "AuthorPubtype", :include => :author
   has_many :author_pubtype_years
   has_many :journals, :class_name => "JournalPubtype", :include => :journal
@@ -9,7 +9,7 @@ class Pubtype < ActiveRecord::Base
 
   def self.total_entries(period = 'all')
     cache_key = period + '_cached'
-    Rails.cache.fetch(cache_key) { count('id', :conditions => "`#{period}` > 0") }
+    Rails.cache.fetch(cache_key) { count('id', :conditions => "pubtypes.#{period} > 0") }
   end
 
   def self.search(query, options = {})

@@ -1,6 +1,6 @@
 class Subject < ActiveRecord::Base
   has_many :topics
-  has_many :articles, :through => :topics, :order => "`articles`.id desc", :include => :journal
+  has_many :articles, :through => :topics, :order => "articles.id desc", :include => :journal
   has_many :subject_stats
   has_many :authors, :class_name => "AuthorSubject", :include => :author
   has_many :author_subject_years
@@ -11,7 +11,7 @@ class Subject < ActiveRecord::Base
 
   def self.total_entries(period = 'all')
     cache_key = period + '_major_cached'
-    Rails.cache.fetch(cache_key) { count('id', :conditions => "`#{period}_major` > 0") }
+    Rails.cache.fetch(cache_key) { count('id', :conditions => "subjects.#{period}_major > 0") }
   end
 
   def self.search(query, options = {})
