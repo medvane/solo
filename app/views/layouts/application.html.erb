@@ -7,6 +7,19 @@
 <link rel="apple-touch-icon" href="/images/icon-57x57.png"/>
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.6.0/build/reset-fonts-grids/reset-fonts-grids.css&2.6.0/build/base/base-min.css&2.6.0/build/tabview/assets/skins/sam/tabview.css">
 <%= stylesheet_link_tag "default" %>
+<% if Rails.env == "production" and ENV['GOOGLE_ANALYTICS_UA'].present? %>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '<%= ENV['GOOGLE_ANALYTICS_UA']%>']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+</script>
+<% end %>
 </head>
 <body>
 <div id="doc4" class="yui-t7">
