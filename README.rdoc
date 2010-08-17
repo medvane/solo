@@ -6,7 +6,7 @@
  $ cd solo
  $ bundle install --without production
  $ cp config/database.yml.mysql config/database.yml
- $ rake mono:setup
+ $ rake solo:setup
 
 == Support
 
