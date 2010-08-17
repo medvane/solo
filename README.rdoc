@@ -1,0 +1,18 @@
+= Medvane Solo: Biomedical Research at a Glance
+
+== Set Up
+
+ $ git clone git://github.com/medvane/solo.git
+ $ cd solo
+ $ bundle install --without production
+ $ cp config/database.yml.mysql config/database.yml
+ $ rake mono:setup
+
+== Support
+
+* Bug Report & Feature Request: http://github.com/medvane/solo/issues
+* Mailing list: medvane@googlegroups.com & http://groups.google.com/group/medvane
+
+== License
+
+Medvane Mono is released under MIT license (see included MIT-LICENSE).
