@@ -62,6 +62,10 @@ Medvane::Application.routes.draw do |map|
   match "/one" => "home#one", :as => "one_home"
   match "/five" => "home#five", :as => "five_home"
   match "/ten" => "home#ten", :as => "ten_home"
+  
+  match '/code', :to => redirect("http://github.com/medvane/solo")
+  match '/bugs', :to => redirect("http://github.com/medvane/solo/issues")
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
