@@ -15,4 +15,4 @@
 
 == License
 
-Medvane Mono is released under MIT license (see included MIT-LICENSE).
+Medvane Mono is released under MIT license (see included MIT-LICENSE or http://creativecommons.org/licenses/MIT/).
