@@ -330,7 +330,7 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
 .pagination {
   background: white;
   /* self-clearing method: */ }
-  .pagination a, .pagination span {
+  .pagination a, .pagination span, .pagination em {
     padding: .2em .5em;
     display: block;
     float: left;
@@ -338,7 +338,7 @@ li.home, li.articles, li.journals, li.authors, li.subjects, li.genes, li.pubtype
   .pagination span.disabled {
     color: #999;
     border: 1px solid #DDD; }
-  .pagination span.current {
+  .pagination em {
     font-weight: bold;
     color: white;
     background-color: #555;
