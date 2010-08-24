@@ -7,7 +7,7 @@ gem 'rails', '3.0.0.rc2'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'medvane'
-gem 'mysql2'
+gem 'mysql'
 gem 'pg', :group => :production
 
 # Use unicorn as the web server
