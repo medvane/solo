@@ -12,7 +12,7 @@
  $ cd solo
  $ bundle install --without production
  $ cp config/database.yml.mysql config/database.yml
- $ cp config/medvane.yml.sample config/medvane.yml
+ $ cp config/medvane.yml.sample config/medvane.yml # edit this file for site title & PubMed search term
  $ rake mdvn:setup
 
 == Support
