@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="/images/icon-57x57.png"/>
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.6.0/build/reset-fonts-grids/reset-fonts-grids.css&2.6.0/build/base/base-min.css&2.6.0/build/tabview/assets/skins/sam/tabview.css">
 <%= stylesheet_link_tag "default" %>
-<% if Rails.env == "production" and ENV['GOOGLE_ANALYTICS_UA'].present? %>
+<% if Rails.env.production? and ENV['GOOGLE_ANALYTICS_UA'].present? %>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '<%= ENV['GOOGLE_ANALYTICS_UA']%>']);
@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="doc4" class="yui-t7">
-<div id="hd"><%= link_to(image_tag('logo.gif'), root_path) %> Biomedical Research at a Glance</div><!-- #hd -->
+<div id="hd"><%= link_to(image_tag('logo.gif'), root_path) %> <%= MEDVANE_CONFIG['title']%></div><!-- #hd -->
 <div id="bd">
   <div class="yui-navset yui-navset-left">
     <ul class="yui-nav">

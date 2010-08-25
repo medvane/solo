@@ -12,7 +12,8 @@
  $ cd solo
  $ bundle install --without production
  $ cp config/database.yml.mysql config/database.yml
- $ rake solo:setup
+ $ cp config/medvane.yml.sample config/medvane.yml
+ $ rake mdvn:setup
 
 == Support
 
@@ -21,4 +22,4 @@
 
 == License
 
-Medvane Mono is released under MIT license (see included MIT-LICENSE or http://creativecommons.org/licenses/MIT/).
+Medvane Solo is released under MIT license (see included MIT-LICENSE or http://creativecommons.org/licenses/MIT/).

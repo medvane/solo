@@ -14,3 +14,5 @@ SUBJECT_ORDER = {
 }
 
 ARTICLES_IN_MEMBER_PAGE = 6
+
+MEDVANE_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/medvane.yml")
