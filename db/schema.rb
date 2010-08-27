@@ -231,31 +231,31 @@ ActiveRecord::Schema.define(:version => 20080818163139) do
   add_index "author_subjects", ["subject_id", "ten_total", "ten_first", "ten_last", "ten_middle"], :name => "index_author_subjects_on_subject_id_and_ten"
 
   create_table "authors", :force => true do |t|
-    t.string  "last_name",       :default => "", :null => false
-    t.string  "fore_name",       :default => "", :null => false
-    t.string  "initials",        :default => "", :null => false
-    t.string  "suffix",          :default => "", :null => false
-    t.string  "collective_name", :default => "", :null => false
-    t.integer "one_first",       :default => 0,  :null => false
-    t.integer "one_last",        :default => 0,  :null => false
-    t.integer "one_middle",      :default => 0,  :null => false
-    t.integer "one_total",       :default => 0,  :null => false
-    t.integer "five_first",      :default => 0,  :null => false
-    t.integer "five_last",       :default => 0,  :null => false
-    t.integer "five_middle",     :default => 0,  :null => false
-    t.integer "five_total",      :default => 0,  :null => false
-    t.integer "ten_first",       :default => 0,  :null => false
-    t.integer "ten_last",        :default => 0,  :null => false
-    t.integer "ten_middle",      :default => 0,  :null => false
-    t.integer "ten_total",       :default => 0,  :null => false
-    t.integer "all_first",       :default => 0,  :null => false
-    t.integer "all_last",        :default => 0,  :null => false
-    t.integer "all_middle",      :default => 0,  :null => false
-    t.integer "all_total",       :default => 0,  :null => false
-    t.integer "one_rank",        :default => 0,  :null => false
-    t.integer "five_rank",       :default => 0,  :null => false
-    t.integer "ten_rank",        :default => 0,  :null => false
-    t.integer "all_rank",        :default => 0,  :null => false
+    t.string  "last_name",       :limit => 200, :default => "", :null => false
+    t.string  "fore_name",       :limit => 100, :default => "", :null => false
+    t.string  "initials",        :limit => 8,   :default => "", :null => false
+    t.string  "suffix",          :limit => 3,   :default => "", :null => false
+    t.string  "collective_name",                :default => "", :null => false
+    t.integer "one_first",                      :default => 0,  :null => false
+    t.integer "one_last",                       :default => 0,  :null => false
+    t.integer "one_middle",                     :default => 0,  :null => false
+    t.integer "one_total",                      :default => 0,  :null => false
+    t.integer "five_first",                     :default => 0,  :null => false
+    t.integer "five_last",                      :default => 0,  :null => false
+    t.integer "five_middle",                    :default => 0,  :null => false
+    t.integer "five_total",                     :default => 0,  :null => false
+    t.integer "ten_first",                      :default => 0,  :null => false
+    t.integer "ten_last",                       :default => 0,  :null => false
+    t.integer "ten_middle",                     :default => 0,  :null => false
+    t.integer "ten_total",                      :default => 0,  :null => false
+    t.integer "all_first",                      :default => 0,  :null => false
+    t.integer "all_last",                       :default => 0,  :null => false
+    t.integer "all_middle",                     :default => 0,  :null => false
+    t.integer "all_total",                      :default => 0,  :null => false
+    t.integer "one_rank",                       :default => 0,  :null => false
+    t.integer "five_rank",                      :default => 0,  :null => false
+    t.integer "ten_rank",                       :default => 0,  :null => false
+    t.integer "all_rank",                       :default => 0,  :null => false
   end
 
   add_index "authors", ["all_total", "all_first", "all_last", "all_middle", "last_name", "fore_name"], :name => "index_authors_on_all"

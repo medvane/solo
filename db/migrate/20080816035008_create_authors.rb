@@ -1,10 +1,10 @@
 class CreateAuthors < ActiveRecord::Migration
   def self.up
     create_table :authors do |t|
-      t.string :last_name, :default => "", :null => false
-      t.string :fore_name, :default => "", :null => false
-      t.string :initials, :default => "", :null => false
-      t.string :suffix, :default => "", :null => false
+      t.string :last_name, :default => "", :null => false, :limit => 200
+      t.string :fore_name, :default => "", :null => false, :limit => 100
+      t.string :initials, :default => "", :null => false, :limit => 8
+      t.string :suffix, :default => "", :null => false, :limit => 3
       t.string :collective_name, :default => "", :null => false
       t.integer :one_first, :default => 0, :null => false
       t.integer :one_last, :default => 0, :null => false
