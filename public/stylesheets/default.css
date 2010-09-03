@@ -19,6 +19,9 @@ purple: #505
   text-align: right;
 }
 
+#ft a, #ft a:visited {
+  color: #333;
+}
 a, a:visited, a:active {
   color: #009;
   text-decoration: none;
