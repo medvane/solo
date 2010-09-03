@@ -5,6 +5,7 @@
 * Ruby 1.8.7: http://www.ruby-lang.org/
 * RubyGems: http://rubygems.org/pages/download
 * Bundler: http://gembundler.com/
+* MySQL: http://www.mysql.com/ (for automated data import)
 
 == Set Up
 
