@@ -13,7 +13,7 @@ Medvane Solo is a Ruby on Rails application that visualizes any PubMed search.
 
  $ git clone git://github.com/medvane/solo.git
  $ cd solo
- $ bundle install --without production
+ $ bundle install
  $ cp config/database.yml.mysql config/database.yml
  $ cp config/medvane.yml.sample config/medvane.yml # edit this file for site title & PubMed search term
  $ rake mdvn:setup

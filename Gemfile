@@ -6,9 +6,12 @@ gem 'rails', '3.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'bio'
 gem 'medvane'
 gem 'mysql'
-gem 'pg', :group => :production
+gem 'eutils'
+gem 'libxml-ruby', :require => 'libxml'
+gem 'activerecord-import'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -24,17 +24,23 @@ GEM
       activesupport (= 3.0.0)
       arel (~> 1.0.0)
       tzinfo (~> 0.3.23)
+    activerecord-import (0.1.0)
+      rails (>= 3.0.0.rc)
     activeresource (3.0.0)
       activemodel (= 3.0.0)
       activesupport (= 3.0.0)
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    bio (1.4.0)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    eutils (0.1.1)
+      activesupport (>= 3.0.0.rc2)
     googlecharts (1.4.0)
     i18n (0.4.1)
+    libxml-ruby (1.1.4)
     mail (2.2.5)
       activesupport (>= 2.3.6)
       mime-types
@@ -42,7 +48,6 @@ GEM
     medvane (0.0.1)
     mime-types (1.16)
     mysql (2.8.1)
-    pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.12)
@@ -73,9 +78,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
+  bio
+  eutils
   googlecharts (= 1.4.0)
+  libxml-ruby
   medvane
   mysql
-  pg
   rails (= 3.0.0)
   will_paginate (= 3.0.pre2)
