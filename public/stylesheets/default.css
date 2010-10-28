@@ -11,8 +11,11 @@ purple: #505
 #hd {
   font-size: 250%;
   margin: 0.2em 0;
+  font-weight: bold;
 }
-
+#hd sub {
+  font-size: 50%;
+}
 #ft {
   margin: 0.5em 0;
   font-size: 93%;
