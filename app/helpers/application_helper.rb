@@ -156,7 +156,7 @@ module ApplicationHelper
     list.each do |l|
       raw_count = l.send(:read_attribute, counter)
       count = log ? Math.log(raw_count) : raw_count
-      css_class = css_classes[(count - min) / divisor]
+      css_class = list.size == 1 ? "cloud9" : css_classes[(count - min) / divisor]
       span = content_tag(:span, number_with_delimiter(raw_count))
       li.push(content_tag(:li, link_to(l.to_s, url_for(l) +"/#{@period}", :title => number_with_delimiter(raw_count)) + span, :class => css_class))
     end

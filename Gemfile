@@ -2,33 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'bio'
 gem 'medvane'
 gem 'mysql'
 gem 'eutils'
 gem 'libxml-ruby', :require => 'libxml'
 gem 'activerecord-import'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri', '1.4.1'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
 gem 'will_paginate', '3.0.pre2'
 gem 'googlecharts', '1.4.0', :require => 'gchart'
-
-# Bundle gems for certain environments:
-# gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
