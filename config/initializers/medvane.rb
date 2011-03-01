@@ -15,4 +15,7 @@ SUBJECT_ORDER = {
 
 ARTICLES_IN_MEMBER_PAGE = 6
 
-MEDVANE_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/medvane.yml")
+MEDVANE_CONFIG = {'title' => 'Medvane'}
+MEDVANE_CONFIG['title'] = ENV['MEDVANE_CONFIG_TITLE'] if ENV['MEDVANE_CONFIG_TITLE'].present?
+MEDVANE_CONFIG['pubmed_search_term'] = ENV['MEDVANE_CONFIG_PUBMED_SEARCH_TERM'] if ENV['MEDVANE_CONFIG_PUBMED_SEARCH_TERM'].present?
+MEDVANE_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/medvane.yml") if File.exists?("#{RAILS_ROOT}/config/medvane.yml")
