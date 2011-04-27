@@ -40,8 +40,8 @@ module ApplicationHelper
     width = x_axis_label.size * 10 + 50
     width += 70 unless legend.nil?
     colors = case data.size
-      when 2: "000066,999999"
-      when 3: "660000,999999,000066"
+      when 2 then "000066,999999"
+      when 3 then "660000,999999,000066"
       else "999999"
     end
     Gchart.bar(:data => data, :axis_labels => [x_axis_label, [0, y_axis_max]], :bar_colors => colors, :legend => legend, :size => "#{width}x60", :axis_with_labels => 'x,y', :bar_width_and_spacing => {:width => 7, :spacing => 3}, :format => 'image_tag', :alt => "publication history")
@@ -56,7 +56,7 @@ module ApplicationHelper
       li_class = period == period_key ? controller.controller_name  + " selected" :  controller.controller_name
       link_text = content_tag(:em, period_val).html_safe
       link = case id
-        when nil: eval(period_key + "_" + controller.controller_name + "_path")
+        when nil then eval(period_key + "_" + controller.controller_name + "_path")
         else eval(period_key + "_" + controller.controller_name.singularize + "_path")
       end
       li.push(content_tag(:li, link_to(link_text, link).html_safe, :class => li_class))
@@ -74,9 +74,9 @@ module ApplicationHelper
       bucket = collection.index(item) < half ? "left" : "right"
       link_title = link_title(item, period)
       articles = case dom_class(item)
-        when "article" : ""
-        when "author" : "#{pluralize(item.send("#{period}_total"), "article")}"
-        when "subject" : "#{pluralize(item.send("#{period}_total"), "article")}"
+        when "article" then ""
+        when "author" then "#{pluralize(item.send("#{period}_total"), "article")}"
+        when "subject" then "#{pluralize(item.send("#{period}_total"), "article")}"
         else "#{pluralize(item.send(period), "article")}"
       end
       articles_count = dom_class(item).match(/article/) ? ' ' + citation(item, period) : content_tag(:span, number_with_delimiter(articles), :class => "articles_count")

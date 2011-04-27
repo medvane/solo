@@ -31,8 +31,8 @@ class Author < ActiveRecord::Base
   
   def see_also
     case initials.length
-    when 1: Author.find(:all, :conditions => ["last_name = ? AND initials like ? AND id != ?", last_name, "#{initials.first}%", id])
-    when 2: Author.find(:all, :conditions => ["last_name = ? AND (initials = ? OR initials =?) AND id != ?", last_name, initials.first, initials, id])
+    when 1 then Author.find(:all, :conditions => ["last_name = ? AND initials like ? AND id != ?", last_name, "#{initials.first}%", id])
+    when 2 then Author.find(:all, :conditions => ["last_name = ? AND (initials = ? OR initials =?) AND id != ?", last_name, initials.first, initials, id])
     else return
     end
   end
