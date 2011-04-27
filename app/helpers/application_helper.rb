@@ -4,7 +4,7 @@ module ApplicationHelper
     content = []
     for neighbor in %w(journals authors coauthors subjects genes pubtypes)
       if item.respond_to?(neighbor)
-        object = item.send(neighbor).period(period, 5)
+        object = item.send(neighbor).period(period, MEDVANE_CONFIG['items_in_neighbor'])
         objects = []
         object.each do |o|
           oo = o.send(neighbor.singularize)
